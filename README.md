@@ -50,7 +50,7 @@ Returns the information about the current user that is logged in.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /user/:userId
+  * URL: /users/:userId
   * Body: none
 
 * Successful Response
@@ -76,8 +76,8 @@ information.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: POST
+  * URL: /login
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -1032,7 +1032,7 @@ Returns the details of an artist specified by their id.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /artists/:artistId
+  * URL: /users/:userId
   * Body: none
 
 * Successful Response
@@ -1071,7 +1071,7 @@ Returns all the songs created by the specified artist.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /artists/:artistId/songs
+  * URL: /users/:userId/songs
   * Body: none
 
 * Successful Response
@@ -1118,7 +1118,7 @@ Returns all the albums created by the specified artist.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /artists/:artistId/albums
+  * URL: /users/:userId/albums
   * Body: none
 
 * Successful Response
@@ -1163,7 +1163,7 @@ Returns all the playlists created by the specified artist.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /artists/:artistId/playlists
+  * URL: /users/:userId/playlists
   * Body: none
 
 * Successful Response
@@ -1505,7 +1505,7 @@ Return songs filtered by query parameters.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /songs?filter=Outkast
+  * URL: /songs?[filter=something]
   * Query Parameters
     * page: integer, minimum: 0, maximum: 10, default: 0
     * size: integer, minimum: 0, maximum: 20, default: 20

@@ -1,87 +1,64 @@
-CREATE TABLE `users` (
-  `id` int PRIMARY KEY,
-  `firstName` varchar(255),
-  `lastName` varchar(255),
-  `email` varchar(255),
-  `username` varchar(255)
-);
+CREATE TABLE Users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  firstName VARCHAR(255),
+  lastName VARCHAR(255),
+  email VARCHAR(255),
+  password VARCHAR(255),
+  username VARCHAR(255),
+  totalSongs INTEGER, -- ???
+  totalAlbums INTEGER
+)
 
-CREATE TABLE `songs` (
-  `id` int PRIMARY KEY,
-  `userId` int,
-  `albumId` int,
-  `title` varchar(255),
-  `description` varchar(255),
-  `url` varchar(255),
-  `createdAt` timestamp,
-  `updatedAt` timestamp,
-  `imageId` int
-);
+CREATE TABLE Songs (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  userId INTEGER,
+  albumId INTEGER,
+  title VARCHAR(255),
+  description VARCHAR(255),
+  url text,
+  createdAt TIMESTAMP,
+  updatedAt TIMESTAMP,
+  imageUrl text
+  FOREIGN KEY (userId) REFERENCES Users(id)
+  FOREIGN KEY (albumId) REFERENCES Albums(id)
+)
 
-CREATE TABLE `albums` (
-  `id` int PRIMARY KEY,
-  `userId` int,
-  `artistId` int,
-  `title` varchar(255),
-  `description` varchar(255),
-  `createdAt` timestamp,
-  `updatedAt` timestamp,
-  `imageId` int
-);
+CREATE TABLE Albums (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  userId INTEGER,
+  title VARCHAR(255),
+  description VARCHAR(255),
+  createdAt TIMESTAMP,
+  updatedAt TIMESTAMP,
+  imageUrl text
+  FOREIGN KEY (userId) REFERENCES Users(id)
+)
 
-CREATE TABLE `comments` (
-  `id` int PRIMARY KEY,
-  `userId` int,
-  `songId` int,
-  `body` varchar(255),
-  `createdAt` timestamp,
-  `updatedAt` timestamp
-);
+CREATE TABLE comments (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  userId INTEGER,
+  songId INTEGER,
+  body VARCHAR(255),
+  createdAt TIMESTAMP,
+  updatedAt TIMESTAMP
+  FOREIGN KEY (userId) REFERENCES Users(id)
+  FOREIGN KEY (songId) REFERENCES Songs(id)
+)
 
-CREATE TABLE `artists` (
-  `id` int PRIMARY KEY,
-  `username` varchar(255),
-  `totalSongs` int,
-  `imageId` int
-);
+CREATE TABLE playlists (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  userId INTEGER
+  name VARCHAR(255),
+  createdAt TIMESTAMP,
+  updatedAt TIMESTAMP,
+  imageUrl text,
+  FOREIGN KEY (userId) REFERENCES Users(id)
+)
 
-CREATE TABLE `playlists` (
-  `id` int PRIMARY KEY,
-  `userId` int,
-  `name` varchar(255),
-  `createdAt` timestamp,
-  `updatedAt` timestamp,
-  `imageId` int
-);
-
-CREATE TABLE `userPlaylists` (
-  `id` int PRIMARY KEY,
-  `userId` int,
-  `playlistId` int
-);
-
-CREATE TABLE `images` (
-  `id` int PRIMARY KEY
-);
-
-ALTER TABLE `users` ADD FOREIGN KEY (`id`) REFERENCES `userPlaylists` (`userId`);
-
-ALTER TABLE `songs` ADD FOREIGN KEY (`userId`) REFERENCES `users` (`id`);
-
-ALTER TABLE `users` ADD FOREIGN KEY (`id`) REFERENCES `albums` (`userId`);
-
-ALTER TABLE `songs` ADD FOREIGN KEY (`albumId`) REFERENCES `albums` (`id`);
-
-ALTER TABLE `comments` ADD FOREIGN KEY (`userId`) REFERENCES `users` (`id`);
-
-ALTER TABLE `comments` ADD FOREIGN KEY (`songId`) REFERENCES `songs` (`id`);
-
-ALTER TABLE `albums` ADD FOREIGN KEY (`artistId`) REFERENCES `artists` (`id`);
-
-ALTER TABLE `playlists` ADD FOREIGN KEY (`id`) REFERENCES `userPlaylists` (`playlistId`);
-
-ALTER TABLE `images` ADD FOREIGN KEY (`id`) REFERENCES `songs` (`imageId`);
-
-ALTER TABLE `images` ADD FOREIGN KEY (`id`) REFERENCES `artists` (`imageId`);
-
-ALTER TABLE `images` ADD FOREIGN KEY (`id`) REFERENCES `playlists` (`imageId`);
+CREATE TABLE playlistSongs (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  playlistId INTEGER,
+  songId INTEGER,
+  FOREIGN KEY (playlistId) REFERENCES playlists(id)
+  FOREIGN KEY (songId) REFERENCES Songs(id)
+)
