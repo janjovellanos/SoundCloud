@@ -34,7 +34,7 @@ CREATE TABLE Albums (
   FOREIGN KEY (userId) REFERENCES Users(id)
 )
 
-CREATE TABLE comments (
+CREATE TABLE Comments (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   userId INTEGER,
   songId INTEGER,
@@ -45,7 +45,7 @@ CREATE TABLE comments (
   FOREIGN KEY (songId) REFERENCES Songs(id)
 )
 
-CREATE TABLE playlists (
+CREATE TABLE Playlists (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   userId INTEGER
   name VARCHAR(255),
@@ -59,6 +59,6 @@ CREATE TABLE playlistSongs (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   playlistId INTEGER,
   songId INTEGER,
-  FOREIGN KEY (playlistId) REFERENCES playlists(id)
+  FOREIGN KEY (playlistId) REFERENCES Playlists(id)
   FOREIGN KEY (songId) REFERENCES Songs(id)
 )
