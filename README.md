@@ -50,7 +50,7 @@ Returns the information about the current user that is logged in.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /my/page
+  * URL: /my/profile
   * Body: none
 
 * Successful Response
