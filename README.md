@@ -2,7 +2,7 @@
 
 ## Database Schema Design
 
-![dbdiagram](../SoundCloud)
+![dbdiagram](https://github.com/janjovellanos/SoundCloud/blob/main/db-diagram.JPEG)
 
 ## API Documentation
 
