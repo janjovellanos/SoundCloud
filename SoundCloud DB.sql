@@ -53,7 +53,7 @@ CREATE TABLE Playlists (
   FOREIGN KEY (userId) REFERENCES Users(id)
 )
 
-CREATE TABLE playlistSongs (
+CREATE TABLE PlaylistSongs (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   playlistId INTEGER,
   songId INTEGER,
