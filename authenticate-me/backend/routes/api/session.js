@@ -27,7 +27,7 @@ router.get('/', restoreUser, (req, res) => {
     } else return res.json({});
 });
 
-//log in
+//logging in
 router.post('/', validateLogin, async (req, res, next) => {
     const { credential, password } = req.body;
     //login static method

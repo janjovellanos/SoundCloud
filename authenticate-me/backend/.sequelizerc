@@ -1,3 +1,6 @@
+/* set up Sequelize to look in the
+backend/config/database.js
+file for its database configurations */
 const path = require('path');
 
 module.exports = {

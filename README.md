@@ -144,7 +144,7 @@ user's information.
 * Require Authentication: false
 * Request
   * Method: POST
-  * URL: /users
+  * URL: /signup
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -356,7 +356,7 @@ Creates and returns a new song.
 * Require proper authorization: Album must belong to the current user
 * Request
   * Method: POST
-  * URL: /albums/:albumId/
+  * URL: /albums/:albumId
   * Headers:
     * Content-Type: application/json
   * Body:

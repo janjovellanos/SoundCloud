@@ -1,5 +1,7 @@
 const config = require('./index');
 
+/* load the database configuration environment
+variables from the .env file into the config/index.js */
 module.exports = {
   development: {
     storage: config.dbFile,

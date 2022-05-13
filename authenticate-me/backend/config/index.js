@@ -1,3 +1,4 @@
+// each env variable is read & exported from here
 module.exports = {
     environment: process.env.NODE_ENV || 'development',
     port: process.env.PORT || 8000,

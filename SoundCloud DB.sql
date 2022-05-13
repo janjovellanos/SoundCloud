@@ -4,7 +4,9 @@ CREATE TABLE Users (
   lastName VARCHAR(50),
   email VARCHAR(255) NOT NULL,
   hashedPassword VARCHAR(255),
-  username VARCHAR(50) NOT NULL
+  username VARCHAR(50) NOT NULL,
+  createdAt DATETIME,
+  updatedAt DATETIME,
 )
 
 CREATE TABLE Songs (
