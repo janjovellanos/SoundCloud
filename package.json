@@ -20,8 +20,5 @@
   "bugs": {
     "url": "https://github.com/janjovellanos/SoundCloud/issues"
   },
-  "homepage": "https://github.com/janjovellanos/SoundCloud#readme",
-  "dependencies": {
-    "pg": "^8.7.3"
-  }
+  "homepage": "https://github.com/janjovellanos/SoundCloud#readme"
 }
