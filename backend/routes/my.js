@@ -1,9 +1,9 @@
 const express = require('express');
 const { check } = require('express-validator');
 
-const { setTokenCookie, restoreUser } = require('../utils/auth');
+const { restoreUser, requireAuth } = require('../utils/auth');
 const { handleValidationErrors } = require('../utils/validation');
-const { User } = require('../db/models');
+const { Album, Comment, Playlist, PlaylistSong, Song, User } = require('../db/models');
 
 const router = express.Router();
 
@@ -32,6 +32,10 @@ router.get('/profile', restoreUser, (req, res) => {
         });
     } else return res.json({});
 });
+
+router.get('/songs', requireAuth, async (req, res, next) => {
+    res.json(requireAuth);
+})
 
 // return res.json({ user: user.toSafeObject() });
 
