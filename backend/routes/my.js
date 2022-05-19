@@ -34,7 +34,11 @@ router.get('/profile', restoreUser, (req, res) => {
 });
 
 router.get('/songs', requireAuth, async (req, res, next) => {
-    res.json(requireAuth);
+    const { user } = req;
+
+    const currUserSongs = await user.getSongs();
+
+    res.json(currUserSongs);
 })
 
 // return res.json({ user: user.toSafeObject() });
