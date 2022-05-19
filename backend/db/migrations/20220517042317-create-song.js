@@ -28,7 +28,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       audioUrl: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       imageUrl: {
         type: Sequelize.STRING
