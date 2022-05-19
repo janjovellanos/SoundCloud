@@ -12,16 +12,22 @@ const router = express.Router();
 validateSignup = [
     check('email')
         .exists({ checkFalsy: true })
+        .withMessage('Invalid email')
         .isEmail()
-        .withMessage('Please provide and email.'),
+        .withMessage('Email is required'),
     check('username')
         .exists({ checkFalsy: true })
+        .withMessage('Username is required')
         .isLength({ min: 4 })
         .withMessage('Please provide a username with at least 4 characters.'),
     check('username')
         .not()
         .isEmail()
         .withMessage('Username cannot be an email.'),
+    check('firstName')
+        .exists({ checkFalsy: true }),
+    check('lastName')
+        .exists({ checkFalsy: true }),
     check('password')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a password.')
