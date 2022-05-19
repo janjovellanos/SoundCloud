@@ -1,7 +1,7 @@
 const express = require('express');
 const { check } = require('express-validator');
 
-const { setTokenCookie, restoreUser } = require('../utils/auth');
+const { setTokenCookie } = require('../utils/auth');
 const { handleValidationErrors } = require('../utils/validation');
 const { User } = require('../db/models');
 
@@ -19,9 +19,6 @@ const validateLogin = [
     handleValidationErrors
 ];
 
-router.get('/1', async (req, res, next) => {
-    res.json({ 1: 'whatsup!' })
-})
 
 //login user
 router.post('/', validateLogin, async (req, res, next) => {
