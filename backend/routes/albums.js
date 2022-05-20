@@ -97,7 +97,25 @@ router.put('/:albumId', requireAuth, validateAlbumCreation, async (req, res, nex
     }
 
     album.update({ title, description, imageUrl });
-    res.json(album)
+    return res.json(album)
+})
+
+router.delete('/:albumId', requireAuth, async (req, res, next) => {
+    const { albumId } = req.params;
+
+    const album = await Album.findByPk(albumId);
+
+    if (!album) {
+        const error = new Error("Album couldn't be found");
+        error.status = 404;
+        return next(error);
+    }
+
+    await album.destroy();
+    res.json({
+        message: 'Successfully deleted',
+        statusCode: 200
+    })
 })
 
 //get all albums
