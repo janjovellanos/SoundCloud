@@ -3,7 +3,7 @@ const { check } = require('express-validator');
 
 const { requireAuth } = require('../utils/auth');
 const { handleValidationErrors } = require('../utils/validation');
-const { Song, User, Album } = require('../db/models');
+const { Song, User, Album, Comment } = require('../db/models');
 
 const router = express.Router();
 
@@ -17,6 +17,28 @@ validateSongCreation = [
     handleValidationErrors
 ];
 
+//get comments on specified song
+router.get('/:songId/comments', async (req, res, next) => {
+    const { songId } = req.params;
+
+    const song = await Song.findByPk(songId, {
+        include: [
+            {
+                model: Comment,
+                include: [{ model: User, attributes: ['id', 'username'] }]
+            }
+        ]
+    });
+    if (!song) {
+        const error = new Error("Song couldn't be found");
+        error.status = 404;
+        return next(error);
+    }
+    const comments = song.Comments;
+    res.json({ Comments: comments })
+})
+
+//get specified song
 router.get('/:songId', async (req, res, next) => {
     const { songId } = req.params;
 
@@ -35,6 +57,7 @@ router.get('/:songId', async (req, res, next) => {
 
     res.json(song);
 });
+
 //edit song
 router.put('/:songId', requireAuth, validateSongCreation, async (req, res, next) => {
     const { songId } = req.params;
@@ -54,6 +77,7 @@ router.put('/:songId', requireAuth, validateSongCreation, async (req, res, next)
     res.json(song)
 })
 
+//delete specified song
 router.delete('/:songId', requireAuth, async (req, res, next) => {
     const { songId } = req.params;
 
