@@ -36,11 +36,10 @@ module.exports = (sequelize, DataTypes) => {
       return await User.scope('currentUser').findByPk(user.id);
     }
     static associate(models) {
-      User.hasMany(models.Song, { foreignKey: 'userId', onDelete: 'CASCADE' });
-      User.hasMany(models.Album, { foreignKey: 'userId', onDelete: 'CASCADE' });
-      User.hasMany(models.Comment, { foreignKey: 'userId', onDelete: 'CASCADE' });
-      User.hasMany(models.Playlist, { foreignKey: 'userId', onDelete: 'CASCADE' });
-
+      User.hasMany(models.Song, { foreignKey: 'userId', onDelete: 'CASCADE', hooks: true });
+      User.hasMany(models.Album, { foreignKey: 'userId', onDelete: 'CASCADE', hooks: true });
+      User.hasMany(models.Comment, { foreignKey: 'userId', onDelete: 'CASCADE', hooks: true });
+      User.hasMany(models.Playlist, { foreignKey: 'userId', onDelete: 'CASCADE', hooks: true });
     }
   }
   User.init({
@@ -71,7 +70,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [3, 256]
+        len: [3, 256],
+        isEmail: true
       }
     },
     hashedPassword: {
