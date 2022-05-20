@@ -12,14 +12,19 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users'
-        }
+        },
+        onDelete: 'CASCADE'
       },
       albumId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Albums'
         },
+<<<<<<< HEAD
         onDelete: 'SET NULL'
+=======
+        onDelete: 'CASCADE'
+>>>>>>> dev
       },
       title: {
         type: Sequelize.STRING,
@@ -29,7 +34,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       audioUrl: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       imageUrl: {
         type: Sequelize.STRING

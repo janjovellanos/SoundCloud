@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Song.belongsTo(models.User, { foreignKey: 'userId', as: 'Artist' });
       Song.belongsTo(models.Album, { foreignKey: 'albumId' });
-      Song.hasMany(models.Comment, { foreignKey: 'songId' });
+      Song.hasMany(models.Comment, { foreignKey: 'songId', onDelete: 'CASCADE', });
       Song.belongsToMany(models.Playlist, { through: models.PlaylistSong });
     }
   }
@@ -27,12 +27,19 @@ module.exports = (sequelize, DataTypes) => {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [3, 50]
+      }
     },
     description: {
       type: DataTypes.STRING
     },
     audioUrl: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3, 50]
+      }
     },
     imageUrl: {
       type: DataTypes.STRING
