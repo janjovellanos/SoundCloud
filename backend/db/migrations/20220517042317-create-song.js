@@ -18,7 +18,8 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Albums'
-        }
+        },
+        onDelete: 'SET NULL'
       },
       title: {
         type: Sequelize.STRING,

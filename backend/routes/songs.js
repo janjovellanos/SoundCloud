@@ -1,6 +1,8 @@
 const express = require('express');
 const { check } = require('express-validator');
 
+const { requireAuth } = require('../utils/auth');
+const { handleValidationErrors } = require('../utils/validation');
 const { Song, User, Album } = require('../db/models');
 
 const router = express.Router();
@@ -22,6 +24,23 @@ router.get('/:songId', async (req, res, next) => {
     }
 
     res.json(song);
+})
+
+router.delete('/:songId', requireAuth, async (req, res, next) => {
+    const { songId } = req.params;
+
+    const song = await Song.findByPk(songId);
+
+    if (!song) {
+        const error = new Error("Song couldn't be found");
+        error.status = 404;
+        return next(error);
+    }
+    await Song.destroy();
+    res.json({
+        message: 'Successfully deleted',
+        statusCode: 200
+    })
 })
 
 //get all songs
