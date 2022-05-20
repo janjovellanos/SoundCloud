@@ -46,4 +46,10 @@ router.post('/:albumId', requireAuth, validateSongCreation, async (req, res) => 
     }
 })
 
+//get all albums
+router.get('/', async (req, res) => {
+    const Albums = await Album.findAll();
+    res.json({ Albums });
+})
+
 module.exports = router;
