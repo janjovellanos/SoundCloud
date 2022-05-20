@@ -7,6 +7,16 @@ const { Song, User, Album } = require('../db/models');
 
 const router = express.Router();
 
+validateSongCreation = [
+    check('title')
+        .exists({ checkFalsy: true })
+        .withMessage('Song title is required'),
+    check('audioUrl')
+        .exists({ checkFalsy: true })
+        .withMessage('Audio is required'),
+    handleValidationErrors
+];
+
 router.get('/:songId', async (req, res, next) => {
     const { songId } = req.params;
 
@@ -24,6 +34,24 @@ router.get('/:songId', async (req, res, next) => {
     }
 
     res.json(song);
+});
+//edit song
+router.put('/:songId', requireAuth, validateSongCreation, async (req, res, next) => {
+    const { songId } = req.params;
+    const { title, description, audioUrl, imageUrl } = req.body
+
+    const song = await Song.findByPk(songId);
+
+    if (!song) {
+        res.status(404);
+        return res.json({
+            message: "song couldn't be found",
+            statusCode: 404
+        })
+    }
+
+    song.update({ title, description, audioUrl, imageUrl });
+    res.json(song)
 })
 
 router.delete('/:songId', requireAuth, async (req, res, next) => {
