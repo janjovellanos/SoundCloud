@@ -24,7 +24,6 @@ validateAlbumCreation = [
     handleValidationErrors
 ];
 
-//get specific album
 router.get('/:albumId', async (req, res, next) => {
     const { albumId } = req.params;
 
@@ -54,7 +53,6 @@ router.get('/:albumId', async (req, res, next) => {
     res.json(album);
 })
 
-//create song on album
 router.post('/:albumId', requireAuth, validateSongCreation, async (req, res) => {
     const { albumId } = req.params;
     const { user } = req;
@@ -83,7 +81,6 @@ router.post('/:albumId', requireAuth, validateSongCreation, async (req, res) => 
         res.json(newSong);
     }
 })
-
 //edit album
 router.put('/:albumId', requireAuth, validateAlbumCreation, async (req, res, next) => {
     const { albumId } = req.params;
@@ -101,9 +98,8 @@ router.put('/:albumId', requireAuth, validateAlbumCreation, async (req, res, nex
 
     album.update({ title, description, imageUrl });
     return res.json(album)
-});
+})
 
-//delete album
 router.delete('/:albumId', requireAuth, async (req, res, next) => {
     const { albumId } = req.params;
 
