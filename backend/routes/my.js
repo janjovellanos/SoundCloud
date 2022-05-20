@@ -19,7 +19,7 @@ const validateLogin = [
     handleValidationErrors
 ];
 
-//restore session user
+//restore session user / get user profile
 router.get('/profile', restoreUser, (req, res) => {
     const { user } = req;
     if (user) {
@@ -33,6 +33,7 @@ router.get('/profile', restoreUser, (req, res) => {
     } else return res.json({});
 });
 
+//get curr user albums
 router.get('/albums', requireAuth, async (req, res, next) => {
     const { user } = req;
 
@@ -41,6 +42,7 @@ router.get('/albums', requireAuth, async (req, res, next) => {
     res.json({ Albums: currUserAlbums })
 })
 
+//get curr user songs
 router.get('/songs', requireAuth, async (req, res, next) => {
     const { user } = req;
 
