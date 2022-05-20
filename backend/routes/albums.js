@@ -81,6 +81,24 @@ router.post('/:albumId', requireAuth, validateSongCreation, async (req, res) => 
         res.json(newSong);
     }
 })
+//edit album
+router.put('/:albumId', requireAuth, validateAlbumCreation, async (req, res, next) => {
+    const { albumId } = req.params;
+    const { title, description, imageUrl } = req.body
+
+    const album = await Album.findByPk(albumId);
+
+    if (!album) {
+        res.status(404);
+        return res.json({
+            message: "Album couldn't be found",
+            statusCode: 404
+        })
+    }
+
+    album.update({ title, description, imageUrl });
+    res.json(album)
+})
 
 //get all albums
 router.get('/', async (req, res) => {
