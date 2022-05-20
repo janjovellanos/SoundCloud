@@ -17,6 +17,35 @@ validateSongCreation = [
     handleValidationErrors
 ];
 
+router.get('/:albumId', async (req, res, next) => {
+    const { albumId } = req.params;
+
+    const album = await Album.findByPk(albumId, {
+        include: [
+            { model: User, as: 'Artist', attributes: ['id', 'username'] },
+            {
+                model: Song, attributes: [
+                    'id',
+                    'userId',
+                    'albumId',
+                    'title',
+                    'description',
+                    'audioUrl',
+                    'imageUrl'
+                ]
+            }
+        ]
+    });
+
+    if (!album) {
+        const error = new Error("Album couldn't be found");
+        error.status = 404;
+        return next(error);
+    }
+
+    res.json(album);
+})
+
 router.post('/:albumId', requireAuth, validateSongCreation, async (req, res) => {
     const { albumId } = req.params;
     const { user } = req;
