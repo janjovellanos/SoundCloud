@@ -27,12 +27,19 @@ module.exports = (sequelize, DataTypes) => {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [3, 50]
+      }
     },
     description: {
       type: DataTypes.STRING
     },
     audioUrl: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3, 50]
+      }
     },
     imageUrl: {
       type: DataTypes.STRING
