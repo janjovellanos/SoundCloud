@@ -4,6 +4,7 @@ const { check } = require('express-validator');
 const { requireAuth } = require('../utils/auth');
 const { handleValidationErrors } = require('../utils/validation');
 const { Song, User, Album, Comment } = require('../db/models');
+const song = require('../db/models/song');
 
 const router = express.Router();
 
@@ -14,6 +15,13 @@ validateSongCreation = [
     check('audioUrl')
         .exists({ checkFalsy: true })
         .withMessage('Audio is required'),
+    handleValidationErrors
+];
+
+validateCommentCreation = [
+    check('body')
+        .exists({ checkFalsy: true })
+        .withMessage('Body text is required'),
     handleValidationErrors
 ];
 
@@ -36,6 +44,26 @@ router.get('/:songId/comments', async (req, res, next) => {
     }
     const comments = song.Comments;
     res.json({ Comments: comments })
+});
+
+//create comment on specified song
+router.post('/:songId/comments', requireAuth, validateCommentCreation, async (req, res, next) => {
+    const { songId } = req.params;
+    const { body } = req.body;
+    const { user } = req;
+
+    const song = await Song.findByPk(songId);
+    if (!song) {
+        const error = new Error("Song couldn't be found");
+        error.status = 404;
+        return next(error);
+    }
+    const newComment = await Comment.create({
+        userId: user.id,
+        songId,
+        body
+    });
+    res.json(newComment);
 })
 
 //get specified song
