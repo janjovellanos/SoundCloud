@@ -17,6 +17,13 @@ validateSongCreation = [
     handleValidationErrors
 ];
 
+validateAlbumCreation = [
+    check('title')
+        .exists({ checkFalsy: true })
+        .withMessage('Album title is required'),
+    handleValidationErrors
+];
+
 router.get('/:albumId', async (req, res, next) => {
     const { albumId } = req.params;
 
@@ -79,6 +86,21 @@ router.post('/:albumId', requireAuth, validateSongCreation, async (req, res) => 
 router.get('/', async (req, res) => {
     const Albums = await Album.findAll();
     res.json({ Albums });
+})
+
+//create album
+router.post('/', requireAuth, validateAlbumCreation, async (req, res, next) => {
+    const { user } = req;
+    const { title, description, imageUrl } = req.body;
+
+    newAlbum = await Album.create({
+        userId: user.id,
+        title,
+        description,
+        imageUrl,
+    })
+    res.status(201);
+    res.json(newAlbum);
 })
 
 module.exports = router;
