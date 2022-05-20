@@ -20,11 +20,7 @@ module.exports = {
         references: {
           model: 'Albums'
         },
-<<<<<<< HEAD
-        onDelete: 'SET NULL'
-=======
         onDelete: 'CASCADE'
->>>>>>> dev
       },
       title: {
         type: Sequelize.STRING,
