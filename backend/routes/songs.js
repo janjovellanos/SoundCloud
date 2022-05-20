@@ -4,7 +4,6 @@ const { check } = require('express-validator');
 const { requireAuth } = require('../utils/auth');
 const { handleValidationErrors } = require('../utils/validation');
 const { Song, User, Album, Comment } = require('../db/models');
-const song = require('../db/models/song');
 
 const router = express.Router();
 
