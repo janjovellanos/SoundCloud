@@ -12,13 +12,15 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users'
-        }
+        },
+        onDelete: 'CASCADE'
       },
       albumId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Albums'
-        }
+        },
+        onDelete: 'CASCADE'
       },
       title: {
         type: Sequelize.STRING,

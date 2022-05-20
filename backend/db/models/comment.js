@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Comment.belongsTo(models.User, { foreignKey: 'userId' })
-      Comment.belongsTo(models.Song, { foreignKey: 'songId' })
+      Comment.belongsTo(models.User, { foreignKey: 'userId', onDelete: 'CASCADE' })
+      Comment.belongsTo(models.Song, { foreignKey: 'songId', onDelete: 'CASCADE' })
 
     }
   }
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER
     },
     songId: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
     },
     body: {
       type: DataTypes.STRING,
