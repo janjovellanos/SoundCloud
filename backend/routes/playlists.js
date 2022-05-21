@@ -53,6 +53,32 @@ router.post('/:playlistId', requireAuth, async (req, res, next) => {
     }
 });
 
+//edit playlist
+router.put('/:playlistId', requireAuth, validatePlaylistCreation, async (req, res, next) => {
+    const { playlistId } = req.params;
+    const { name, imageUrl } = req.body;
+    const { user } = req;
+
+    const playlist = await Playlist.findByPk(playlistId);
+
+    if (playlist) {
+        if (user.id === playlist.userId) {
+            playlist.update({ name, imageUrl });
+            res.json(playlist);
+        } else {
+            const err = new Error('Not Authorized');
+            err.title = 'Not Authorized';
+            err.status = 401;
+            return next(err);
+        }
+    } else {
+        const err = new Error("Playlist couldn't be found");
+        err.title = "Playlist couldn't be found";
+        err.status = 404;
+        return next(err);
+    }
+})
+
 //get specified playlist
 router.get('/:playlistId', async (req, res, next) => {
     const { playlistId } = req.params;
