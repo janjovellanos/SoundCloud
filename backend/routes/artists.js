@@ -44,10 +44,25 @@ router.get('/:artistId/songs', async (req, res, next) => {
         const err = new Error("Artist couldn't be found");
         err.status = 404;
         err.title = "Artist couldn't be found";
-        return next(err);
+        return next(err)
     }
-})
+});
 
+//get specified artist's albums
+router.get('/:artistId/albums', async (req, res, next) => {
+    const { artistId } = req.params;
+
+    const albums = await Album.findAll({ where: { userId: artistId } });
+
+    if (albums.length) {
+        res.json(albums);
+    } else {
+        const err = new Error("Artist couldn't be found");
+        err.status = 404;
+        err.title = "Artist couldn't be found";
+        return next(err)
+    }
+});
 
 
 
