@@ -36,13 +36,15 @@ router.get('/:songId/comments', async (req, res, next) => {
             }
         ]
     });
-    if (!song) {
-        const error = new Error("Song couldn't be found");
-        error.status = 404;
-        return next(error);
+    if (song) {
+        const comments = song.Comments;
+        res.json({ Comments: comments })
+    } else {
+        const err = new Error("Song couldn't be found");
+        err.status = 404;
+        err.title = "Song couldn't be found";
+        return next(err);
     }
-    const comments = song.Comments;
-    res.json({ Comments: comments })
 });
 
 //create comment on specified song
@@ -52,17 +54,20 @@ router.post('/:songId/comments', requireAuth, validateCommentCreation, async (re
     const { user } = req;
 
     const song = await Song.findByPk(songId);
-    if (!song) {
-        const error = new Error("Song couldn't be found");
-        error.status = 404;
-        return next(error);
+
+    if (song) {
+        const newComment = await Comment.create({
+            userId: user.id,
+            songId,
+            body
+        });
+        res.json(newComment);
+    } else {
+        const err = new Error("Song couldn't be found");
+        err.status = 404;
+        err.title = "Song couldn't be found";
+        return next(err);
     }
-    const newComment = await Comment.create({
-        userId: user.id,
-        songId,
-        body
-    });
-    res.json(newComment);
 })
 
 //get specified song
@@ -76,50 +81,68 @@ router.get('/:songId', async (req, res, next) => {
         ]
     });
 
-    if (!song) {
-        const error = new Error("Song couldn't be found");
-        error.status = 404;
-        return next(error);
+    if (song) {
+        res.json(song);
+    } else {
+        const err = new Error("Song couldn't be found");
+        err.status = 404;
+        err.title = "Song couldn't be found";
+        return next(err);
     }
-
-    res.json(song);
 });
 
 //edit song
 router.put('/:songId', requireAuth, validateSongCreation, async (req, res, next) => {
     const { songId } = req.params;
+    const { user } = req;
     const { title, description, audioUrl, imageUrl } = req.body
 
     const song = await Song.findByPk(songId);
 
-    if (!song) {
-        res.status(404);
-        return res.json({
-            message: "song couldn't be found",
-            statusCode: 404
-        })
+    if (song) {
+        if (song.userId === user.id) {
+            song.update({ title, description, audioUrl, imageUrl });
+            res.json(song)
+        } else {
+            const err = new Error('Not Authorized');
+            err.status = 401;
+            err.title = 'Not Authorized';
+            return next(err);
+        }
+    } else {
+        const err = new Error("Song couldn't be found");
+        err.status = 401;
+        err.title = "Song couldn't be found";
+        return next(err);
     }
-
-    song.update({ title, description, audioUrl, imageUrl });
-    res.json(song)
 })
 
 //delete specified song
 router.delete('/:songId', requireAuth, async (req, res, next) => {
     const { songId } = req.params;
+    const { user } = req;
 
     const song = await Song.findByPk(songId);
 
-    if (!song) {
-        const error = new Error("Song couldn't be found");
-        error.status = 404;
-        return next(error);
+    if (song) {
+        if (song.userId === user.id) {
+            await song.destroy();
+            res.json({
+                message: 'Successfully deleted',
+                statusCode: 200
+            })
+        } else {
+            const err = new Error('Not Authorized');
+            err.status = 401;
+            err.title = 'Not Authorized';
+            return next(err);
+        }
+    } else {
+        const err = new Error("Song couldn't be found");
+        err.status = 404;
+        err.title = "Song couldn't be found";
+        return next(err);
     }
-    await song.destroy();
-    res.json({
-        message: 'Successfully deleted',
-        statusCode: 200
-    })
 })
 
 //get all songs

@@ -21,21 +21,21 @@ router.put('/:commentId', requireAuth, validateCommentCreation, async (req, res,
     const { user } = req;
     const comment = await Comment.findByPk(commentId);
 
-    if (!comment) {
-        const error = new Error("Comment couldn't be found");
-        error.status = 404;
-        return next(error);
-    } else {
+    if (comment) {
         if (comment.userId === user.id) {
             comment.update({ body });
             res.json(comment);
         } else {
-            res.status(403);
-            res.json({
-                message: 'Unauthorized',
-                statusCode: 403
-            })
+            const err = new Error('Not Authorized');
+            err.status = 401;
+            err.title = 'Not Authorized';
+            return next(err)
         }
+    } else {
+        const err = new Error("Comment couldn't be found");
+        err.status = 404;
+        err.title = "Comment couldn't be found";
+        return next(err);
     }
 });
 
