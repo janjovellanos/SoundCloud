@@ -24,6 +24,22 @@ validateCommentCreation = [
     handleValidationErrors
 ];
 
+validateQueryFilters = [
+    check('page')
+        .isInt({ min: 0 })
+        .optional({ nullable: true })
+        .withMessage('Page must be greater than or equal to 0'),
+    check('size')
+        .isInt({ min: 0 })
+        .optional({ nullable: true })
+        .withMessage('Page must be greater than or equal to 0'),
+    check('createdAt')
+        .isDate()
+        .optional({ nullable: true })
+        .withMessage('CreatedAt is invalid'),
+    handleValidationErrors
+]
+
 //get comments on specified song
 router.get('/:songId/comments', async (req, res, next) => {
     const { songId } = req.params;
@@ -145,11 +161,35 @@ router.delete('/:songId', requireAuth, async (req, res, next) => {
     }
 })
 
-//get all songs
-router.get('/', async (req, res) => {
-    const Songs = await Song.findAll();
-    res.json({ Songs });
-})
+//get all songs && query
+router.get('/', validateQueryFilters, async (req, res, next) => {
+    let { page, size, title, createdAt } = req.query;
+    let pagination = {}
+    let where = {}
+
+    if (page) page = parseInt(page);
+    if (size) size = parseInt(size);
+
+
+    page > 10 ? page = 0 : page = page;
+    size > 15 ? size = 15 : size = size;
+    if (size) pagination.limit = size;
+    if (page && size) pagination.offset = size * (page - 1);
+
+    if (title) where.title = title;
+    if (createdAt) where.createdAt = createdAt;
+
+    const Songs = await Song.findAll({
+        where: { ...where },
+        ...pagination
+    });
+
+    return res.json({
+        Songs,
+        page,
+        size
+    });
+});
 
 
 
