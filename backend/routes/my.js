@@ -33,6 +33,15 @@ router.get('/profile', restoreUser, (req, res) => {
     } else return res.json({});
 });
 
+//get curr user playlists
+router.get('/playlists', requireAuth, async (req, res, next) => {
+    const { user } = req;
+
+    const currUserPlaylists = await user.getPlaylists();
+
+    res.json({ Playlists: currUserPlaylists })
+})
+
 //get curr user albums
 router.get('/albums', requireAuth, async (req, res, next) => {
     const { user } = req;
