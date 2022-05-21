@@ -77,6 +77,34 @@ router.put('/:playlistId', requireAuth, validatePlaylistCreation, async (req, re
         err.status = 404;
         return next(err);
     }
+});
+
+//delete playlist
+router.delete('/:playlistId', requireAuth, async (req, res, next) => {
+    const { playlistId } = req.params;
+    const { user } = req;
+
+    const playlist = await Playlist.findByPk(playlistId);
+
+    if (playlist) {
+        if (playlist.userId === user.id) {
+            await playlist.destroy();
+            res.json({
+                message: 'Successfully deleted',
+                statusCode: 200
+            })
+        } else {
+            const err = new Error('Not Authorized');
+            err.title = 'Not Authorized';
+            err.status = 401;
+            return next(err);
+        }
+    } else {
+        const err = new Error("Playlist couldn't be found");
+        err.title = "Playlist couldn't be found";
+        err.status = 404;
+        return next(err);
+    }
 })
 
 //get specified playlist
