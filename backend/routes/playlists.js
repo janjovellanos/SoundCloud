@@ -14,19 +14,6 @@ validatePlaylistCreation = [
     handleValidationErrors
 ];
 
-//create a playlist
-router.post('/', requireAuth, validatePlaylistCreation, async (req, res, next) => {
-    const { user } = req;
-    const { name, imageUrl } = req.body;
-
-    const newPlaylist = await Playlist.create({
-        userId: user.id,
-        name,
-        imageUrl
-    })
-    res.json(newPlaylist);
-});
-
 //add song to playlist
 router.post('/:playlistId', requireAuth, async (req, res, next) => {
     let { playlistId } = req.params;
@@ -64,6 +51,44 @@ router.post('/:playlistId', requireAuth, async (req, res, next) => {
         err.status = 404;
         return next(err);
     }
-})
+});
+
+//get specified playlist
+router.get('/:playlistId', async (req, res, next) => {
+    const { playlistId } = req.params;
+
+    const playlist = await Playlist.findByPk(
+        playlistId,
+        {
+            include: [
+                {
+                    model: Song,
+                    through: { attributes: [] }
+                }
+            ]
+        }
+    )
+    if (playlist) {
+        res.json(playlist);
+    } else {
+        const err = new Error("Playlist couldn't be found");
+        err.title = "Playlist couldn't be found";
+        err.status = 404;
+        return next(err);
+    }
+});
+
+//create a playlist
+router.post('/', requireAuth, validatePlaylistCreation, async (req, res, next) => {
+    const { user } = req;
+    const { name, imageUrl } = req.body;
+
+    const newPlaylist = await Playlist.create({
+        userId: user.id,
+        name,
+        imageUrl
+    })
+    res.json(newPlaylist);
+});
 
 module.exports = router;
