@@ -7,7 +7,8 @@ const songsRouter = require('./songs');
 const signUpRouter = require('./signup');
 const albumRouter = require('./albums');
 const commentRouter = require('./comments');
-const artistRouter = require('./artists')
+const artistRouter = require('./artists');
+const playlistRouter = require('./playlists');
 
 router.use('/api', apiRouter);
 router.use('/login', loginRouter);
@@ -17,6 +18,7 @@ router.use('/signup', signUpRouter);
 router.use('/albums', albumRouter);
 router.use('/comments', commentRouter);
 router.use('/artists', artistRouter);
+router.use('/playlists', playlistRouter);
 
 //to get TOKEN while developing app
 router.get('/api/csrf/restore', (req, res) => {
