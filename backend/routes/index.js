@@ -6,6 +6,7 @@ const myRouter = require('./my');
 const songsRouter = require('./songs');
 const signUpRouter = require('./signup');
 const albumRouter = require('./albums');
+const commentRouter = require('./comments');
 
 router.use('/api', apiRouter);
 router.use('/login', loginRouter);
@@ -13,15 +14,16 @@ router.use('/my', myRouter);
 router.use('/songs', songsRouter);
 router.use('/signup', signUpRouter);
 router.use('/albums', albumRouter);
+router.use('/comments', commentRouter);
 
 //to get TOKEN while developing app
 router.get('/api/csrf/restore', (req, res) => {
-    const csrfToken = req.csrfToken();
+  const csrfToken = req.csrfToken();
 
-    res.cookie('XSRF-TOKEN', csrfToken);
-    res.status(200).json({
-        'XSRF-TOKEN': csrfToken,
-    });
+  res.cookie('XSRF-TOKEN', csrfToken);
+  res.status(200).json({
+    'XSRF-TOKEN': csrfToken,
+  });
 });
 
 module.exports = router;

@@ -24,7 +24,7 @@ validateAlbumCreation = [
     handleValidationErrors
 ];
 
-//get specific album
+//get specified album
 router.get('/:albumId', async (req, res, next) => {
     const { albumId } = req.params;
 
@@ -45,87 +45,105 @@ router.get('/:albumId', async (req, res, next) => {
         ]
     });
 
-    if (!album) {
-        const error = new Error("Album couldn't be found");
-        error.status = 404;
-        return next(error);
+    if (album) {
+        res.json(album);
+    } else {
+        const err = new Error("Album couldn't be found");
+        err.status = 404;
+        err.title = "Album couldn't be found";
+        return next(err)
     }
-
-    res.json(album);
 })
 
 //create song on album
-router.post('/:albumId', requireAuth, validateSongCreation, async (req, res) => {
+router.post('/:albumId', requireAuth, validateSongCreation, async (req, res, next) => {
     const { albumId } = req.params;
     const { user } = req;
     const { title, description, audioUrl, imageUrl } = req.body;
 
     const album = await Album.findByPk(albumId);
 
-    if (!album) {
-        res.status(404);
-        res.json({
-            message: "Album couldn't be found",
-            statusCode: 404
-        })
+    if (album) {
+        if (user.id === album.userId) {
+            newSong = await Song.create({
+                userId: user.id,
+                albumId: album.id,
+                title,
+                description,
+                audioUrl,
+                imageUrl,
+            })
+            res.status(201);
+            return res.json(newSong);
+        } else {
+            const err = new Error('Not Authorized');
+            err.status = 401;
+            err.title = 'Not Authorized'
+            return next(err);
+        }
+    } else {
+        const err = new Error("Album couldn't be found");
+        err.status = 404;
+        err.title = "Album couldn't be found";
+        return next(err)
     }
 
-    if (user.id === album.userId) {
-        newSong = await Song.create({
-            userId: user.id,
-            albumId: album.id,
-            title,
-            description,
-            audioUrl,
-            imageUrl,
-        })
-        res.status(201);
-        res.json(newSong);
-    }
 })
-
 //edit album
 router.put('/:albumId', requireAuth, validateAlbumCreation, async (req, res, next) => {
     const { albumId } = req.params;
+    const { user } = req;
     const { title, description, imageUrl } = req.body
 
     const album = await Album.findByPk(albumId);
 
-    if (!album) {
-        res.status(404);
-        return res.json({
-            message: "Album couldn't be found",
-            statusCode: 404
-        })
+    if (album) {
+        if (user.id === album.userId) {
+            album.update({ title, description, imageUrl });
+            return res.json(album)
+        } else {
+            const err = new Error('Not Authorized');
+            err.status = 401;
+            err.title = 'Not Authorized'
+            return next(err);
+        }
+    } else {
+        const err = new Error("Album couldn't be found");
+        err.status = 404;
+        err.title = "Album couldn't be found";
+        return next(err)
     }
 
-    album.update({ title, description, imageUrl });
-    return res.json(album)
-});
+})
 
-//delete album
+//delete an album
 router.delete('/:albumId', requireAuth, async (req, res, next) => {
     const { albumId } = req.params;
+    const { user } = req;
 
     const album = await Album.findByPk(albumId);
 
-    if (!album) {
+    if (album) {
+        if (album.userId === user.id) {
+            await album.destroy();
+            res.json({
+                message: 'Successfully deleted',
+                statusCode: 200
+            })
+        } else {
+            const err = new Error('Not Authorized');
+            err.status = 401;
+            err.title = 'Not Authorized'
+            return next(err);
+        }
+    } else {
         const error = new Error("Album couldn't be found");
         error.status = 404;
+        err.title = "Album couldn't be found";
         return next(error);
     }
 
-    await album.destroy();
-    res.json({
-        message: 'Successfully deleted',
-        statusCode: 200
-    })
-})
 
-//get all albums
-router.get('/', async (req, res) => {
-    const Albums = await Album.findAll();
-    res.json({ Albums });
 })
 
 //create album
@@ -142,5 +160,12 @@ router.post('/', requireAuth, validateAlbumCreation, async (req, res, next) => {
     res.status(201);
     res.json(newAlbum);
 })
+
+//get all albums
+router.get('/', async (req, res) => {
+    const Albums = await Album.findAll();
+    res.json({ Albums });
+})
+
 
 module.exports = router;
