@@ -127,7 +127,7 @@ router.put('/:songId', requireAuth, validateSongCreation, async (req, res, next)
         }
     } else {
         const err = new Error("Song couldn't be found");
-        err.status = 401;
+        err.status = 404;
         err.title = "Song couldn't be found";
         return next(err);
     }
