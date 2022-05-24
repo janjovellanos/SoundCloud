@@ -49,11 +49,14 @@ router.post('/', validateSignup, async (req, res, next) => {
     if (checkEmail) {
         const error = new Error('User with that email already exists');
         error.status = 403;
+        error.title = 'User with that email already exists';
         return next(error);
     };
     if (checkUsername) {
         const error = new Error('User with that username already exists');
         error.status = 403;
+        error.title = 'User with that username already exists';
+
         return next(error);
     }
 
