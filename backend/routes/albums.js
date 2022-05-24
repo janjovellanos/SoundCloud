@@ -140,7 +140,7 @@ router.delete('/:albumId', requireAuth, async (req, res, next) => {
     } else {
         const error = new Error("Album couldn't be found");
         error.status = 404;
-        err.title = "Album couldn't be found";
+        error.title = "Album couldn't be found";
         return next(error);
     }
 
