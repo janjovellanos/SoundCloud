@@ -32,15 +32,16 @@ router.get('/:albumId', async (req, res, next) => {
         include: [
             { model: User, as: 'Artist', attributes: ['id', 'username'] },
             {
-                model: Song, attributes: [
-                    'id',
-                    'userId',
-                    'albumId',
-                    'title',
-                    'description',
-                    'audioUrl',
-                    'imageUrl'
-                ]
+                model: Song,
+                // attributes: [
+                //     'id',
+                //     'userId',
+                //     'albumId',
+                //     'title',
+                //     'description',
+                //     'audioUrl',
+                //     'imageUrl'
+                // ]
             }
         ]
     });
