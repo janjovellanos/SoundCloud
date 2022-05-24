@@ -16,7 +16,7 @@ router.get('/:artistId', async (req, res, next) => {
 
     const artist = await User.findByPk(artistId, {
         attributes: [
-            'id', 'username'
+            'id', 'username', 'imageUrl'
         ]
     });
 

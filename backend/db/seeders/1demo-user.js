@@ -9,6 +9,7 @@ module.exports = {
         lastName: 'Test',
         email: 'demo@user.io',
         username: 'Demo-lition',
+        imageUrl: 'Artist IMG',
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -16,6 +17,7 @@ module.exports = {
         lastName: 'Test2',
         email: 'user1@user.io',
         username: 'FakeUser1',
+        imageUrl: 'Artist IMG',
         hashedPassword: bcrypt.hashSync('password2')
       },
       {
@@ -23,6 +25,7 @@ module.exports = {
         lastName: 'Test3',
         email: 'user2@user.io',
         username: 'FakeUser2',
+        imageUrl: 'Artist IMG',
         hashedPassword: bcrypt.hashSync('password3')
       }
     ])
