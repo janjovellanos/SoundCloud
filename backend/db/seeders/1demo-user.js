@@ -5,18 +5,27 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Users', [
       {
+        firstName: 'Tester',
+        lastName: 'Test',
         email: 'demo@user.io',
         username: 'Demo-lition',
+        imageUrl: 'Artist IMG',
         hashedPassword: bcrypt.hashSync('password')
       },
       {
+        firstName: 'Tester2',
+        lastName: 'Test2',
         email: 'user1@user.io',
         username: 'FakeUser1',
+        imageUrl: 'Artist IMG',
         hashedPassword: bcrypt.hashSync('password2')
       },
       {
+        firstName: 'Tester3',
+        lastName: 'Test3',
         email: 'user2@user.io',
         username: 'FakeUser2',
+        imageUrl: 'Artist IMG',
         hashedPassword: bcrypt.hashSync('password3')
       }
     ])
@@ -26,6 +35,8 @@ module.exports = {
     const Op = Sequelize.Op;
     await queryInterface.bulkDelete('Users', {
       username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2'] }
+    }, {
+      truncate: true
     })
   }
 };
