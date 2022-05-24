@@ -9,7 +9,7 @@ const handleValidationErrors = (req, _res, next) => {
             .array()
             // .map((error) => `${error.msg}`);
             .forEach((err) => {
-                errObj[err.param] = error.msg
+                errObj[err.param] = err.msg
             });
 
 
