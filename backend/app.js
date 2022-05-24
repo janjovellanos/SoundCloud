@@ -63,12 +63,14 @@ app.use((err, _req, _res, next) => {
 app.use((err, _req, res, _next) => {
     res.status(err.status || 500);
     console.error(err);
+    const stack = {};
+    if (!isProduction) stack.stack = err.stack;
     res.json({
-        title: err.title || 'Server Error',
+        // title: err.title || 'Server Error',
         message: err.message,
         errors: err.errors,
-        statusCode: res.status,
-        stack: isProduction ? null : err.stack
+        statusCode: res.statusCode,
+        ...stack
     });
 });
 
