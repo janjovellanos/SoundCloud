@@ -57,7 +57,7 @@ router.get('/songs', requireAuth, async (req, res, next) => {
 
     const currUserSongs = await user.getSongs();
 
-    res.json(currUserSongs);
+    res.json({ Songs: currUserSongs });
 })
 
 // return res.json({ user: user.toSafeObject() });
