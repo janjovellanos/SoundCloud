@@ -142,6 +142,7 @@ router.post('/', requireAuth, validatePlaylistCreation, async (req, res, next) =
         name,
         imageUrl
     })
+    res.status(201);
     res.json(newPlaylist);
 });
 
