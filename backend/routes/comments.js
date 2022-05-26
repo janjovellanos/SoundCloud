@@ -27,7 +27,7 @@ router.put('/:commentId', requireAuth, validateCommentCreation, async (req, res,
             res.json(comment);
         } else {
             const err = new Error('Not Authorized');
-            err.status = 401;
+            err.status = 403;
             err.title = 'Not Authorized';
             return next(err)
         }
@@ -56,7 +56,7 @@ router.delete('/:commentId', requireAuth, async (req, res, next) => {
         } else {
             const err = new Error('Not Authorized');
             err.title = 'Not Authorized';
-            err.status = 401;
+            err.status = 403;
             return next(err);
         }
     } else {

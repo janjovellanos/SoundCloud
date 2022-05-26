@@ -121,7 +121,7 @@ router.put('/:songId', requireAuth, validateSongCreation, async (req, res, next)
             res.json(song)
         } else {
             const err = new Error('Not Authorized');
-            err.status = 401;
+            err.status = 403;
             err.title = 'Not Authorized';
             return next(err);
         }
@@ -149,7 +149,7 @@ router.delete('/:songId', requireAuth, async (req, res, next) => {
             })
         } else {
             const err = new Error('Not Authorized');
-            err.status = 401;
+            err.status = 403;
             err.title = 'Not Authorized';
             return next(err);
         }

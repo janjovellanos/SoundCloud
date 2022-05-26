@@ -36,7 +36,7 @@ router.post('/:playlistId', requireAuth, async (req, res, next) => {
             } else {
                 const err = new Error('Not Authorized');
                 err.title = 'Not Authorized';
-                err.status = 401;
+                err.status = 403;
                 return next(err);
             }
         } else {
@@ -68,7 +68,7 @@ router.put('/:playlistId', requireAuth, validatePlaylistCreation, async (req, re
         } else {
             const err = new Error('Not Authorized');
             err.title = 'Not Authorized';
-            err.status = 401;
+            err.status = 403;
             return next(err);
         }
     } else {
@@ -96,7 +96,7 @@ router.delete('/:playlistId', requireAuth, async (req, res, next) => {
         } else {
             const err = new Error('Not Authorized');
             err.title = 'Not Authorized';
-            err.status = 401;
+            err.status = 403;
             return next(err);
         }
     } else {

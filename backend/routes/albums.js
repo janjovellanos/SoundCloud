@@ -78,7 +78,7 @@ router.post('/:albumId', requireAuth, validateSongCreation, async (req, res, nex
             return res.json(newSong);
         } else {
             const err = new Error('Not Authorized');
-            err.status = 401;
+            err.status = 403;
             err.title = 'Not Authorized'
             return next(err);
         }
@@ -104,7 +104,7 @@ router.put('/:albumId', requireAuth, validateAlbumCreation, async (req, res, nex
             return res.json(album)
         } else {
             const err = new Error('Not Authorized');
-            err.status = 401;
+            err.status = 403;
             err.title = 'Not Authorized'
             return next(err);
         }
@@ -133,7 +133,7 @@ router.delete('/:albumId', requireAuth, async (req, res, next) => {
             })
         } else {
             const err = new Error('Not Authorized');
-            err.status = 401;
+            err.status = 403;
             err.title = 'Not Authorized'
             return next(err);
         }
