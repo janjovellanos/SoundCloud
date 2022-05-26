@@ -30,6 +30,24 @@ module.exports = {
         description: 'description of Album 3',
         imageUrl: 'URL of Album 3',
       },
+      {
+        userId: 4,
+        title: 'souljaboytellem.com',
+        description: 'description of the album',
+        imageUrl: 'URL of the Album',
+      },
+      {
+        userId: 5,
+        title: 'Let Go',
+        description: 'description of the album',
+        imageUrl: 'URL of the Album',
+      },
+      {
+        userId: 6,
+        title: 'Word of Mouf',
+        description: 'description of the album',
+        imageUrl: 'URL of the Album',
+      },
     ])
   },
 

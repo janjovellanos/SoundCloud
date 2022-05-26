@@ -27,6 +27,30 @@ module.exports = {
         username: 'FakeUser2',
         imageUrl: 'Artist IMG',
         hashedPassword: bcrypt.hashSync('password3')
+      },
+      {
+        firstName: 'DeAndre',
+        lastName: 'Cortes Way',
+        email: 'soulja@gmail.com',
+        username: 'Soulja Boy Tell Em',
+        imageUrl: '-_"."_-',
+        hashedPassword: bcrypt.hashSync('superman')
+      },
+      {
+        firstName: 'Avril Ramona',
+        lastName: 'Lavigne',
+        email: 'avril@gmail.com',
+        username: 'Arvil Lavigne',
+        imageUrl: ':D',
+        hashedPassword: bcrypt.hashSync('ironman')
+      },
+      {
+        firstName: 'Christopher',
+        lastName: 'Bridges',
+        email: 'luda@gmail.com',
+        username: 'Ludacris',
+        imageUrl: '>:|',
+        hashedPassword: bcrypt.hashSync('batman')
       }
     ])
   },
