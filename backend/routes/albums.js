@@ -33,15 +33,6 @@ router.get('/:albumId', async (req, res, next) => {
             { model: User, as: 'Artist', attributes: ['id', 'username', 'imageUrl'] },
             {
                 model: Song,
-                // attributes: [
-                //     'id',
-                //     'userId',
-                //     'albumId',
-                //     'title',
-                //     'description',
-                //     'audioUrl',
-                //     'imageUrl'
-                // ]
             }
         ]
     });
