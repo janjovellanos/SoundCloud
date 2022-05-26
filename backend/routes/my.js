@@ -20,7 +20,7 @@ const validateLogin = [
 ];
 
 //restore session user / get user profile
-router.get('/profile', restoreUser, (req, res) => {
+router.get('/profile', requireAuth, restoreUser, (req, res) => {
     const { user } = req;
     if (user) {
         return res.json({
