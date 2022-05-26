@@ -59,7 +59,7 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('Albums', {
-      title: ['Album 1', 'Album 2', 'Album 3']
+      title: ['Album 1', 'Album 2', 'Album 3', 'souljaboytellem.com', 'Let Go', 'Word of Mouf']
     });
   }
 };
