@@ -1,18 +1,10 @@
 const express = require('express');
-const { check } = require('express-validator');
 
-const { requireAuth, restoreUser } = require('../utils/auth');
-const { handleValidationErrors } = require('../utils/validation');
-const { Song, User, Album, Comment, Playlist, PlaylistSong } = require('../db/models');
+const { requireAuth } = require('../utils/auth');
+const { validatePlaylistCreation } = require('../utils/validation');
+const { Song, Playlist, PlaylistSong } = require('../db/models');
 
 const router = express.Router();
-
-validatePlaylistCreation = [
-    check('name')
-        .exists({ checkFalsy: true })
-        .withMessage('Name is required'),
-    handleValidationErrors
-];
 
 //add song to playlist
 router.post('/:playlistId', requireAuth, async (req, res, next) => {
@@ -27,7 +19,7 @@ router.post('/:playlistId', requireAuth, async (req, res, next) => {
     if (playlist) {
         if (song) {
             if (user.id === playlist.userId) {
-                const playlistSongAssociation = await PlaylistSong.create({ playlistId, songId });
+                await PlaylistSong.create({ playlistId, songId });
                 const playlistSong = await PlaylistSong.findOne({
                     where: { playlistId, songId },
                     attributes: ['id', 'playlistId', 'songId']

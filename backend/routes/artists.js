@@ -1,8 +1,5 @@
 const express = require('express');
-const { check } = require('express-validator');
 
-const { requireAuth, restoreUser } = require('../utils/auth');
-const { handleValidationErrors } = require('../utils/validation');
 const { Song, User, Album, Comment, Playlist } = require('../db/models');
 
 const router = express.Router();
@@ -68,9 +65,9 @@ router.get('/:artistId/albums', async (req, res, next) => {
 router.get('/:artistId/playlists', async (req, res, next) => {
     const { artistId } = req.params;
 
-    const playlists = await Playlist.findAll({ where: { userId: artistId } });
-
-    if (playlists.length) {
+    const artist = await User.findByPk(artistId);
+    if (artist) {
+        const playlists = await Playlist.findAll({ where: { userId: artistId } });
         res.json({ Playlists: playlists });
     } else {
         const err = new Error("Artist couldn't be found");

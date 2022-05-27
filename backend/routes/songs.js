@@ -1,44 +1,10 @@
 const express = require('express');
-const { check } = require('express-validator');
 
 const { requireAuth } = require('../utils/auth');
-const { handleValidationErrors } = require('../utils/validation');
+const { validateQueryFilters } = require('../utils/validation');
 const { Song, User, Album, Comment } = require('../db/models');
 
 const router = express.Router();
-
-validateSongCreation = [
-    check('title')
-        .exists({ checkFalsy: true })
-        .withMessage('Song title is required'),
-    check('audioUrl')
-        .exists({ checkFalsy: true })
-        .withMessage('Audio is required'),
-    handleValidationErrors
-];
-
-validateCommentCreation = [
-    check('body')
-        .exists({ checkFalsy: true })
-        .withMessage('Body text is required'),
-    handleValidationErrors
-];
-
-validateQueryFilters = [
-    check('page')
-        .isInt({ min: 0 })
-        .optional({ nullable: true })
-        .withMessage('Page must be greater than or equal to 0'),
-    check('size')
-        .isInt({ min: 0 })
-        .optional({ nullable: true })
-        .withMessage('Page must be greater than or equal to 0'),
-    check('createdAt')
-        .isDate()
-        .optional({ nullable: true })
-        .withMessage('CreatedAt is invalid'),
-    handleValidationErrors
-]
 
 //get comments on specified song
 router.get('/:songId/comments', async (req, res, next) => {
