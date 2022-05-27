@@ -1,18 +1,17 @@
 const express = require('express');
-const { check } = require('express-validator');
 
 const { requireAuth } = require('../utils/auth');
-const { handleValidationErrors } = require('../utils/validation');
+const { validateCommentCreation } = require('../utils/validation');
 const { Comment } = require('../db/models');
 
 const router = express.Router();
 
-validateCommentCreation = [
-    check('body')
-        .exists({ checkFalsy: true })
-        .withMessage('Body text is required'),
-    handleValidationErrors
-];
+// validateCommentCreation = [
+//     check('body')
+//         .exists({ checkFalsy: true })
+//         .withMessage('Body text is required'),
+//     handleValidationErrors
+// ];
 
 //edit a comment
 router.put('/:commentId', requireAuth, validateCommentCreation, async (req, res, next) => {

@@ -1,40 +1,11 @@
 const express = require('express');
-const { check } = require('express-validator');
 
 const { setTokenCookie } = require('../utils/auth');
-const { handleValidationErrors } = require('../utils/validation');
+const { validateSignup } = require('../utils/validation');
 const { User } = require('../db/models');
 
 
 const router = express.Router();
-
-//validate req body for signup
-validateSignup = [
-    check('email')
-        .exists({ checkFalsy: true })
-        .withMessage('Invalid email')
-        .isEmail()
-        .withMessage('Email is required'),
-    check('username')
-        .exists({ checkFalsy: true })
-        .withMessage('Username is required')
-        .isLength({ min: 4 })
-        .withMessage('Please provide a username with at least 4 characters.'),
-    check('username')
-        .not()
-        .isEmail()
-        .withMessage('Username cannot be an email.'),
-    check('firstName')
-        .exists({ checkFalsy: true }),
-    check('lastName')
-        .exists({ checkFalsy: true }),
-    check('password')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide a password.')
-        .isLength({ min: 6 })
-        .withMessage('Password must be 6 characters or more.'),
-    handleValidationErrors
-];
 
 //sign up
 router.post('/', validateSignup, async (req, res, next) => {

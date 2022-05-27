@@ -65,9 +65,9 @@ router.get('/:artistId/albums', async (req, res, next) => {
 router.get('/:artistId/playlists', async (req, res, next) => {
     const { artistId } = req.params;
 
-    const playlists = await Playlist.findAll({ where: { userId: artistId } });
-
-    if (playlists.length) {
+    const artist = await User.findByPk(artistId);
+    if (artist) {
+        const playlists = await Playlist.findAll({ where: { userId: artistId } });
         res.json({ Playlists: playlists });
     } else {
         const err = new Error("Artist couldn't be found");
