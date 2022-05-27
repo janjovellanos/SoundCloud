@@ -6,13 +6,6 @@ const { Comment } = require('../db/models');
 
 const router = express.Router();
 
-// validateCommentCreation = [
-//     check('body')
-//         .exists({ checkFalsy: true })
-//         .withMessage('Body text is required'),
-//     handleValidationErrors
-// ];
-
 //edit a comment
 router.put('/:commentId', requireAuth, validateCommentCreation, async (req, res, next) => {
     const { commentId } = req.params;
