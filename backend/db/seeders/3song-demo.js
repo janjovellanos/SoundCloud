@@ -119,7 +119,7 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('Songs', {
-      title: ['Song 1', 'Song 2', 'Song 3', 'Song 4', 'Song 5', 'Song 6']
+      title: ['Song 1', 'Song 2', 'Song 3', 'Song 4', 'Song 5', 'Song 6', 'Crank That (Soulja Boy)', 'Kiss Me Thru The Phone', 'Complicated', 'Sk8er Boi', 'Move', 'Area Codes']
     })
   }
 };
