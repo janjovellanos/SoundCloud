@@ -1,28 +1,10 @@
 const express = require('express');
-const { check } = require('express-validator');
 
-const { restoreUser, requireAuth } = require('../utils/auth');
-const { handleValidationErrors } = require('../utils/validation');
+const { requireAuth } = require('../utils/auth');
+const { validateSongCreation, validateAlbumCreation } = require('../utils/validation');
 const { Song, User, Album } = require('../db/models');
 
 const router = express.Router();
-
-validateSongCreation = [
-    check('title')
-        .exists({ checkFalsy: true })
-        .withMessage('Song title is required'),
-    check('audioUrl')
-        .exists({ checkFalsy: true })
-        .withMessage('Audio is required'),
-    handleValidationErrors
-];
-
-validateAlbumCreation = [
-    check('title')
-        .exists({ checkFalsy: true })
-        .withMessage('Album title is required'),
-    handleValidationErrors
-];
 
 //get specified album
 router.get('/:albumId', async (req, res, next) => {
