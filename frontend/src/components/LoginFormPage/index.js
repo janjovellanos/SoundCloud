@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
-import { login } from "../../store/session"
+import * as sessionActions from '../../store/session';
 import { Redirect } from 'react-router-dom';
 
 import './LoginForm.css';
@@ -20,7 +20,7 @@ const LoginFormPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
-        return dispatch(login({ credential, password }))
+        return dispatch(sessionActions.login({ credential, password }))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
