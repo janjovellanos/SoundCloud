@@ -17,14 +17,16 @@ const LoginFormPage = () => {
         <Redirect to='/' />
     );
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
+
+        const loginErrors = [];
         setErrors([]);
         return dispatch(sessionActions.login({ credential, password }))
             .catch(async (res) => {
                 const data = await res.json();
-                if (data /*&& data.errors*/) await setErrors(data/*.errors*/);
-                // console.log(errors)
+                if (data /*&& data.errors*/) loginErrors.push(data/*.errors*/);
+                setErrors(loginErrors);
             });
     };
 
@@ -32,7 +34,9 @@ const LoginFormPage = () => {
         <div className="login-box">
             <form onSubmit={handleSubmit} className='login-form'>
                 <ul>
-                    <li key={errors.statusCode}>{errors.message}</li>
+                    {errors.map(error => (
+                        <li key={error.message}>{error.message}</li>
+                    ))}
                 </ul>
                 <h2>Login</h2>
                 <label>

@@ -39,3 +39,7 @@ body {
     font-weight: bold;
     /* margin: 10px; */
 }
+
+ul {
+    list-style: none;
+}
