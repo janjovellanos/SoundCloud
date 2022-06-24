@@ -21,7 +21,7 @@ const LoginFormPage = () => {
         e.preventDefault();
 
         const loginErrors = [];
-        setErrors([]);
+
         return dispatch(sessionActions.login({ credential, password }))
             .catch(async (res) => {
                 const data = await res.json();
