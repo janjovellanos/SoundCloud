@@ -58,7 +58,7 @@ ul {
     list-style: none;
 }
 
-button {
+.signup-button {
     margin: 0;
     position: absolute;
     top: 80%;

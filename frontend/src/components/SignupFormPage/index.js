@@ -100,7 +100,7 @@ const SignupFormPage = () => {
                         required
                     />
                 </label>
-                <button type="submit">Sign Up</button>
+                <button type="submit" className="signup-button">Sign Up</button>
             </form>
         </div>
     )
