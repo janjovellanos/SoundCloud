@@ -27,6 +27,9 @@ body {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
+    /* display: flex; */
+    /* flex-flow: row wrap; */
+    /* align-items: center; */
 }
 
 .signup-box {
@@ -35,11 +38,29 @@ body {
 }
 
 .signup-form label {
+    /* display: inline-table;
     padding: 5px;
     font-weight: bold;
+    text-align: right;
+    clear: both;
+    float: left;
+    margin-right: 15px; */
     /* margin: 10px; */
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    margin-left: 100px;
+    margin-bottom: 5px;
+    position: static;
 }
 
 ul {
     list-style: none;
+}
+
+button {
+    margin: 0;
+    position: absolute;
+    top: 80%;
+
 }
