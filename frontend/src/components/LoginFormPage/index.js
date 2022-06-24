@@ -38,7 +38,6 @@ const LoginFormPage = () => {
                         <li key={error.message}>{error.message}</li>
                     ))}
                 </ul>
-                <h2>Login</h2>
                 <label>
                     Username/Email:
                     <input

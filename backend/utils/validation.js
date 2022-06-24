@@ -61,9 +61,9 @@ const validateLogin = [
 validateSignup = [
     check('email')
         .exists({ checkFalsy: true })
-        .withMessage('Invalid email')
+        .withMessage('Email is required')
         .isEmail()
-        .withMessage('Email is required'),
+        .withMessage('Invalid email'),
     check('username')
         .exists({ checkFalsy: true })
         .withMessage('Username is required')
@@ -78,7 +78,7 @@ validateSignup = [
         .withMessage('First name is required'),
     check('lastName')
         .exists({ checkFalsy: true })
-        .withMessage('First name is required'),
+        .withMessage('Last name is required'),
     check('password')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a password.')
