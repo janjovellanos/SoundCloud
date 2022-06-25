@@ -1,6 +1,6 @@
 .nav-ul {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
 }
 
 .nav-li {
@@ -13,4 +13,5 @@
 
 .profile-button-div {
     font-size: 25px;
+    border-radius: 5px;
 }

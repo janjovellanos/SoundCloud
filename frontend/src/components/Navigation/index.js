@@ -10,8 +10,8 @@ const Navigation = ({ isLoaded }) => {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <li className='nav-li'>
-                <ProfileButton user={sessionUser} />
+            <li className='profile-button-li'>
+                <ProfileButton user={sessionUser} className="profile-button" />
             </li>
         );
     } else {
