@@ -1,3 +1,16 @@
 .nav-ul {
     display: flex;
+    justify-content: flex-end;
+}
+
+.nav-li {
+    margin: 10px;
+    /* padding: 10px; */
+    font-weight: bolder;
+    font-size: 20px;
+    /* background-color: orange; */
+}
+
+.profile-button-div {
+    font-size: 25px;
 }

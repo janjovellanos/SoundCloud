@@ -40,12 +40,12 @@ body {
 .signup-form label {
     /* display: inline-table;
     padding: 5px;
-    font-weight: bold;
     text-align: right;
     clear: both;
     float: left;
     margin-right: 15px; */
     /* margin: 10px; */
+    font-weight: bold;
     display: inline-block;
     width: 150px;
     text-align: center;

@@ -10,17 +10,17 @@ const Navigation = ({ isLoaded }) => {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <li>
+            <li className='nav-li'>
                 <ProfileButton user={sessionUser} />
             </li>
         );
     } else {
         sessionLinks = (
             <>
-                <li>
+                <li className='nav-li'>
                     <NavLink to="/login">Log In</NavLink>
                 </li>
-                <li>
+                <li className='nav-li'>
                     <NavLink to="/signup">Sign Up</NavLink>
                 </li>
             </>
@@ -30,7 +30,7 @@ const Navigation = ({ isLoaded }) => {
     return (
         <div className='nav-div'>
             <ul className='nav-ul'>
-                <li>
+                <li className='nav-li'>
                     <NavLink exact to="/">Home</NavLink>
                 </li>
                 {isLoaded && sessionLinks}
