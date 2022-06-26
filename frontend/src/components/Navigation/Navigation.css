@@ -1,17 +1,106 @@
-.nav-ul {
+.top-splash {
+    background-color: #333333;
+    padding: 0 10px;
+    margin: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 10px 15px 18px rgba(0, 0, 0, 0.25);
+    width: 100%;
+}
+
+.active {
+    color: #fff;
+    font-weight: 700;
+}
+
+nav {
+    background-color: aqua;
+    padding: 0;
+    width: 100%;
 }
 
 .nav-li {
-    margin: 10px;
-    /* padding: 10px; */
-    font-weight: bolder;
-    font-size: 20px;
-    /* background-color: orange; */
+    color: blue;
 }
 
-.profile-button-div {
-    font-size: 25px;
-    border-radius: 5px;
+nav a {
+    color: white;
+}
+
+.signup-btn {
+    background-color: #ff5501;
+    border-color: #ff5501;
+    color: #fff;
+    height: 30px;
+    margin: 5px;
+    padding: 4px 15px;
+    border: 1px solid #ff5501;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.login-btn {
+    background-color: transparent;
+    margin: 5px;
+    border-color: white;
+    color: #fff;
+    height: 30px;
+    margin: 0;
+    padding: 4px 15px;
+    border: 1px solid white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.nav-left {
+    background-color: transparent;
+    border-color: white;
+    color: rgb(255, 255, 255);
+    height: 30px;
+    margin: 0;
+    padding: 4px 15px;
+    border: 1px solid white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.search-bar {
+    border: 1px solid #ff5501;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    padding: 3px;
+    width: 50%;
+    box-shadow: 4px 2px 2px #ff560171;
+}
+
+.search-input {
+    width: 100%;
+    padding: 2px;
+}
+
+ul {
+    list-style: none;
 }

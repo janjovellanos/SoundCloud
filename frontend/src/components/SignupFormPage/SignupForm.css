@@ -1,4 +1,4 @@
-html,
+/* html,
 body {
     padding: 0;
     margin: 0;
@@ -27,9 +27,9 @@ body {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
-    /* display: flex; */
-    /* flex-flow: row wrap; */
-    /* align-items: center; */
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
 }
 
 .signup-box {
@@ -38,13 +38,13 @@ body {
 }
 
 .signup-form label {
-    /* display: inline-table;
+    display: inline-table;
     padding: 5px;
     text-align: right;
     clear: both;
     float: left;
-    margin-right: 15px; */
-    /* margin: 10px; */
+    margin-right: 15px;
+    margin: 10px;
     font-weight: bold;
     display: inline-block;
     width: 150px;
@@ -63,4 +63,4 @@ ul {
     position: absolute;
     top: 80%;
 
-}
+} */

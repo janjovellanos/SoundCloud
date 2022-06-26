@@ -9,33 +9,31 @@ const Navigation = ({ isLoaded }) => {
 
     let sessionLinks;
     if (sessionUser) {
-        sessionLinks = (
-            <li className='profile-button-li'>
-                <ProfileButton user={sessionUser} className="profile-button" />
-            </li>
-        );
+        sessionLinks = <ProfileButton user={sessionUser} />
     } else {
         sessionLinks = (
             <>
-                <li className='nav-li'>
-                    <NavLink to="/login">Log In</NavLink>
-                </li>
-                <li className='nav-li'>
-                    <NavLink to="/signup">Sign Up</NavLink>
-                </li>
+                <NavLink className='login-btn' to="/login">Log In</NavLink>
+                <NavLink className='signup-btn' to="/signup">Sign Up</NavLink>
             </>
         );
     }
 
     return (
-        <div className='nav-div'>
-            <ul className='nav-ul'>
-                <li className='nav-li'>
-                    <NavLink exact to="/">Home</NavLink>
-                </li>
-                {isLoaded && sessionLinks}
-            </ul>
-        </div>
+        <nav className="navigation">
+            <div className="top-splash">
+                <div className="nav-right">
+                    <ul>
+                        <li>
+                            <NavLink className='nav-left' exact to="/">
+                                Home
+                            </NavLink>
+                            {isLoaded && sessionLinks}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     );
 }
 
