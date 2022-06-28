@@ -22,12 +22,14 @@ const Navigation = ({ isLoaded }) => {
     return (
         <nav className="navigation">
             <div className="top-splash">
+                <div className='nav-left'>
+                    <NavLink exact to="/">
+                        Home
+                    </NavLink>
+                </div>
                 <div className="nav-right">
                     <ul>
                         <li>
-                            <NavLink className='nav-left' exact to="/">
-                                Home
-                            </NavLink>
                             {isLoaded && sessionLinks}
                         </li>
                     </ul>
