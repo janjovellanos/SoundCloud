@@ -74,7 +74,7 @@ nav a {
 }
 
 
-.nav-left {
+.nav-left img {
     background-color: transparent;
     border-color: white;
     color: rgb(255, 255, 255);
@@ -99,7 +99,7 @@ nav a {
     color: rgb(255, 255, 255);
     height: 30px;
     margin: 0;
-    padding: 6px 15px;
+    padding: 5.5px 15px;
     border: 1px solid white;
     border-radius: 6px;
     cursor: pointer;
@@ -117,7 +117,7 @@ nav a {
     border-radius: 4px;
     font-size: 16px;
     outline: none;
-    padding: 3px;
+    padding: 4px;
     width: 50%;
     box-shadow: 4px 2px 6px #ff560171;
     background-color: white;
@@ -143,6 +143,6 @@ ul {
     height: 1920px;
 }
 
-a {
+/* a {
     text-decoration: none;
-}
+} */
