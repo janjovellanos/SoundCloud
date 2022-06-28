@@ -28,7 +28,7 @@ nav a {
     color: white;
 }
 
-.signup-btn {
+.nav-right button+button {
     background-color: #ff5501;
     border-color: #ff5501;
     color: #fff;
