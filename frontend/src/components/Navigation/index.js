@@ -16,7 +16,7 @@ const Navigation = ({ isLoaded }) => {
         sessionLinks = (
             <>
                 {/* <NavLink className='login-btn' to="/login">Log In</NavLink> */}
-                <LoginFormModal className='login-btn' />
+                <LoginFormModal />
                 <NavLink className='signup-btn' to="/signup">Sign Up</NavLink>
             </>
         );
