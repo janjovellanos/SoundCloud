@@ -27,6 +27,13 @@ const Navigation = ({ isLoaded }) => {
                         Home
                     </NavLink>
                 </div>
+                <div className='search-bar'>
+                    <input
+                        type='text'
+                        placeholder='Search for anything...'
+                        className='search-input'
+                    />
+                </div>
                 <div className="nav-right">
                     <ul>
                         <li>
