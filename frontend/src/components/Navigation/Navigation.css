@@ -67,6 +67,7 @@ nav a {
     box-sizing: border-box;
 }
 
+
 .nav-left {
     background-color: transparent;
     border-color: white;
@@ -86,7 +87,7 @@ nav a {
     box-sizing: border-box;
 }
 
-.search-bar {
+/* .search-bar {
     border: 1px solid #ff5501;
     border-radius: 4px;
     font-size: 16px;
@@ -99,7 +100,7 @@ nav a {
 .search-input {
     width: 100%;
     padding: 2px;
-}
+} */
 
 ul {
     list-style: none;
