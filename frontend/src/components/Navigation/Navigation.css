@@ -47,7 +47,8 @@ nav a {
     box-sizing: border-box;
 }
 
-.login-btn {
+/* .login-btn */
+.nav-right button {
     background-color: transparent;
     margin: 5px;
     border-color: white;
@@ -94,12 +95,16 @@ nav a {
     outline: none;
     padding: 3px;
     width: 50%;
-    box-shadow: 4px 2px 2px #ff560171;
+    box-shadow: 4px 2px 6px #ff560171;
+    background-color: white;
+    display: flex;
+    justify-content: center;
 }
 
 .search-input {
     width: 100%;
     padding: 2px;
+    border: none;
 }
 
 ul {

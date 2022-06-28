@@ -5,18 +5,18 @@ import { Redirect, useHistory } from 'react-router-dom';
 
 import './LoginForm.css';
 
-const LoginFormPage = () => {
+const LoginForm = () => {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
+    // const sessionUser = useSelector(state => state.session.user);
 
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
-    const history = useHistory();
+    // const history = useHistory();
 
-    if (sessionUser) return (
-        <Redirect to='/' />
-    );
+    // if (sessionUser) return (
+    //     <Redirect to='/' />
+    // );
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,7 +31,7 @@ const LoginFormPage = () => {
                 if (data && data.errors) setErrors(data.errors);
             });
         if (results) {
-            history.pushState('/');
+            // history.pushState('/');
         } else setErrors(['Login Failed']);
     };
 
@@ -92,4 +92,4 @@ const LoginFormPage = () => {
     );
 }
 
-export default LoginFormPage;
+export default LoginForm;
