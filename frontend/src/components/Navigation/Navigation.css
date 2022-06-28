@@ -1,6 +1,6 @@
 .top-splash {
-    background-color: #333333;
-    padding: 0 10px;
+    background-color: transparent;
+    /* padding: 0 10px; */
     margin: 0;
     display: flex;
     justify-content: space-between;
@@ -15,7 +15,7 @@
 }
 
 nav {
-    background-color: aqua;
+    /* background-color: aqua; */
     padding: 0;
     width: 100%;
 }
@@ -47,6 +47,11 @@ nav a {
     box-sizing: border-box;
 }
 
+.session-btns {
+    /* background-color: pink; */
+    padding: 0 5px;
+}
+
 /* .login-btn */
 .nav-right button {
     background-color: transparent;
@@ -73,9 +78,28 @@ nav a {
     background-color: transparent;
     border-color: white;
     color: rgb(255, 255, 255);
-    height: 30px;
+    height: 40px;
     margin: 0;
     padding: 4px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+
+}
+
+.nav-left a {
+    background-color: transparent;
+    border-color: white;
+    color: rgb(255, 255, 255);
+    height: 30px;
+    margin: 0;
+    padding: 6px 15px;
     border: 1px solid white;
     border-radius: 6px;
     cursor: pointer;
@@ -109,4 +133,16 @@ nav a {
 
 ul {
     list-style: none;
+    padding: 0;
+}
+
+.navigation {
+    background-image: url(https://a-v2.sndcdn.com/assets/images/sc_landing_header_web_c@2x-1265910e.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 1920px;
+}
+
+a {
+    text-decoration: none;
 }

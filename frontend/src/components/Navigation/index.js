@@ -5,6 +5,7 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 
+
 import './Navigation.css';
 
 const Navigation = ({ isLoaded }) => {
@@ -28,6 +29,7 @@ const Navigation = ({ isLoaded }) => {
         <nav className="navigation">
             <div className="top-splash">
                 <div className='nav-left'>
+                    <img src={require('../../images/soundcloud.png')} className='nav-left' />
                     <NavLink exact to="/">
                         Home
                     </NavLink>
@@ -41,7 +43,7 @@ const Navigation = ({ isLoaded }) => {
                 </div>
                 <div className="nav-right">
                     <ul>
-                        <li>
+                        <li className='session-btns'>
                             {isLoaded && sessionLinks}
                         </li>
                     </ul>
