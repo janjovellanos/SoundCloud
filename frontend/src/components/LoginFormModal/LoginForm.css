@@ -11,9 +11,25 @@ body {
     background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
 }
 
+
+.login-box {
+    display: table;
+    width: 100%;
+}
+
+
+ul {
+    list-style: none;
+} */
+
+/* .login-form label {
+    padding: 5px;
+    font-weight: bold;
+    margin: 10px;
+} */
 .login-form {
     width: 50%;
-    height: 200px;
+    height: fit-content;
     max-width: 300px;
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.05);
@@ -21,25 +37,19 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-right-color: rgba(255, 255, 255, 0.1);
     border-bottom-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1); */
     padding: 15px;
     position: relative;
     display: table-cell;
     text-align: center;
     vertical-align: middle;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
 }
 
-.login-box {
-    display: table;
-    width: 100%;
+.login-form div {
+    margin: 4px;
+    display: flex;
 }
-
-.login-form label {
-    padding: 5px;
-    font-weight: bold;
-    margin: 10px;
-}
-
-ul {
-    list-style: none;
-} */

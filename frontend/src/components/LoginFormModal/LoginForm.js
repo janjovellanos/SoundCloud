@@ -63,7 +63,7 @@ const LoginForm = () => {
     //         </form>
     // )
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='login-form'>
             <ul>
                 {errors.map((error, idx) => (
                     <li key={idx}>{error}</li>
@@ -71,23 +71,31 @@ const LoginForm = () => {
             </ul>
             <label>
                 Username or Email
-                <input
-                    type="text"
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
-                    required
-                />
+                <div>
+
+                    <input
+                        type="text"
+                        value={credential}
+                        onChange={(e) => setCredential(e.target.value)}
+                        required
+                    />
+                </div>
             </label>
             <label>
                 Password
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
+                <div>
+
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
             </label>
-            <button type="submit">Log In</button>
+            <div>
+                <button type="submit">Log In</button>
+            </div>
         </form>
     );
 }

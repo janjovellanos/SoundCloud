@@ -11,15 +11,38 @@
 }
 
 #modal-background {
+    /* background-color: blue; */
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
-    /* background-color: blue; */
 }
 
-#modal-content {
+/* #modal-content form {
     position: absolute;
     background-color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+#modal-content {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 16px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    /* box-sizing: content-box; */
+    /* height: 60% */
+    /* background-color: blue; */
 }
