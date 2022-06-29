@@ -46,3 +46,9 @@
     /* height: 60% */
     /* background-color: blue; */
 }
+
+#modal-content label,
+#modal-content button {
+    font-family: sans-serif;
+    font-weight: bold;
+}
