@@ -40,7 +40,7 @@ const LoginForm = () => {
     return (
         <>
             <form onSubmit={handleSubmit} className='login-form'>
-                <h2>Log In</h2>
+                <h3>Log In</h3>
                 <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
