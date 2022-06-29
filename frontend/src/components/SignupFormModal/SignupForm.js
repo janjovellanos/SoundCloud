@@ -29,87 +29,93 @@ const SignupForm = () => {
             return dispatch(sessionActions.signup({ email, username, password, firstName, lastName }))
                 .catch(async (res) => {
                     const data = await res.json();
-                    if (data && data.errors) setErrors(data.errors)
+                    console.log(data);
+                    if (data && data.errors) setErrors(Object.values(data.errors))
                 });
         }
         return setErrors(['Confirm Password field must be the same as the Password field']);
     };
 
     return (
-        <form onSubmit={handleSubmit} className='signup-form'>
-            <ul>
-                {errors.map((error, idx) => (
-                    <li key={idx}>{error}</li>
-                ))}
-            </ul>
-            <label>
-                First Name:
+        <>
+            <form onSubmit={handleSubmit} className='signup-form'>
+                <h2>Sign Up</h2>
+                <ul>
+                    {errors.map((error, idx) => (
+                        <li key={idx}>{error}</li>
+                    ))}
+                </ul>
+                <label>
+                    First Name:
+                    <div>
+                        <input
+                            type="text"
+                            value={firstName}
+                            onChange={e => setFirstName(e.target.value)}
+                            required
+                        />
+                    </div>
+                </label>
+                <label>
+                    Last Name:
+                    <div>
+                        <input
+                            type="text"
+                            value={lastName}
+                            onChange={e => setLastName(e.target.value)}
+                            required
+                        />
+                    </div>
+                </label>
+                <label>
+                    Email:
+                    <div>
+                        <input
+                            type="text"
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+                </label>
+                <label>
+                    Username:
+                    <div>
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={e => setUsername(e.target.value)}
+                            required
+                        />
+                    </div>
+                </label>
+                <label>
+                    Password:
+                    <div>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                </label>
+                <label>
+                    Confirm Password:
+                    <div>
+                        <input
+                            type="password"
+                            value={confirmPassword}
+                            onChange={e => setConfirmPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                </label>
                 <div>
-                    <input
-                        type="text"
-                        value={firstName}
-                        onChange={e => setFirstName(e.target.value)}
-                        required
-                    />
+                    <button type="submit">Sign Up</button>
                 </div>
-            </label>
-            <label>
-                Last Name:
-                <div>
-                    <input
-                        type="text"
-                        value={lastName}
-                        onChange={e => setLastName(e.target.value)}
-                        required
-                    />
-                </div>
-            </label>
-            <label>
-                Email:
-                <div>
-                    <input
-                        type="text"
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
-                        required
-                    />
-                </div>
-            </label>
-            <label>
-                Username:
-                <div>
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={e => setUsername(e.target.value)}
-                        required
-                    />
-                </div>
-            </label>
-            <label>
-                Password:
-                <div>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
-            </label>
-            <label>
-                Confirm Password:
-                <div>
-                    <input
-                        type="password"
-                        value={confirmPassword}
-                        onChange={e => setConfirmPassword(e.target.value)}
-                        required
-                    />
-                </div>
-            </label>
-            <button type="submit">Sign Up</button>
-        </form>
+            </form>
+        </>
     )
 }
 
