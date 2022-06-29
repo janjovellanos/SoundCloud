@@ -1,6 +1,6 @@
 .songs-list-full-wrapper {
     background: #fff;
-    padding: 60px 10px 120px;
+    padding: 10px 10px 120px;
 }
 
 .songs-list-full-wrapper h2 {
@@ -32,7 +32,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 294px;
+    height: 100px;
     margin-bottom: 10px;
     position: relative;
     width: 100%;
