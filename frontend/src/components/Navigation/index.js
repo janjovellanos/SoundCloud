@@ -2,6 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import LoginFormModal from '../LoginFormModal';
+import SignupFormModal from '../SignupFormModal';
+
+
 import './Navigation.css';
 
 const Navigation = ({ isLoaded }) => {
@@ -13,8 +17,10 @@ const Navigation = ({ isLoaded }) => {
     } else {
         sessionLinks = (
             <>
-                <NavLink className='login-btn' to="/login">Log In</NavLink>
-                <NavLink className='signup-btn' to="/signup">Sign Up</NavLink>
+                {/* <NavLink className='login-btn' to="/login">Log In</NavLink> */}
+                <LoginFormModal />
+                {/* <NavLink className='signup-btn' to="/signup">Sign Up</NavLink> */}
+                <SignupFormModal />
             </>
         );
     }
@@ -23,6 +29,7 @@ const Navigation = ({ isLoaded }) => {
         <nav className="navigation">
             <div className="top-splash">
                 <div className='nav-left'>
+                    <img src={require('../../images/soundcloud.png')} className='nav-left' />
                     <NavLink exact to="/">
                         Home
                     </NavLink>
@@ -36,7 +43,7 @@ const Navigation = ({ isLoaded }) => {
                 </div>
                 <div className="nav-right">
                     <ul>
-                        <li>
+                        <li className='session-btns'>
                             {isLoaded && sessionLinks}
                         </li>
                     </ul>
