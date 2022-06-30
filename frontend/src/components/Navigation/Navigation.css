@@ -20,6 +20,32 @@
     width: 100%;
 }
 
+.logout-navigation {
+    background-image: url(https://a-v2.sndcdn.com/assets/images/sc_landing_header_web_c@2x-1265910e.jpg);
+    /*
+    background-repeat: no-repeat;
+    */
+    /* justify-content: flex-start; */
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    background-size: cover;
+    height: 400px;
+    padding: 0 10px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 10px 15px 18px rgba(0, 0, 0, 0.25);
+    width: 100%;
+}
+
+.login-navigation {
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 65px;
+}
+
 .active {
     color: #fff;
     font-weight: 700;
@@ -46,6 +72,7 @@
 
 .session-btns {
     padding: 0 5px;
+    margin-right: 5px;
 }
 
 .profile-btn {
@@ -141,24 +168,8 @@ ul {
     padding: 0;
 }
 
-.logout-navigation {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-image: url(https://a-v2.sndcdn.com/assets/images/sc_landing_header_web_c@2x-1265910e.jpg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 400px;
-}
-
-.login-navigation {
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 300px;
-}
-
 .profile-dropdown {
-    background-color: rgb(51, 51, 51, 0.6);
+    background-color: rgb(51, 51, 51, 0.5);
     border: 1px solid rgb(51, 51, 51);
     color: #fff;
     display: flex;
