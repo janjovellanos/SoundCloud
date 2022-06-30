@@ -3,6 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import ProfileButton from './ProfileButton';
+import HomeButton from './HomeButton';
+import SongButton from './SongButton';
+import AlbumButton from './AlbumButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 
@@ -16,14 +19,15 @@ const Navigation = ({ isLoaded }) => {
     if (sessionUser) {
         sessionLinks =
             <>
+                <HomeButton />
+                <SongButton />
+                <AlbumButton />
                 <ProfileButton user={sessionUser} />
             </>
     } else {
         sessionLinks = (
             <>
-                {/* <NavLink className='login-btn' to="/login">Log In</NavLink> */}
                 <LoginFormModal />
-                {/* <NavLink className='signup-btn' to="/signup">Sign Up</NavLink> */}
                 <SignupFormModal />
             </>
         );
@@ -34,8 +38,6 @@ const Navigation = ({ isLoaded }) => {
             <div className="top-splash">
                 <div className='nav-left'>
                     <img src={require('../../images/soundcloud.png')} className='nav-left' />
-                    <NavLink exact to="/">Home</NavLink>
-                    <NavLink to='/songs'>All Songs</NavLink>
                 </div>
                 <div className='search-bar'>
                     <input

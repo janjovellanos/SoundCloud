@@ -16,6 +16,8 @@ const AllSongs = () => {
 
     if (!songs) return null;
 
+    // console.log(songs);
+
     return (
         <div className='songs-list-full-wrapper'>
             <h2>Sounds around the world.</h2>
