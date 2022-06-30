@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllSongs } from "../../store/song";
+
+import { playSong } from "../../store/player";
 
 import './AllSongs.css';
 
@@ -14,6 +16,10 @@ const AllSongs = () => {
         dispatch(getAllSongs());
     }, [dispatch]);
 
+    const playSongBtn = useCallback((song) => {
+        dispatch(playSong(song));
+    }, [dispatch]);
+
     if (!songs) return null;
 
     return (
@@ -24,11 +30,10 @@ const AllSongs = () => {
                     return (
                         <li key={song.id} className='song-card'>
                             <div className='card-img-wrapper' style={{ backgroundImage: `url(${song.imageUrl})` }}>
-                                {/* style={{ backgroundImage: 'url(' + song.imageUrl + ')' }}> */}
                                 <div className='play-action-overlay'>
-                                    {/* <button className='primary-play-btn list-style-play-btn' onClick={() => playSongBtn(song)}> */}
-                                    <i className="fas fa-play"></i>
-                                    {/* </button> */}
+                                    <button className='primary-play-btn list-style-play-btn' onClick={() => playSongBtn(song)}>
+                                        <i className="fas fa-play"></i>
+                                    </button>
                                 </div>
                             </div>
                             <Link className='song-link-text' to={{ pathname: `/songs/${song.id}` }}>

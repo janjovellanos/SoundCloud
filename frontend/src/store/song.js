@@ -1,6 +1,8 @@
 import { csrfFetch } from "./csrf";
 
 export const LOAD_SONGS = 'songs/loadSongs';
+export const LOAD_ONE_SONG = 'songs/LOAD_ONE_SONG'
+
 
 const load = (list) => {
     return {
@@ -9,6 +11,11 @@ const load = (list) => {
     }
 }
 
+const loadSong = (song) => ({
+    type: LOAD_ONE_SONG,
+    song
+});
+
 export const getAllSongs = () => async dispatch => {
     const res = await csrfFetch('/songs');
     if (res.ok) {
@@ -16,6 +23,17 @@ export const getAllSongs = () => async dispatch => {
         dispatch(load(list.Songs));
     }
 }
+
+export const getSong = (songId) => async (dispatch) => {
+    const res = await csrfFetch(`/songs/${songId}`);
+
+    if (res.ok) {
+        const song = await res.json();
+        dispatch(loadSong(song.song));
+    }
+};
+
+
 
 
 const songsReducer = (state = {}, action) => {
@@ -27,6 +45,11 @@ const songsReducer = (state = {}, action) => {
                 newState[song.id] = song;
             });
             return newState
+        case LOAD_ONE_SONG:
+            return {
+                ...state,
+                [action.song.id]: action.song
+            }
         default:
             return state;
     }
