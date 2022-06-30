@@ -17,7 +17,7 @@ module.exports = {
         albumId: 1,
         title: 'Song 1',
         description: 'description of Song 1',
-        audioUrl: 'URL of Song 1',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/1.png'
       },
       {
@@ -25,7 +25,7 @@ module.exports = {
         albumId: 1,
         title: 'Song 2',
         description: 'description of Song 2',
-        audioUrl: 'URL of Song 2',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/2.png'
       },
       {
@@ -33,7 +33,7 @@ module.exports = {
         albumId: 2,
         title: 'Song 3',
         description: 'description of Song 3',
-        audioUrl: 'URL of Song 3',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/3.png'
       },
       {
@@ -41,7 +41,7 @@ module.exports = {
         albumId: 2,
         title: 'Song 4',
         description: 'description of Song 4',
-        audioUrl: 'URL of Song 4',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/4.png'
       },
       {
@@ -49,7 +49,7 @@ module.exports = {
         albumId: 3,
         title: 'Song 5',
         description: 'description of Song 5',
-        audioUrl: 'URL of Song 5',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/5.png'
       },
       {
@@ -57,7 +57,7 @@ module.exports = {
         albumId: 3,
         title: 'Song 6',
         description: 'description of Song 6',
-        audioUrl: 'URL of Song 6',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/6.png'
       },
       {
@@ -65,7 +65,7 @@ module.exports = {
         albumId: 4,
         title: 'Crank That (Soulja Boy)',
         description: 'superman',
-        audioUrl: 'URL of Song',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Crank+That+-+Soulja+Boy+(Dirty).mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/crank-dat.jpeg'
       },
       {
@@ -73,7 +73,7 @@ module.exports = {
         albumId: 4,
         title: 'Kiss Me Thru The Phone',
         description: '678-999-8212',
-        audioUrl: 'URL of Song',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Kiss+Me+Thru+The+Phone+Lyrics+Soulja+Boy.mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/crank-dat.jpeg'
       },
       {
@@ -81,7 +81,7 @@ module.exports = {
         albumId: 5,
         title: 'Complicated',
         description: 'why',
-        audioUrl: 'URL of Song',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Avril+Lavigne+-+Complicated+(Audio+).mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/complicated.jpeg'
       },
       {
@@ -89,7 +89,7 @@ module.exports = {
         albumId: 5,
         title: 'Sk8er Boi',
         description: 'rawr xD',
-        audioUrl: 'URL of Song',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Avril+Lavigne+-+Sk8ter+Boi+(Audio).mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/complicated.jpeg'
       },
       {
@@ -97,7 +97,7 @@ module.exports = {
         albumId: 6,
         title: 'Move',
         description: 'please',
-        audioUrl: 'URL of Song',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Ludacris+-+Move+Bitch+(dirty).mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/luda-move.jpeg'
       },
       {
@@ -105,7 +105,7 @@ module.exports = {
         albumId: 6,
         title: 'Area Codes',
         description: 'funky',
-        audioUrl: 'URL of Song',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Ludacris+Ft.+Nate+Dogg-Area+Codes(Lyrics).mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/luda-move.jpeg'
       },
     ])
