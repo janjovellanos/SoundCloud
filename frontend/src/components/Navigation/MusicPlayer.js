@@ -10,7 +10,7 @@ export default function MusicPlayer() {
     return (
         <AudioPlayer
             // autoPlay
-            src={currSong.audioUrl}
+            src={currSong?.audioUrl}
             onPlay={e => console.log("onPlay")}
         // other props here
         />)

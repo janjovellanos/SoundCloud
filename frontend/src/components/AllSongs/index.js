@@ -22,6 +22,10 @@ const AllSongs = () => {
 
     if (!songs) return null;
 
+    songs?.sort((a, b) => {
+        return b.id - a.id;
+    })
+
     return (
         <div className='songs-list-full-wrapper'>
             <h2>Sounds around the world.</h2>
