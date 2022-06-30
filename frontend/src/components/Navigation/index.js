@@ -19,42 +19,64 @@ const Navigation = ({ isLoaded }) => {
     if (sessionUser) {
         sessionLinks =
             <>
-                <HomeButton />
-                <SongButton />
-                <AlbumButton />
-                <ProfileButton user={sessionUser} />
+                <nav className="login-navigation">
+                    <div className="login-top-splash">
+                        <div className='nav-left'>
+                            <img src={require('../../images/soundcloud.png')} className='nav-left-logo' />
+                        </div>
+                        <HomeButton />
+                        <SongButton />
+                        <AlbumButton />
+                        <div className='search-bar'>
+                            <input
+                                type='text'
+                                placeholder='Search for anything...'
+                                className='search-input'
+                            />
+                        </div>
+                        <div className="nav-right">
+                            <ul>
+                                <li className='profile-btn'>
+                                    <ProfileButton user={sessionUser} />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </>
     } else {
-        sessionLinks = (
+        sessionLinks =
             <>
-                <LoginFormModal />
-                <SignupFormModal />
+                <nav className="logout-navigation">
+                    <div className="logout-top-splash">
+                        <div className='nav-left'>
+                            <img src={require('../../images/soundcloud.png')} className='nav-left-logo' />
+                        </div>
+                        <div className='search-bar'>
+                            <input
+                                type='text'
+                                placeholder='Search for anything...'
+                                className='search-input'
+                            />
+                        </div>
+                        <div className="nav-right">
+                            <ul>
+                                <li className='session-btns'>
+                                    <LoginFormModal />
+                                    <SignupFormModal />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </>
-        );
+
     }
 
     return (
-        <nav className="navigation">
-            <div className="top-splash">
-                <div className='nav-left'>
-                    <img src={require('../../images/soundcloud.png')} className='nav-left' />
-                </div>
-                <div className='search-bar'>
-                    <input
-                        type='text'
-                        placeholder='Search for anything...'
-                        className='search-input'
-                    />
-                </div>
-                <div className="nav-right">
-                    <ul>
-                        <li className='session-btns'>
-                            {isLoaded && sessionLinks}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <>
+            {isLoaded && sessionLinks}
+        </>
     );
 }
 
