@@ -25,7 +25,7 @@ const AllSongs = () => {
                 {songs.map((song) => {
                     return (
                         <li key={song.id} className='song-card'>
-                            <div className='card-img-wrapper'>
+                            <div className='card-img-wrapper' style={{ backgroundImage: `url(${song.imageUrl})` }}>
                                 {/* style={{ backgroundImage: 'url(' + song.imageUrl + ')' }}> */}
                                 <div className='play-action-overlay'>
                                     {/* <button className='primary-play-btn list-style-play-btn' onClick={() => playSongBtn(song)}> */}
