@@ -8,10 +8,14 @@ export default function MusicPlayer() {
     const currSong = useSelector(state => state.player.song);
 
     return (
-        <AudioPlayer
-            // autoPlay
-            src={currSong?.audioUrl}
-            onPlay={e => console.log("onPlay")}
-        // other props here
-        />)
+        <div>
+            <AudioPlayer
+                // autoPlay
+                src={currSong?.audioUrl}
+                onPlay={e => console.log("onPlay")}
+                header={currSong?.title}
+            // other props here
+            />
+        </div>
+    )
 }
