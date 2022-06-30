@@ -8,6 +8,7 @@ import SongButton from './SongButton';
 import AlbumButton from './AlbumButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+import MusicPlayer from './MusicPlayer';
 
 
 import './Navigation.css';
@@ -42,7 +43,10 @@ const Navigation = ({ isLoaded }) => {
                             </ul>
                         </div>
                     </div>
+                    <div>
+                    </div>
                 </nav>
+                <MusicPlayer />
             </>
     } else {
         sessionLinks =
