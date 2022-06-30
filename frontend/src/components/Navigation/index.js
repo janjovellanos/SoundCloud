@@ -3,8 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import ProfileButton from './ProfileButton';
+import HomeButton from './HomeButton';
+import SongButton from './SongButton';
+import AlbumButton from './AlbumButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+import MusicPlayer from './MusicPlayer';
 
 
 import './Navigation.css';
@@ -16,43 +20,67 @@ const Navigation = ({ isLoaded }) => {
     if (sessionUser) {
         sessionLinks =
             <>
-                <ProfileButton user={sessionUser} />
+                <nav className="login-navigation">
+                    <div className="login-top-splash">
+                        <div className='nav-left'>
+                            <img src={require('../../images/soundcloud.png')} className='nav-left-logo' />
+                        </div>
+                        <HomeButton />
+                        <SongButton />
+                        <AlbumButton />
+                        <div className='search-bar'>
+                            <input
+                                type='text'
+                                placeholder='Search for anything...'
+                                className='search-input'
+                            />
+                        </div>
+                        <div className="nav-right">
+                            <ul>
+                                <li className='profile-btn'>
+                                    <ProfileButton user={sessionUser} />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </nav>
+                <MusicPlayer />
             </>
     } else {
-        sessionLinks = (
+        sessionLinks =
             <>
-                {/* <NavLink className='login-btn' to="/login">Log In</NavLink> */}
-                <LoginFormModal />
-                {/* <NavLink className='signup-btn' to="/signup">Sign Up</NavLink> */}
-                <SignupFormModal />
+                <nav className="logout-navigation">
+                    <div className="logout-top-splash">
+                        <div className='nav-left'>
+                            <img src={require('../../images/soundcloud.png')} className='nav-left-logo' />
+                        </div>
+                        <div className='search-bar'>
+                            <input
+                                type='text'
+                                placeholder='Search for anything...'
+                                className='search-input'
+                            />
+                        </div>
+                        <div className="nav-right">
+                            <ul>
+                                <li className='session-btns'>
+                                    <LoginFormModal />
+                                    <SignupFormModal />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </>
-        );
+
     }
 
     return (
-        <nav className="navigation">
-            <div className="top-splash">
-                <div className='nav-left'>
-                    <img src={require('../../images/soundcloud.png')} className='nav-left' />
-                    <NavLink exact to="/">Home</NavLink>
-                    <NavLink to='/songs'>All Songs</NavLink>
-                </div>
-                <div className='search-bar'>
-                    <input
-                        type='text'
-                        placeholder='Search for anything...'
-                        className='search-input'
-                    />
-                </div>
-                <div className="nav-right">
-                    <ul>
-                        <li className='session-btns'>
-                            {isLoaded && sessionLinks}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <>
+            {isLoaded && sessionLinks}
+        </>
     );
 }
 
