@@ -46,7 +46,7 @@ const Navigation = ({ isLoaded }) => {
                     <div>
                     </div>
                 </nav>
-                <MusicPlayer />
+                {/* <MusicPlayer /> */}
             </>
     } else {
         sessionLinks =

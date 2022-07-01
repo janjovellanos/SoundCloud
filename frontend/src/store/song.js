@@ -29,7 +29,8 @@ export const getSong = (songId) => async (dispatch) => {
 
     if (res.ok) {
         const song = await res.json();
-        dispatch(loadSong(song.song));
+        dispatch(loadSong(song));
+        // console.log(log)
     }
 };
 

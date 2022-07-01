@@ -6,6 +6,8 @@ import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from './components/Navigation';
 import AllSongs from "./components/AllSongs";
+import SongDetails from "./components/SongDetails";
+import MusicPlayer from "./components/Navigation/MusicPlayer";
 
 
 function App() {
@@ -22,7 +24,13 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path='/songs'>
+          <Route exact path='/songs'>
+            <AllSongs />
+            <MusicPlayer />
+          </Route>
+          <Route path='/songs/:songId'>
+            <SongDetails />
+            <MusicPlayer />
             <AllSongs />
           </Route>
         </Switch>

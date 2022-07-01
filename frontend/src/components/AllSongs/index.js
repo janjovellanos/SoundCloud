@@ -14,7 +14,7 @@ const AllSongs = () => {
 
     useEffect(() => {
         dispatch(getAllSongs());
-    }, [dispatch]);
+    }, []);
 
     const playSongBtn = useCallback((song) => {
         dispatch(playSong(song));
