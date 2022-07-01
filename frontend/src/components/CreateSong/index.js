@@ -32,7 +32,7 @@ const UploadForm = () => {
             imageUrl,
             audioUrl
         }))
-            .then(() => history.push(`/`))
+            .then(() => history.push(`/songs`))
             .catch(async (res) => {
                 const data = await res.json();
 
@@ -59,7 +59,7 @@ const UploadForm = () => {
                 </div>
                 <div className='input-wrapper'>
                     <label htmlFor='imageUrl'>Image Url</label>
-                    <input type='text' name='imageUrl' placeholder='Our Default Cover' onChange={(e) => setImageUrl(e.target.value)} />
+                    <input type='text' name='imageUrl' value='Default Cover' onChange={(e) => setImageUrl(e.target.value)} />
                 </div>
                 <div className='input-wrapper'>
                     <label htmlFor='audioUrl'>Song Url</label>
@@ -67,7 +67,7 @@ const UploadForm = () => {
                 </div>
                 <div className='form-btn-wrapper'>
                     <button>Upload</button>
-                    <Link className='main-btn' to={'/'}>Cancel</Link>
+                    <Link className='main-btn' to={'/songs'}>Cancel</Link>
                 </div>
             </form>
         </div>
