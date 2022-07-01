@@ -1,7 +1,7 @@
 const express = require('express');
 
 const { requireAuth } = require('../utils/auth');
-const { validateQueryFilters } = require('../utils/validation');
+const { validateQueryFilters, validateSongCreation } = require('../utils/validation');
 const { Song, User, Album, Comment } = require('../db/models');
 
 const router = express.Router();
@@ -71,6 +71,22 @@ router.get('/:songId', async (req, res, next) => {
         err.title = "Song couldn't be found";
         return next(err);
     }
+});
+
+//create a song
+router.post('/', requireAuth, validateSongCreation, async (req, res, next) => {
+    const { user } = req;
+    const { title, description, audioUrl, imageUrl } = req.body;
+
+    const newSong = await Song.create({
+        userId: user.id,
+        title,
+        description,
+        audioUrl,
+        imageUrl,
+    })
+    res.status(201);
+    res.json(newSong);
 });
 
 //edit song

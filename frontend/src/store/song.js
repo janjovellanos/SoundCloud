@@ -26,6 +26,7 @@ export const getAllSongs = () => async dispatch => {
     const res = await csrfFetch('/songs');
     if (res.ok) {
         const list = await res.json();
+        console.log(list);
         dispatch(load(list.Songs));
     }
 }
@@ -41,14 +42,14 @@ export const getSong = (songId) => async (dispatch) => {
 };
 
 export const createSong = (data) => async (dispatch) => {
-    const res = await csrfFetch('/api/songs', {
+    const res = await csrfFetch('/songs', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
     });
-
+    // console.log(data);
     if (res.ok) {
         const song = await res.json();
         dispatch(addSong(song));
@@ -77,7 +78,7 @@ const songsReducer = (state = {}, action) => {
         case CREATE_SONG:
             return {
                 ...state,
-                [action.song.newSong.id]: action.song.newSong
+                [action.song.id]: action.song
             }
         default:
             return state;
