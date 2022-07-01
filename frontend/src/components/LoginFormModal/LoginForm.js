@@ -14,17 +14,21 @@ const LoginForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setErrors([]);
+        // setErrors([]);
+
+        const loginErrors = [];
 
         // return
         const results = await dispatch(sessionActions.login({ credential, password }))
             .catch(async (res) => {
                 const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
+                console.log(data)
+                if (data && data.message) loginErrors.push(data.message);
+                console.log(data.errors)
             });
         if (results) {
             return results
-        } else setErrors(['Login Failed']);
+        } else setErrors(loginErrors);
     };
 
     const handleDemoUser = (e) => {
@@ -43,7 +47,7 @@ const LoginForm = () => {
                 <h3>Log In</h3>
                 <ul>
                     {errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
+                        <li key={idx} className='error-li'>{error}</li>
                     ))}
                 </ul>
                 <label>
@@ -68,7 +72,7 @@ const LoginForm = () => {
                         />
                     </div>
                 </label>
-                <div>
+                <div className="login-btn">
                     <button type="submit">Log In</button>
                 </div>
             </form>

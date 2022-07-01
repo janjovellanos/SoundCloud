@@ -1,6 +1,5 @@
 .signup-form {
     width: 50%;
-    height: fit;
     max-width: 300px;
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.05);
@@ -11,13 +10,23 @@
     /* box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1); */
     padding: 15px;
     position: relative;
-    /* display: table-cell; */
+    padding-bottom: 0px;
+    padding-top: 0px;
     text-align: center;
     vertical-align: middle;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
     align-items: center;
+}
+
+.signup-form h3 {
+    margin: 0;
+    margin-top: 5px;
+}
+
+.signup-btn {
+    padding-top: 10px;
 }
 
 

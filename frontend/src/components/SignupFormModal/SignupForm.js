@@ -39,14 +39,14 @@ const SignupForm = () => {
     return (
         <>
             <form onSubmit={handleSubmit} className='signup-form'>
-                <h3>Sign Up</h3>
+                <h3>Create An Account</h3>
                 <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
                     ))}
                 </ul>
                 <label>
-                    First Name:
+                    First Name
                     <div>
                         <input
                             type="text"
@@ -57,7 +57,7 @@ const SignupForm = () => {
                     </div>
                 </label>
                 <label>
-                    Last Name:
+                    Last Name
                     <div>
                         <input
                             type="text"
@@ -68,7 +68,7 @@ const SignupForm = () => {
                     </div>
                 </label>
                 <label>
-                    Email:
+                    Email
                     <div>
                         <input
                             type="text"
@@ -79,7 +79,7 @@ const SignupForm = () => {
                     </div>
                 </label>
                 <label>
-                    Username:
+                    Username
                     <div>
                         <input
                             type="text"
@@ -90,7 +90,7 @@ const SignupForm = () => {
                     </div>
                 </label>
                 <label>
-                    Password:
+                    Password
                     <div>
                         <input
                             type="password"
@@ -101,7 +101,7 @@ const SignupForm = () => {
                     </div>
                 </label>
                 <label>
-                    Confirm Password:
+                    Confirm Password
                     <div>
                         <input
                             type="password"
@@ -111,7 +111,7 @@ const SignupForm = () => {
                         />
                     </div>
                 </label>
-                <div>
+                <div className="signup-btn">
                     <button type="submit">Sign Up</button>
                 </div>
             </form>
