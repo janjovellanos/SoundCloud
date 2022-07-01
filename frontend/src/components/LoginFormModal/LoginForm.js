@@ -82,7 +82,7 @@ const LoginForm = () => {
             <div>
                 <form onSubmit={handleDemoUser} className="guest-login-form">
                     <button className="guest-login-btn" type="submit">
-                        Demo Login
+                        Guest Login
                     </button>
                 </form>
             </div>

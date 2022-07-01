@@ -77,11 +77,15 @@
 
 .song-link-text {
     color: #0F1010;
+    font-family: sans-serif;
+    text-decoration: none;
     transition: all 250ms;
 }
 
 .song-link-text:hover {
-    color: #E916C7;
+    text-decoration: underline;
+    font-weight: bold;
+    color: #f99420;
 }
 
 .song-user-link-text {
