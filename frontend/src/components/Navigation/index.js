@@ -9,6 +9,7 @@ import MusicPlayer from './MusicPlayer';
 
 
 import './Navigation.css';
+import CreateSongFormModal from '../CreateSongModal';
 
 const Navigation = ({ isLoaded }) => {
     const sessionUser = useSelector(state => state.session.user);
@@ -22,9 +23,11 @@ const Navigation = ({ isLoaded }) => {
                         <div className='nav-left'>
                             <img src={require('../../images/soundcloud.png')} className='nav-left-logo' />
                         </div>
-                        <NavLink exact to='/'>Home</NavLink>                        <NavLink to='/songs'>Songs</NavLink>
+                        <NavLink exact to='/'>Home</NavLink>
+                        <NavLink to='/songs'>Songs</NavLink>
                         <NavLink to='/albums'>Albums</NavLink>
-                        <NavLink to='/upload'>Upload</NavLink>
+                        {/* <NavLink to='/upload'>Upload</NavLink> */}
+                        <CreateSongFormModal />
                         <div className='search-bar'>
                             <input
                                 type='text'

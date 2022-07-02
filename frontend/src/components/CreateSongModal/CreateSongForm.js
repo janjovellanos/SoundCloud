@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as songActions from '../../store/song';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
-// import './UploadSong.css';
 
-const UploadForm = () => {
+const CreateSongForm = ({ setShowModal }) => {
     const sessionUser = useSelector(state => state.session.user);
     const userId = sessionUser.id;
     const dispatch = useDispatch();
@@ -35,7 +34,10 @@ const UploadForm = () => {
             audioUrl,
             description
         }))
-            .then(() => history.push(`/songs`))
+            .then(() => {
+                setShowModal(false);
+                history.push(`/songs`);
+            })
             .catch(async (res) => {
                 const data = await res.json();
 
@@ -46,6 +48,12 @@ const UploadForm = () => {
 
         reset();
     };
+
+    const handleCancelBtn = (e) => {
+        e.preventDefault();
+        setShowModal(false);
+        history.push('/songs');
+    }
 
     return (
         <div>
@@ -74,7 +82,7 @@ const UploadForm = () => {
                 </div>
                 <div className='form-btn-wrapper'>
                     <button>Upload</button>
-                    <Link className='main-btn' to={'/songs'}>Cancel</Link>
+                    <button className='main-btn' onClick={(e) => handleCancelBtn(e)}>Cancel</button>
                 </div>
             </form>
         </div>
@@ -83,4 +91,4 @@ const UploadForm = () => {
 
 
 
-export default UploadForm;
+export default CreateSongForm;

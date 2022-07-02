@@ -8,7 +8,7 @@ import Navigation from './components/Navigation';
 import AllSongs from "./components/AllSongs";
 import SongDetails from "./components/SongDetails";
 // import MusicPlayer from "./components/Navigation/MusicPlayer";
-import CreateSong from "./components/CreateSong";
+// import CreateSong from "./components/CreateSong";
 
 
 function App() {
@@ -32,9 +32,9 @@ function App() {
             <SongDetails />
             {/* <AllSongs /> */}
           </Route>
-          <Route path='/upload'>
-            <CreateSong />
-          </Route>
+          {/* <Route path='/upload'> */}
+          {/* <CreateSong /> */}
+          {/* </Route> */}
         </Switch>
       )}
     </>
