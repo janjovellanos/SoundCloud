@@ -1,14 +1,14 @@
-.songs-list-full-wrapper {
+.all-songs-container {
     background: #fff;
     padding: 10px 10px 120px;
 }
 
-.songs-list-full-wrapper h2 {
+.all-songs-container h2 {
     margin-bottom: 28px;
     text-align: center;
 }
 
-.songs-list-full-wrapper>div {
+.all-songs-container>div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -16,19 +16,19 @@
     max-width: 1260px;
 }
 
-.song-card {
+.song-container {
     width: 294px;
     margin: 10px 10px 14px 10px;
     list-style: none;
 }
 
-.song-card p {
+.song-container p {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.card-img-wrapper {
+.song-cover-img {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -38,11 +38,11 @@
     width: 100%;
 }
 
-.card-img-wrapper img {
+.song-cover-img img {
     width: 100%;
 }
 
-.play-action-overlay {
+.play-animation {
     align-items: center;
     background: linear-gradient(180deg, rgba(69, 73, 74, 0) 35.94%, #0F1010 100%);
     border-radius: 6px;
@@ -55,7 +55,15 @@
     width: 100%;
 }
 
-.primary-play-btn {
+.play-animation:hover {
+    opacity: 1;
+}
+
+.play-animation .list-style-play-btn {
+    margin-bottom: 0;
+}
+
+.play-btn {
     font-size: 25px;
     background-color: transparent;
     color: white;
@@ -63,31 +71,23 @@
     border: 2px solid #ff5501;
 }
 
-.primary-play-btn:hover {
+.play-btn:hover {
     transform: scale(1.2);
 }
 
-.play-action-overlay:hover {
-    opacity: 1;
-}
-
-.play-action-overlay .list-style-play-btn {
-    margin-bottom: 0;
-}
-
-.song-link-text {
+.song-title-link {
     color: #0F1010;
     font-family: sans-serif;
     text-decoration: none;
     transition: all 250ms;
 }
 
-.song-link-text:hover {
+.song-title-link:hover {
     text-decoration: underline;
     font-weight: bold;
     color: #f99420;
 }
 
-.song-user-link-text {
+.song-artist-link-text {
     color: #C4C4C4;
 }

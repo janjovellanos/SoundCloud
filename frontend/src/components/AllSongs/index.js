@@ -27,23 +27,23 @@ const AllSongs = () => {
     })
 
     return (
-        <div className='songs-list-full-wrapper'>
+        <div className='all-songs-container'>
             <h2>Sounds around the world.</h2>
             <div>
                 {songs.map((song) => {
                     return (
-                        <li key={song.id} className='song-card'>
-                            <div className='card-img-wrapper' style={{ backgroundImage: `url(${song.imageUrl})` }}>
-                                <div className='play-action-overlay'>
-                                    <button className='primary-play-btn list-style-play-btn' onClick={() => playSongBtn(song)}>
+                        <li key={song.id} className='song-container'>
+                            <div className='song-cover-img' style={{ backgroundImage: `url(${song.imageUrl})` }}>
+                                <div className='play-animation'>
+                                    <button className='play-btn list-style-play-btn' onClick={() => playSongBtn(song)}>
                                         <i className="fas fa-play"></i>
                                     </button>
                                 </div>
                             </div>
-                            <Link className='song-link-text' to={{ pathname: `/songs/${song.id}` }}>
+                            <Link className='song-title-link' to={{ pathname: `/songs/${song.id}` }}>
                                 <p>{song.title}</p>
                             </Link>
-                            <Link className='song-user-link-text' to={{ pathname: `/users/${song.User?.id}` }}>{song.User?.username}</Link>
+                            {/* <Link className='song-artist-link-text' to={{ pathname: `/users/${song.Artist?.id}` }}>{song.Artist?.username}</Link> */}
                         </li>
                     );
                 })}
