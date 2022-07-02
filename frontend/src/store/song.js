@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 export const LOAD_SONGS = 'songs/loadSongs';
 export const LOAD_ONE_SONG = 'songs/loadOneSong'
 export const CREATE_SONG = 'songs/addSong'
+export const DELETE_SONG = 'song/deleteSong';
 
 
 const load = (list) => {
@@ -20,6 +21,11 @@ const loadSong = (song) => ({
 const addSong = (song) => ({
     type: CREATE_SONG,
     song
+});
+
+const deleteSong = (id) => ({
+    type: DELETE_SONG,
+    id
 });
 
 export const getAllSongs = () => async dispatch => {
@@ -58,6 +64,16 @@ export const createSong = (data) => async (dispatch) => {
     }
 };
 
+export const deleteOneSong = (id) => async (dispatch) => {
+    const res = await csrfFetch(`/songs/${id}`, {
+        method: 'DELETE'
+    });
+
+    if (res.ok) {
+        dispatch(deleteSong(id));
+    }
+};
+
 
 
 
@@ -80,6 +96,10 @@ const songsReducer = (state = {}, action) => {
                 ...state,
                 [action.song.id]: action.song
             }
+        case DELETE_SONG:
+            newState = { ...state };
+            delete newState[action.id];
+            return newState;
         default:
             return state;
     }

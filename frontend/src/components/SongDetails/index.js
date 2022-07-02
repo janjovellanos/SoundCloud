@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, Link } from 'react-router-dom';
 // import { getAllSongs } from '../../store/song';
-import { getSong } from '../../store/song';
+import { getSong, deleteOneSong } from '../../store/song';
 import { playSong } from '../../store/player';
 import './SongDetails.css';
 
@@ -21,13 +21,18 @@ const SongDetails = () => {
         history.push(`/songs/${songId}/edit`);
     };
 
+    const handleDeleteBtn = (songId) => {
+        dispatch(deleteOneSong(songId));
+        history.push("/songs");
+    };
+
     let songEditBtns;
 
     if (song?.userId === user?.id) {
         songEditBtns = (
             <>
                 <button className='portal-edit-btn' onClick={() => handleEditBtn(songId)}>Edit</button>
-                {/* <SongDelete songId={songId} /> */}
+                <button className='portal-edit-btn' onClick={() => handleDeleteBtn(songId)}>Delete</button>
             </>
         );
     }
