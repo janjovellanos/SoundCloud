@@ -1,4 +1,4 @@
-.song-portal-lrg {
+.song-details-container {
     background-color: rgba(158, 155, 155, 0.15);
     border-radius: 6px;
     margin: 0 auto;
@@ -8,24 +8,24 @@
     /* box-shadow: 13px 0 15px -2px #888; */
 }
 
-.song-portal-lrg>div {
+.song-details-container>div {
     display: flex;
     justify-content: space-between;
     padding: 65px 20px 20px;
 }
 
-.song-portal-lrg h2,
-.song-portal-lrg h3 {
+.song-details-container h2,
+.song-details-container h3 {
     background: #fff;
     padding: 0 6px;
     width: fit-content;
 }
 
-.song-portal-lrg h2 {
+.song-details-container h2 {
     font-size: 42px;
 }
 
-.song-portal-lrg h3 {
+.song-details-container h3 {
     font-size: 26px;
     margin-top: 10px;
 }
@@ -41,7 +41,7 @@
     border: 4px solid rgb(255, 85, 1, 0.7);
 }
 
-.primary-play-btn {
+.detail-play-btn {
     align-items: center;
     border-radius: 50%;
     display: flex;
@@ -58,32 +58,32 @@
     border: 2px solid rgb(255, 255, 255, 0.1);
 }
 
-.primary-play-btn i {
+.detail-play-btn i {
     font-size: 15px;
     position: absolute;
     right: 14px;
 }
 
-.primary-play-btn:hover {
+.detail-play-btn:hover {
     border: 1px solid #fff;
     transform: scale(1.10);
 }
 
-.portal-song-details {
-    display: flex;
+.song-details {
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; */
 }
 
-.portal-edit-btn {
+.song-action-btn {
     margin-right: 10px;
 }
 
-.song-hero-link {
+.artist-link {
     color: black;
 }
 
-.song-hero-link h3 {
+.artist-link h3 {
     display: inline-block;
 }
 

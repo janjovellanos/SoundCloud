@@ -33,7 +33,7 @@ const Navigation = ({ isLoaded }) => {
                             />
                         </div>
                         <div className="nav-right">
-                            <ul>
+                            <ul className='profile-btn-ul'>
                                 <li className='profile-btn'>
                                     <ProfileButton user={sessionUser} />
                                 </li>
