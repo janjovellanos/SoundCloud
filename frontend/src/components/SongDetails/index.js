@@ -4,6 +4,7 @@ import { useParams, useHistory, Link } from 'react-router-dom';
 import { getSong, deleteOneSong } from '../../store/song';
 import { playSong } from '../../store/player';
 import './SongDetails.css';
+import AllSongs from '../AllSongs';
 
 const SongDetails = () => {
     const { songId } = useParams();
@@ -41,28 +42,31 @@ const SongDetails = () => {
     }, [dispatch]);
 
     return (
-        <div className='song-details-container'>
-            <div>
-                <div className='song-details'>
-                    <div>
-                        <button className='detail-play-btn' onClick={() => playSongBtn(song)}>
-                            <i className="fas fa-play"></i>
-                        </button>
+        <>
+            <div className='song-details-container'>
+                <div>
+                    <div className='song-details'>
                         <div>
-                            <h2 className='detail-title'>{song?.title}</h2>
-                            <Link className='artist-link' to={{ pathname: `/artists/${song?.userId}` }}>
-                                <h3 className='detail-artist'>{song?.Artist?.username}</h3>
-                            </Link>
+                            <button className='detail-play-btn' onClick={() => playSongBtn(song)}>
+                                <i className="fas fa-play"></i>
+                            </button>
+                            <div>
+                                <h2 className='detail-title'>{song?.title}</h2>
+                                <Link className='artist-link' to={{ pathname: `/artists/${song?.userId}` }}>
+                                    <h3 className='detail-artist'>{song?.Artist?.username}</h3>
+                                </Link>
+                            </div>
+                        </div>
+                        <div>
+                            {songEditBtns}
                         </div>
                     </div>
-                    <div>
-                        {songEditBtns}
+                    <div className='song-img-lrg' style={{ backgroundImage: 'url(' + song?.imageUrl + ')' }}>
                     </div>
                 </div>
-                <div className='song-img-lrg' style={{ backgroundImage: 'url(' + song?.imageUrl + ')' }}>
-                </div>
             </div>
-        </div>
+            <AllSongs />
+        </>
     );
 };
 

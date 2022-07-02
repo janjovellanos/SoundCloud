@@ -32,7 +32,7 @@ export const getAllSongs = () => async dispatch => {
     const res = await csrfFetch('/songs');
     if (res.ok) {
         const list = await res.json();
-        console.log(list);
+        // console.log(list);
         dispatch(load(list.Songs));
     }
 }

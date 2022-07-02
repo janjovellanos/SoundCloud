@@ -27,12 +27,10 @@ function App() {
         <Switch>
           <Route exact path='/songs'>
             <AllSongs />
-            {/* <MusicPlayer /> */}
           </Route>
           <Route path='/songs/:songId'>
             <SongDetails />
-            {/* <MusicPlayer /> */}
-            <AllSongs />
+            {/* <AllSongs /> */}
           </Route>
           <Route path='/upload'>
             <CreateSong />

@@ -12,6 +12,7 @@ const AllSongs = () => {
 
     const songs = useSelector(state => Object.values(state.songs));
 
+
     useEffect(() => {
         dispatch(getAllSongs());
     }, [dispatch]);
@@ -19,6 +20,7 @@ const AllSongs = () => {
     const playSongBtn = useCallback((song) => {
         dispatch(playSong(song));
     }, [dispatch]);
+
 
     if (!songs) return null;
 
