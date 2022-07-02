@@ -1,6 +1,7 @@
 .create-song-form {
     width: 50%;
-    max-width: 300px;
+    max-width: 240px;
+    height: fit-content;
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(2px);
@@ -23,9 +24,19 @@
 .create-song-form h3 {
     margin: 0;
     margin-top: 5px;
+    padding-bottom: 0;
 }
 
-.create-song-btn {
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container input {
+    margin-top: 8px;
+}
+
+.form-btn-wrapper {
     padding-top: 10px;
 }
 

@@ -5,6 +5,7 @@ import { getSong, deleteOneSong } from '../../store/song';
 import { playSong } from '../../store/player';
 import './SongDetails.css';
 import AllSongs from '../AllSongs';
+import EditSongFormModal from '../EditSongFormModal';
 
 const SongDetails = () => {
     const { songId } = useParams();
@@ -31,7 +32,8 @@ const SongDetails = () => {
     if (song?.userId === user?.id) {
         songEditBtns = (
             <>
-                <button className='song-action-btn' onClick={() => handleEditBtn(songId)}>Edit</button>
+                {/* <button className='song-action-btn' onClick={() => handleEditBtn(songId)}>Edit</button> */}
+                <EditSongFormModal />
                 <button className='song-action-btn' onClick={() => handleDeleteBtn(songId)}>Delete</button>
             </>
         );

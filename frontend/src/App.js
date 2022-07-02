@@ -32,9 +32,6 @@ function App() {
             <SongDetails />
             {/* <AllSongs /> */}
           </Route>
-          {/* <Route path='/upload'> */}
-          {/* <CreateSong /> */}
-          {/* </Route> */}
         </Switch>
       )}
     </>
