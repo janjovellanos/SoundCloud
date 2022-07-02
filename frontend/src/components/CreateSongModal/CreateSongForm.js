@@ -39,6 +39,7 @@ const CreateSongForm = ({ setShowModal }) => {
             .then(() => {
                 setShowModal(false);
                 history.push(`/songs`);
+                reset();
             })
             .catch(async (res) => {
                 const data = await res.json();
@@ -48,7 +49,6 @@ const CreateSongForm = ({ setShowModal }) => {
                 }
             });
 
-        reset();
     };
 
     const handleCancelBtn = (e) => {
@@ -59,10 +59,10 @@ const CreateSongForm = ({ setShowModal }) => {
 
     return (
         <div className='create-song-form'>
-            <h2>Upload Your New Song Below.</h2>
+            <h2>Upload Your Song</h2>
             <form onSubmit={handleSubmit}>
                 <ul>
-                    {errors.map((error, index) => (
+                    {Object.values(errors).map((error, index) => (
                         <li key={index}>{error}</li>
                     ))}
                 </ul>

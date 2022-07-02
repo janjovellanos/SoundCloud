@@ -20,13 +20,6 @@ const EditSongForm = ({ setShowModal }) => {
     const [errors, setErrors] = useState([]);
     const history = useHistory();
 
-    // const reset = () => {
-    //     setTitle('');
-    //     setImageUrl('');
-    //     setAudioUrl('');
-    //     setDescription('');
-    // };
-
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -52,7 +45,6 @@ const EditSongForm = ({ setShowModal }) => {
                 }
             });
 
-        // reset();
     };
 
     const handleCancelBtn = (e) => {
@@ -63,7 +55,7 @@ const EditSongForm = ({ setShowModal }) => {
 
     return (
         <div className='create-song-form'>
-            <h2>Upload Your New Song Below.</h2>
+            <h2>Edit Your Song</h2>
             <form onSubmit={handleSubmit}>
                 <ul>
                     {Object.values(errors).map((error, index) => (
@@ -87,7 +79,7 @@ const EditSongForm = ({ setShowModal }) => {
                     <input type='text' name='description' value={description} onChange={(e) => setDescription(e.target.value)} />
                 </div>
                 <div className='form-btn-container'>
-                    <button>Upload</button>
+                    <button>Save</button>
                     <button className='main-btn' onClick={(e) => handleCancelBtn(e)}>Cancel</button>
                 </div>
             </form>
