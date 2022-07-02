@@ -22,7 +22,7 @@ const SignupForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let signupErrors = [];
+        // let signupErrors = [];
         if (password === confirmPassword) {
             // setSignupErrors(errors);
             setErrors([]);

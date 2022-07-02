@@ -7,7 +7,8 @@ import * as sessionActions from "./store/session";
 import Navigation from './components/Navigation';
 import AllSongs from "./components/AllSongs";
 import SongDetails from "./components/SongDetails";
-import MusicPlayer from "./components/Navigation/MusicPlayer";
+// import MusicPlayer from "./components/Navigation/MusicPlayer";
+// import CreateSong from "./components/CreateSong";
 
 
 function App() {
@@ -26,12 +27,10 @@ function App() {
         <Switch>
           <Route exact path='/songs'>
             <AllSongs />
-            <MusicPlayer />
           </Route>
           <Route path='/songs/:songId'>
             <SongDetails />
-            <MusicPlayer />
-            <AllSongs />
+            {/* <AllSongs /> */}
           </Route>
         </Switch>
       )}

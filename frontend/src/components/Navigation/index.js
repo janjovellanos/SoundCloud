@@ -3,15 +3,13 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import ProfileButton from './ProfileButton';
-import HomeButton from './HomeButton';
-import SongButton from './SongButton';
-import AlbumButton from './AlbumButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import MusicPlayer from './MusicPlayer';
 
 
 import './Navigation.css';
+import CreateSongFormModal from '../CreateSongModal';
 
 const Navigation = ({ isLoaded }) => {
     const sessionUser = useSelector(state => state.session.user);
@@ -25,9 +23,11 @@ const Navigation = ({ isLoaded }) => {
                         <div className='nav-left'>
                             <img src={require('../../images/soundcloud.png')} className='nav-left-logo' />
                         </div>
-                        <HomeButton />
-                        <SongButton />
-                        <AlbumButton />
+                        <NavLink exact to='/'>Home</NavLink>
+                        <NavLink to='/songs'>Songs</NavLink>
+                        <NavLink to='/albums'>Albums</NavLink>
+                        {/* <NavLink to='/upload'>Upload</NavLink> */}
+                        <CreateSongFormModal />
                         <div className='search-bar'>
                             <input
                                 type='text'
@@ -36,7 +36,7 @@ const Navigation = ({ isLoaded }) => {
                             />
                         </div>
                         <div className="nav-right">
-                            <ul>
+                            <ul className='profile-btn-ul'>
                                 <li className='profile-btn'>
                                     <ProfileButton user={sessionUser} />
                                 </li>
@@ -46,7 +46,7 @@ const Navigation = ({ isLoaded }) => {
                     <div>
                     </div>
                 </nav>
-                {/* <MusicPlayer /> */}
+                <MusicPlayer />
             </>
     } else {
         sessionLinks =
