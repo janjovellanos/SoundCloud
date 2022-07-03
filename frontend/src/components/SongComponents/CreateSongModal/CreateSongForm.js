@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as songActions from '../../store/song';
+import * as songActions from '../../../store/song';
 import { useHistory } from 'react-router';
-// import { Link } from 'react-router-dom';
 
 import './CreateSongForm.css';
 
@@ -29,6 +28,7 @@ const CreateSongForm = ({ setShowModal }) => {
 
         setErrors([]);
 
+
         dispatch(songActions.createSong({
             userId,
             title,
@@ -48,7 +48,6 @@ const CreateSongForm = ({ setShowModal }) => {
                     setErrors(data.errors);
                 }
             });
-
     };
 
     const handleCancelBtn = (e) => {
@@ -72,7 +71,7 @@ const CreateSongForm = ({ setShowModal }) => {
                 </div>
                 <div className='input-container'>
                     <label htmlFor='imageUrl'>Image Url</label>
-                    <input type='text' name='imageUrl' value='Default Cover' onChange={(e) => setImageUrl(e.target.value)} />
+                    <input type='text' name='imageUrl' placeholder='Default Cover' onChange={(e) => setImageUrl(e.target.value)} />
                 </div>
                 <div className='input-container'>
                     <label htmlFor='audioUrl'>Song Url</label>

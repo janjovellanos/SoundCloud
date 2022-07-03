@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as songActions from '../../store/song';
+import * as songActions from '../../../store/song';
 import { useHistory } from 'react-router';
 import { useParams } from 'react-router';
 // import { Link } from 'react-router-dom';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Modal } from '../../context/Modal';
+import { Modal } from '../../../context/Modal';
 import CreateSongForm from './CreateSongForm';
 
 function CreateSongFormModal() {
