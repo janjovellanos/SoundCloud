@@ -122,7 +122,7 @@ module.exports = {
         title: "M's",
         description: 'groovy',
         audioUrl: "https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/M's.mp3",
-        imageUrl: "https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/M's-cover.jpeg"
+        imageUrl: "https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/13F2747B-C66B-4C56-A5F7-CD06C14F77BA.JPEG"
       },
     ])
   },
