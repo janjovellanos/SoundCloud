@@ -108,6 +108,22 @@ module.exports = {
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Ludacris+Ft.+Nate+Dogg-Area+Codes(Lyrics).mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/luda-move.jpeg'
       },
+      {
+        userId: 7,
+        albumId: 7,
+        title: 'I Know You Know',
+        description: 'what you want',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/I+Know+You+Know.mp3',
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/I-know-dolo.jpeg'
+      },
+      {
+        userId: 7,
+        albumId: 7,
+        title: "M's",
+        description: 'groovy',
+        audioUrl: "https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/M's.mp3",
+        imageUrl: "https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/M's-cover.jpeg"
+      },
     ])
   },
 
@@ -119,7 +135,7 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('Songs', {
-      title: ['Song 1', 'Song 2', 'Song 3', 'Song 4', 'Song 5', 'Song 6', 'Crank That (Soulja Boy)', 'Kiss Me Thru The Phone', 'Complicated', 'Sk8er Boi', 'Move', 'Area Codes']
+      title: ['Song 1', 'Song 2', 'Song 3', 'Song 4', 'Song 5', 'Song 6', 'Crank That (Soulja Boy)', 'Kiss Me Thru The Phone', 'Complicated', 'Sk8er Boi', 'Move', 'Area Codes', 'I Know You Know', "M's"]
     })
   }
 };
