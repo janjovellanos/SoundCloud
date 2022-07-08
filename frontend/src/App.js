@@ -5,8 +5,8 @@ import { Route, Switch } from "react-router-dom";
 // import SignupFormPage from './components/SignupFormPage';
 import * as sessionActions from "./store/session";
 import Navigation from './components/Navigation';
-import AllSongs from "./components/AllSongs";
-import SongDetails from "./components/SongDetails";
+import AllSongs from "./components/SongComponents/AllSongs";
+import SongDetails from "./components/SongComponents/SongDetails";
 // import MusicPlayer from "./components/Navigation/MusicPlayer";
 // import CreateSong from "./components/CreateSong";
 

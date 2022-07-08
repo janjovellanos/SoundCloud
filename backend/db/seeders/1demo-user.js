@@ -51,6 +51,14 @@ module.exports = {
         username: 'Ludacris',
         imageUrl: '>:|',
         hashedPassword: bcrypt.hashSync('batman')
+      },
+      {
+        firstName: 'Jan Michael',
+        lastName: 'Jovellanos',
+        email: 'jan@jan.jan',
+        username: 'Han Dolo',
+        imageUrl: '-.-',
+        hashedPassword: bcrypt.hashSync('jan12345')
       }
     ])
   },
@@ -58,7 +66,7 @@ module.exports = {
   async down(queryInterface, Sequelize) {
     const Op = Sequelize.Op;
     await queryInterface.bulkDelete('Users', {
-      username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2', 'Soulja Boy Tell Em', 'Avril Lavigne', 'Ludacris'] }
+      username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2', 'Soulja Boy Tell Em', 'Avril Lavigne', 'Ludacris', 'Han Dolo'] }
     }, {
       truncate: true
     })

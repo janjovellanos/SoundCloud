@@ -2,10 +2,7 @@
     background-color: rgba(158, 155, 155, 0.15);
     border-radius: 6px;
     margin: 0 auto;
-    /* max-width: 1240px; */
     width: auto;
-    /* border: 1px dotted #888; */
-    /* box-shadow: 13px 0 15px -2px #888; */
 }
 
 .song-details-container>div {
@@ -14,19 +11,17 @@
     padding: 65px 20px 20px;
 }
 
-.song-details-container h2,
-.song-details-container h3 {
-    background: #fff;
-    padding: 0 6px;
-    width: fit-content;
-}
-
 .song-details-container h2 {
     font-size: 42px;
 }
 
 .song-details-container h3 {
     font-size: 26px;
+    margin-top: 10px;
+}
+
+.song-details-container h4 {
+    font-size: 16px;
     margin-top: 10px;
 }
 
@@ -69,12 +64,6 @@
     transform: scale(1.10);
 }
 
-.song-details {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-between; */
-}
-
 .song-action-btn {
     margin-right: 10px;
 }
@@ -87,14 +76,23 @@
     display: inline-block;
 }
 
-.detail-title {
+.detail-title,
+.detail-artist,
+.detail-description {
     border-radius: 6px;
     font-family: sans-serif;
+    border: 1px dotted black;
+    background: #fff;
+    padding: 0 6px;
+    width: fit-content;
+}
+
+.edit-btns button {
+    border-radius: 3px;
+    margin: 2px;
     border: 1px dotted black;
 }
 
-.detail-artist {
-    border-radius: 6px;
-    font-family: sans-serif;
-    border: 1px dotted black;
+.edit-btns button:hover {
+    font-size: 14px
 }

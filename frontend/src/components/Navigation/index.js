@@ -6,10 +6,10 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import MusicPlayer from './MusicPlayer';
-
+import CreateSongFormModal from '../SongComponents/CreateSongModal'
 
 import './Navigation.css';
-import CreateSongFormModal from '../CreateSongModal';
+
 
 const Navigation = ({ isLoaded }) => {
     const sessionUser = useSelector(state => state.session.user);
@@ -21,9 +21,9 @@ const Navigation = ({ isLoaded }) => {
                 <nav className="login-navigation">
                     <div className="login-top-splash">
                         <div className='nav-left'>
-                            <img src={require('../../images/soundcloud.png')} className='nav-left-logo' />
+                            {/* <img src={require('../../images/soundcloud.png')} className='nav-left-logo' /> */}
                         </div>
-                        <NavLink exact to='/'>Home</NavLink>
+                        <NavLink exact to='/'><i className="fa-solid fa-house">Home</i></NavLink>
                         <NavLink to='/songs'>Songs</NavLink>
                         <NavLink to='/albums'>Albums</NavLink>
                         {/* <NavLink to='/upload'>Upload</NavLink> */}
