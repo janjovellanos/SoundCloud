@@ -26,7 +26,6 @@ const Navigation = ({ isLoaded }) => {
                         <NavLink exact to='/'><i className="fa-solid fa-house">Home</i></NavLink>
                         <NavLink to='/songs'>Songs</NavLink>
                         <NavLink to='/albums'>Albums</NavLink>
-                        {/* <NavLink to='/upload'>Upload</NavLink> */}
                         <CreateSongFormModal />
                         <div className='search-bar'>
                             <input
