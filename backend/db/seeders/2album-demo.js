@@ -48,6 +48,12 @@ module.exports = {
         description: 'description of the album',
         imageUrl: 'URL of the Album',
       },
+      {
+        userId: 7,
+        title: 'Dolo',
+        description: 'description of the dolo',
+        imageUrl: 'URL of the Dolo',
+      },
     ])
   },
 
@@ -59,7 +65,7 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('Albums', {
-      title: ['Album 1', 'Album 2', 'Album 3', 'souljaboytellem.com', 'Let Go', 'Word of Mouf']
+      title: ['Album 1', 'Album 2', 'Album 3', 'souljaboytellem.com', 'Let Go', 'Word of Mouf', 'Dolo']
     });
   }
 };

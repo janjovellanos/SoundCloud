@@ -1,0 +1,36 @@
+.signup-form {
+    width: 50%;
+    max-width: 300px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-right-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    position: relative;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-form h3 {
+    margin: 0;
+    margin-top: 5px;
+}
+
+.signup-btn {
+    padding-top: 10px;
+}
+
+
+
+.signup-form div {
+    margin: 4px;
+    display: flex;
+}

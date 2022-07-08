@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/janjovellanos/SoundCloud/issues"
   },
-  "homepage": "https://github.com/janjovellanos/SoundCloud#readme"
+  "homepage": "https://github.com/janjovellanos/SoundCloud#readme",
+  "dependencies": {
+    "react-h5-audio-player": "^3.8.4"
+  }
 }

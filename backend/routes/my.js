@@ -5,7 +5,7 @@ const { restoreUser, requireAuth } = require('../utils/auth');
 const router = express.Router();
 
 //restore session user / get user profile
-router.get('/profile', requireAuth, restoreUser, (req, res) => {
+router.get('/profile', restoreUser, (req, res) => {
     const { user } = req;
     if (user) {
         return res.json({
