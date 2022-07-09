@@ -1,0 +1,45 @@
+.all-albums-container {
+    background: #fff;
+    padding: 10px 10px 120px;
+    display: flex;
+    justify-content: center;
+}
+
+.album-container {
+    width: 294px;
+    margin: 10px 10px 14px 10px;
+    list-style: none;
+}
+
+.album-container p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-img-container {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 294px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 100%;
+}
+
+.card-img-container img {
+    width: 100%;
+}
+
+.album-title {
+    color: #0F1010;
+    font-family: sans-serif;
+    text-decoration: none;
+    transition: all 250ms;
+}
+
+.album-title:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #f99420;
+}
