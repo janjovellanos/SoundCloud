@@ -29,7 +29,7 @@ const SongDetails = () => {
         songEditBtns = (
             <>
                 <EditSongFormModal />
-                <button className='song-action-btn' onClick={() => handleDeleteBtn(songId)}>Delete</button>
+                <button className='song-action-btn' onClick={() => handleDeleteBtn(songId)}>Delete <i class="fa-solid fa-trash-can"></i></button>
             </>
         );
     }

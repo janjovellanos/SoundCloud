@@ -10,19 +10,23 @@
 }
 
 .logout-navigation {
-    background-image: url(https://a-v2.sndcdn.com/assets/images/sc_landing_header_web_c@2x-1265910e.jpg);
+    background: url(https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/music-studio-control-room-singer-booth_107791-1637.webp) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: -1;
     width: 100%;
     flex-direction: column;
     display: flex;
     background-size: cover;
-    height: 400px;
+    height: 100vh;
     padding: 0 10px;
     margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 10px 15px 18px rgba(0, 0, 0, 0.25);
-    width: 100%;
 }
 
 .login-top-splash {
@@ -34,6 +38,7 @@
     align-items: center;
     box-shadow: 10px 15px 18px rgba(0, 0, 0, 0.25);
     width: 100%;
+    height: 4em;
 }
 
 .login-navigation {
@@ -102,12 +107,12 @@
     background-color: transparent;
     border-color: white;
     color: rgb(255, 255, 255);
-    height: 40px;
+    height: 60px;
     margin: 0;
     padding: 4px 15px;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
     white-space: nowrap;
     font-family: sans-serif;
@@ -210,4 +215,54 @@
 
 .rhap_main-controls-button {
     display: block;
+}
+
+.under-nav-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 23px;
+    /* border: 3px solid rgb(0, 0, 0, 0.05); */
+    box-sizing: border-box;
+    width: 102.3%;
+    color: white;
+    background-color: rgb(0, 0, 0, 0.1);
+    padding: 20px 0;
+}
+
+.home-container {
+    background: url(https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/music-studio-control-room-singer-booth_107791-1637.webp) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: -1;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    background-size: cover;
+    height: 100vh;
+    padding: 0 10px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 10px 15px 18px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    /* border: 3px solid rgb(0, 0, 0, 0.05); */
+    box-sizing: border-box;
+    width: 102.3%;
+    color: white;
+    background-color: rgb(0, 0, 0, 0.1);
+    padding: 20px 0;
+}
+
+.home-container h1 {
+    margin: 3px;
 }

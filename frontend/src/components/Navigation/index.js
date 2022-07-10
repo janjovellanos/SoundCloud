@@ -53,7 +53,7 @@ const Navigation = ({ isLoaded }) => {
                 <nav className="logout-navigation">
                     <div className="logout-top-splash">
                         <div className='nav-left'>
-                            <img src={require('../../images/soundcloud.png')} className='nav-left-logo' />
+                            <img src={require('../../images/soundcloudlogo.png')} className='nav-left-logo' />
                         </div>
                         <div className='search-bar'>
                             <input
@@ -70,6 +70,9 @@ const Navigation = ({ isLoaded }) => {
                                 </li>
                             </ul>
                         </div>
+                    </div>
+                    <div className='under-nav-banner'>
+                        <h1>Login and listen now <i class="fa-solid fa-headphones-simple"></i></h1>
                     </div>
                 </nav>
             </>

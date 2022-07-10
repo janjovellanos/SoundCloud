@@ -2,7 +2,7 @@ import { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllSongs } from "../../../store/song";
-
+import { getAllArtists } from "../../../store/artist";
 import { playSong } from "../../../store/player";
 
 import './AllSongs.css';
@@ -11,10 +11,12 @@ const AllSongs = () => {
     const dispatch = useDispatch();
 
     const songs = useSelector(state => Object.values(state.songs));
+    const artists = useSelector(state => Object.values(state.artists));
 
 
     useEffect(() => {
         dispatch(getAllSongs());
+        dispatch(getAllArtists());
     }, [dispatch]);
 
     const playSongBtn = useCallback((song) => {
@@ -30,7 +32,7 @@ const AllSongs = () => {
 
     return (
         <div className='all-songs-container'>
-            <h2>Sounds around the world.</h2>
+            <h2>Sounds around the world</h2>
             <div>
                 {songs.map((song) => (
                     <li key={song.id} className='song-container'>
@@ -44,6 +46,7 @@ const AllSongs = () => {
                         <Link className='song-title-link' to={{ pathname: `/songs/${song.id}` }}>
                             <p>{song.title}</p>
                         </Link>
+                        <p>by {artists?.find(artist => artist.id === song.userId).username}</p>
                         {/* <Link className='song-artist-link-text' to={{ pathname: `/users/${song.Artist?.id}` }}>{song.Artist?.username}</Link> */}
                     </li>
                 )
