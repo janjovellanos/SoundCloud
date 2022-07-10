@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import * as albumActions from "../../../store/album";
+import { playSong } from "../../../store/player";
 
 import './AlbumDetails.css'
 
@@ -9,12 +10,19 @@ const AlbumDetails = () => {
     const { albumId } = useParams();
     const dispatch = useDispatch();
     const user = useSelector(state => (state.session.user));
-    const album = useSelector(state => (state.album[albumId]));
+    const album = useSelector(state => (state.albums[albumId]));
+    const albumSongs = album.Songs;
+    console.log(album);
     const history = useHistory();
 
+
     useEffect(() => {
-        (dispatch(albumActions.getAlbum(albumId)))
+        (dispatch(albumActions.getAlbum(album)))
     }, [dispatch, albumId])
+
+    const playSongBtn = useCallback((song) => {
+        dispatch(playSong(song));
+    }, [dispatch]);
 
     // const handleDeleteBtn = (songId) => {
     //     dispatch(deleteOneSong(songId));
@@ -61,7 +69,27 @@ const AlbumDetails = () => {
                     </div>
                 </div>
             </div>
-            {/* <AllSongs /> */}
+            <div className='album-songs-container'>
+                <div>
+                    {albumSongs.map((song) => {
+                        return (
+                            <li key={song.id} className='song-container'>
+                                <div className='song-cover-img' style={{ backgroundImage: `url(${song.imageUrl})` }}>
+                                    <div className='play-animation'>
+                                        <button className='play-btn list-style-play-btn' onClick={() => playSongBtn(song)}>
+                                            <i className="fas fa-play"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <Link className='song-title-link' to={{ pathname: `/songs/${song.id}` }}>
+                                    <p>{song.title}</p>
+                                </Link>
+                                {/* <Link className='song-artist-link-text' to={{ pathname: `/users/${song.Artist?.id}` }}>{song.Artist?.username}</Link> */}
+                            </li>
+                        );
+                    })}
+                </div>
+            </div>
         </>
     );
 };

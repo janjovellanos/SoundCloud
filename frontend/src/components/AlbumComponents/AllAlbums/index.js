@@ -21,7 +21,7 @@ const AllAlbums = () => {
                 {albums.map((album) => (
                     <li key={album.id} className="album-container">
                         <div
-                            className="card-img-container"
+                            className="img-container"
                             style={{ backgroundImage: `url(${album.imageUrl})` }}
                         >
                             <Link className="album-title" to={{ pathname: `/albums/${album.id}` }}>
