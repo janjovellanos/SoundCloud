@@ -71,7 +71,7 @@ const AlbumDetails = () => {
                             <Link className='album-song-title-link' to={{ pathname: `/songs/${song.id}` }}>
                                 <p>{++songCount}. {song.title}</p>
                             </Link>
-                            <button className='play-btn list-style-play-btn' onClick={() => playSongBtn(song)}>
+                            <button className='album-play-btn list-style-album-play-btn' onClick={() => playSongBtn(song)}>
                                 <i className="fas fa-play"></i>
                             </button>
                             {/* <div className='play-animation'> */}

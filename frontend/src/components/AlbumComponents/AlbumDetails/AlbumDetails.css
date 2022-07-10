@@ -131,11 +131,11 @@
     opacity: 1;
 }
 
-.play-animation .list-style-play-btn {
+.play-animation .list-style-album-play-btn {
     margin-bottom: 0;
 }
 
-.play-btn {
+.album-play-btn {
     font-size: 14px;
     background-color: rgb(0, 0, 0, 0.4);
     height: fit-content;
@@ -145,7 +145,7 @@
     border: 2px solid #ff5501;
 }
 
-.play-btn:hover {
+.album-play-btn:hover {
     transform: scale(1.2);
 }
 
