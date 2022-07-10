@@ -32,23 +32,22 @@ const AllSongs = () => {
         <div className='all-songs-container'>
             <h2>Sounds around the world.</h2>
             <div>
-                {songs.map((song) => {
-                    return (
-                        <li key={song.id} className='song-container'>
-                            <div className='song-cover-img' style={{ backgroundImage: `url(${song.imageUrl})` }}>
-                                <div className='play-animation'>
-                                    <button className='play-btn list-style-play-btn' onClick={() => playSongBtn(song)}>
-                                        <i className="fas fa-play"></i>
-                                    </button>
-                                </div>
+                {songs.map((song) => (
+                    <li key={song.id} className='song-container'>
+                        <div className='song-cover-img' style={{ backgroundImage: `url(${song.imageUrl})` }}>
+                            <div className='play-animation'>
+                                <button className='play-btn list-style-play-btn' onClick={() => playSongBtn(song)}>
+                                    <i className="fas fa-play"></i>
+                                </button>
                             </div>
-                            <Link className='song-title-link' to={{ pathname: `/songs/${song.id}` }}>
-                                <p>{song.title}</p>
-                            </Link>
-                            {/* <Link className='song-artist-link-text' to={{ pathname: `/users/${song.Artist?.id}` }}>{song.Artist?.username}</Link> */}
-                        </li>
-                    );
-                })}
+                        </div>
+                        <Link className='song-title-link' to={{ pathname: `/songs/${song.id}` }}>
+                            <p>{song.title}</p>
+                        </Link>
+                        {/* <Link className='song-artist-link-text' to={{ pathname: `/users/${song.Artist?.id}` }}>{song.Artist?.username}</Link> */}
+                    </li>
+                )
+                )}
             </div>
         </div>)
 }
