@@ -46,7 +46,7 @@ const AllSongs = () => {
                         <Link className='song-title-link' to={{ pathname: `/songs/${song.id}` }}>
                             <p>{song.title}</p>
                         </Link>
-                        <p>by {artists?.find(artist => artist.id === song.userId).username}</p>
+                        <p>by {artists?.find(artist => artist.id === song.userId)?.username}</p>
                         {/* <Link className='song-artist-link-text' to={{ pathname: `/users/${song.Artist?.id}` }}>{song.Artist?.username}</Link> */}
                     </li>
                 )

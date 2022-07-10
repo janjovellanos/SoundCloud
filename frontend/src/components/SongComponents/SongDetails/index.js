@@ -6,16 +6,19 @@ import { playSong } from '../../../store/player';
 import './SongDetails.css';
 import AllSongs from '../AllSongs';
 import EditSongFormModal from '../EditSongFormModal';
+import { getAllArtists } from '../../../store/artist';
 
 const SongDetails = () => {
     const { songId } = useParams();
     const dispatch = useDispatch();
     const user = useSelector(state => (state.session.user));
     const song = useSelector(state => (state.songs[songId]));
+    const artists = useSelector(state => Object.values(state.artists));
     const history = useHistory();
 
     useEffect(() => {
         (dispatch(getSong(songId)))
+        dispatch(getAllArtists());
     }, [dispatch, songId])
 
     const handleDeleteBtn = (songId) => {
@@ -50,7 +53,7 @@ const SongDetails = () => {
                             <div>
                                 <h2 className='detail-title'>{song?.title}</h2>
                                 <Link className='artist-link' to={{ pathname: `/artists/${song?.userId}` }}>
-                                    <h3 className='detail-artist'>by {song?.Artist?.username}</h3>
+                                    <h3 className='detail-artist'>by {artists?.find(artist => artist.id === song?.userId)?.username}</h3>
                                 </Link>
                                 <h4 className='detail-description'>{song?.description}</h4>
                             </div>
