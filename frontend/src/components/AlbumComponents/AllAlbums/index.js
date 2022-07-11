@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import './AllAlbums.css'
+import CreateAlbumFormModal from "../CreateAlbumModal";
 
 const AllAlbums = () => {
     const dispatch = useDispatch();
@@ -21,6 +22,10 @@ const AllAlbums = () => {
 
     return (
         <div className="all-albums-container">
+            <div className="add-album-btn">
+                <CreateAlbumFormModal />
+            </div>
+            <h2>Top New Albums</h2>
             <div>
                 {albums.map((album) => (
                     <li key={album.id} className="album-container">
