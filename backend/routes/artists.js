@@ -77,6 +77,13 @@ router.get('/:artistId/playlists', async (req, res, next) => {
     }
 });
 
+//get all artists
+router.get('/', async (req, res) => {
+    const artists = await User.findAll();
+
+    return res.json(artists);
+})
+
 
 
 

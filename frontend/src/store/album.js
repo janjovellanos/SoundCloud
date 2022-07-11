@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 export const LOAD_ALBUMS = "albums/loadAlbums";
 export const SINGLE_ALBUM = "albums/singleAlbum";
+export const CREATE_ALBUM = 'albums/addAlbum';
 
 
 const loadAllAlbums = (list) => {
@@ -18,6 +19,11 @@ const loadAlbum = (album) => {
     };
 };
 
+const addAlbum = (album) => ({
+    type: CREATE_ALBUM,
+    album
+});
+
 
 export const loadAlbums = () => async (dispatch) => {
     const res = await csrfFetch("/albums");
@@ -30,11 +36,27 @@ export const loadAlbums = () => async (dispatch) => {
 
 export const getAlbum = (album) => async (dispatch) => {
     const res = await csrfFetch(`/albums/${album.id}`);
-    // console.log(album)
 
     if (res.ok) {
         const album = await res.json();
         dispatch(loadAlbum(album));
+    }
+};
+
+export const createAlbum = (data) => async (dispatch) => {
+    const res = await csrfFetch('/albums', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    // console.log(data);
+    if (res.ok) {
+        const album = await res.json();
+        dispatch(addAlbum(album));
+
+        return album;
     }
 };
 
@@ -55,7 +77,11 @@ const albumsReducer = (state = {}, action) => {
                 ...state,
                 [action.album.id]: action.album
             };
-
+        case CREATE_ALBUM:
+            return {
+                ...state,
+                [action.album.id]: action.album
+            }
         default:
             return state;
     }

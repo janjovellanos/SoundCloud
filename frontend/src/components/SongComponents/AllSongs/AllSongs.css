@@ -6,6 +6,7 @@
 .all-songs-container h2 {
     margin-bottom: 28px;
     text-align: center;
+    font-family: sans-serif;
 }
 
 .all-songs-container>div {
@@ -85,6 +86,12 @@
     text-decoration: underline;
     font-weight: bold;
     color: #f99420;
+}
+
+.song-title-link+p {
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .song-artist-link-text {
