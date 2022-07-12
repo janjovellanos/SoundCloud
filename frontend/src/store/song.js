@@ -68,8 +68,8 @@ export const createSong = (data) => async (dispatch) => {
     }
 };
 
-export const editSong = (song) => async (dispatch) => {
-    const result = await csrfFetch(`/api/songs/${song.id}`, {
+export const editSong = (song, songId) => async (dispatch) => {
+    const result = await csrfFetch(`/api/songs/${songId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

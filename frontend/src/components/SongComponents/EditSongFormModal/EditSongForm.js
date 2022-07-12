@@ -26,13 +26,11 @@ const EditSongForm = ({ setShowModal }) => {
         setErrors([]);
 
         dispatch(songActions.editSong({
-            id: songId,
             title,
             imageUrl,
             audioUrl,
             description,
-            userId
-        }))
+        }, songId))
             .then(() => {
                 setShowModal(false);
                 history.push(`/songs/${songId}`);

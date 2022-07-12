@@ -30,7 +30,6 @@ const CreateSongForm = ({ setShowModal }) => {
 
 
         await dispatch(songActions.createSong({
-            userId,
             title,
             imageUrl,
             audioUrl,
