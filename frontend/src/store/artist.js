@@ -10,7 +10,7 @@ const load = (list) => ({
 })
 
 export const getAllArtists = () => async dispatch => {
-    const res = await csrfFetch('/artists');
+    const res = await csrfFetch('/api/artists');
     if (res.ok) {
         const list = await res.json();
         // console.log(list);

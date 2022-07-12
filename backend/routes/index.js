@@ -12,13 +12,13 @@ const playlistRouter = require('./playlists');
 
 router.use('/api', apiRouter);
 router.use('/login', loginRouter);
-router.use('/my', myRouter);
-router.use('/songs', songsRouter);
 router.use('/signup', signUpRouter);
-router.use('/albums', albumRouter);
-router.use('/comments', commentRouter);
-router.use('/artists', artistRouter);
-router.use('/playlists', playlistRouter);
+router.use('/api/my', myRouter);
+router.use('/api/songs', songsRouter);
+router.use('/api/albums', albumRouter);
+router.use('/api/comments', commentRouter);
+router.use('/api/artists', artistRouter);
+router.use('/api/playlists', playlistRouter);
 
 // Serve React build files in production
 if (process.env.NODE_ENV === 'production') {
