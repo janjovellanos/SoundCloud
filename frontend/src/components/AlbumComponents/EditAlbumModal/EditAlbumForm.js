@@ -25,12 +25,10 @@ const EditAlbumForm = ({ setShowModal }) => {
         setErrors([]);
 
         dispatch(albumActions.editAlbum({
-            id: albumId,
             title,
             imageUrl,
             description,
-            userId
-        }))
+        }, albumId))
             .then(() => {
                 setShowModal(false);
                 history.push(`/albums/${albumId}`);

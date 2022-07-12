@@ -19,15 +19,15 @@ const AlbumDetails = () => {
 
 
     useEffect(() => {
-        (dispatch(albumActions.getAlbum(albumId)))
-    }, [dispatch, albumId])
+        dispatch(albumActions.getAlbum(+albumId))
+    }, [dispatch])
 
     const playSongBtn = useCallback((song) => {
         dispatch(playSong(song));
     }, [dispatch]);
 
     const handleDeleteBtn = (albumId) => {
-        dispatch(albumActions.deleteOneAlbum(albumId));
+        dispatch(albumActions.deleteOneAlbum(+albumId));
         history.push("/albums");
     };
 
