@@ -36,7 +36,6 @@ function App() {
           </Route>
           <Route path='/songs/:songId'>
             <SongDetails />
-            {/* <AllSongs /> */}
           </Route>
           <Route exact path="/albums">
             <AllAlbums />

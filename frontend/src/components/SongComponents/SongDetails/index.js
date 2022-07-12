@@ -17,8 +17,10 @@ const SongDetails = () => {
     const history = useHistory();
 
     useEffect(() => {
-        (dispatch(getSong(songId)))
-        dispatch(getAllArtists());
+        if (songId !== undefined) {
+            dispatch(getSong(songId))
+            dispatch(getAllArtists());
+        }
     }, [dispatch, songId])
 
     const handleDeleteBtn = (songId) => {
@@ -32,7 +34,7 @@ const SongDetails = () => {
         songEditBtns = (
             <>
                 <EditSongFormModal />
-                <button className='song-action-btn' onClick={() => handleDeleteBtn(songId)}>Delete <i class="fa-solid fa-trash-can"></i></button>
+                <button className='song-action-btn' onClick={() => handleDeleteBtn(songId)}>Delete <i className="fa-solid fa-trash-can"></i></button>
             </>
         );
     }

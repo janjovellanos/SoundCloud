@@ -55,7 +55,6 @@ router.post('/:songId/comments', requireAuth, validateCommentCreation, async (re
 //get specified song
 router.get('/:songId', async (req, res, next) => {
     const { songId } = req.params;
-
     const song = await Song.findByPk(songId, {
         include: [
             { model: User, as: 'Artist', attributes: ['id', 'username', 'imageUrl'] },
