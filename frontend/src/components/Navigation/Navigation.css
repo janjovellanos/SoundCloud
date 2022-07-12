@@ -179,8 +179,8 @@
     align-items: center;
     position: absolute;
     height: 70px;
-    top: 70px;
-    right: -1px;
+    top: 64px;
+    right: 8px;
     font-family: sans-serif;
     font-size: 12px;
     border-bottom-left-radius: 6px;
