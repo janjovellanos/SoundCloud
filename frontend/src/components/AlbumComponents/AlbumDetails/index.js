@@ -11,7 +11,7 @@ const AlbumDetails = () => {
     const { albumId } = useParams();
     const user = useSelector(state => (state.session.user));
     const album = useSelector(state => (state.albums[albumId]));
-    const albumSongs = album.Songs;
+    const albumSongs = album?.Songs;
     let songCount = 0;
 
     const dispatch = useDispatch();
