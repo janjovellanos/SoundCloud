@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import * as albumActions from "../../../store/album";
 import { playSong } from "../../../store/player";
+import EditAlbumFormModal from '../EditAlbumModal';
 
 import './AlbumDetails.css'
 
@@ -25,18 +26,18 @@ const AlbumDetails = () => {
         dispatch(playSong(song));
     }, [dispatch]);
 
-    // const handleDeleteBtn = (songId) => {
-    //     dispatch(deleteOneSong(songId));
-    //     history.push("/albums");
-    // };
+    const handleDeleteBtn = (albumId) => {
+        dispatch(albumActions.deleteOneAlbum(albumId));
+        history.push("/albums");
+    };
 
     let albumEditBtns;
 
     if (album?.userId === user?.id) {
         albumEditBtns = (
             <>
-                {/* <EditSongFormModal /> */}
-                {/* <button className='album-action-btn' onClick={() => handleDeleteBtn(songId)}>Delete</button> */}
+                <EditAlbumFormModal />
+                <button className='album-action-btn' onClick={() => handleDeleteBtn(albumId)}>Delete</button>
             </>
         );
     }
