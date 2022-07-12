@@ -8,7 +8,7 @@ function EditAlbumFormModal() {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>Edit <i class="fa-solid fa-pencil"></i></button>
+            <button onClick={() => setShowModal(true)}>Edit <i className="fa-solid fa-pencil"></i></button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <EditAlbumForm setShowModal={setShowModal} />

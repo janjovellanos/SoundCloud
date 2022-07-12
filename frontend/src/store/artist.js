@@ -13,7 +13,7 @@ export const getAllArtists = () => async dispatch => {
     const res = await csrfFetch('/artists');
     if (res.ok) {
         const list = await res.json();
-        console.log(list);
+        // console.log(list);
         dispatch(load(list));
     }
 }

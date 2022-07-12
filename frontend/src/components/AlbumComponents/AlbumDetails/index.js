@@ -19,7 +19,7 @@ const AlbumDetails = () => {
 
 
     useEffect(() => {
-        (dispatch(albumActions.getAlbum(album)))
+        (dispatch(albumActions.getAlbum(albumId)))
     }, [dispatch, albumId])
 
     const playSongBtn = useCallback((song) => {

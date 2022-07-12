@@ -48,8 +48,8 @@ export const loadAlbums = () => async (dispatch) => {
     }
 };
 
-export const getAlbum = (album) => async (dispatch) => {
-    const res = await csrfFetch(`/albums/${album.id}`);
+export const getAlbum = (albumId) => async (dispatch) => {
+    const res = await csrfFetch(`/albums/${albumId}`);
 
     if (res.ok) {
         const album = await res.json();
