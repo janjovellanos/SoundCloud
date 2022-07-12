@@ -210,12 +210,11 @@
 }
 
 .rhap_container {
-    background: rgb(247, 247, 249, 0.9);
-    border-radius: 6px;
+    /* border-radius: 6px; */
 }
 
 .rhap_controls-section {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .rhap_main-controls-button {
