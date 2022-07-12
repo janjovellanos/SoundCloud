@@ -9,7 +9,7 @@ import CreateAlbumFormModal from "../CreateAlbumModal";
 const AllAlbums = () => {
     const dispatch = useDispatch();
     const albums = useSelector((state) => Object.values(state.albums));
-    const [currentAlbum, setCurrentAlbum] = useState(null);
+    // const [currentAlbum, setCurrentAlbum] = useState(null);
     // console.log(albums);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const AllAlbums = () => {
             </div>
             <h2>Top New Albums</h2>
             <div>
-                {albums.map((album) => (
+                {albums?.map((album) => (
                     <li key={album.id} className="album-container">
                         <div className="img-container" style={{ backgroundImage: `url(${album.imageUrl})` }}>
                             <Link className="album-title" to={{ pathname: `/albums/${album.id}` }}>
