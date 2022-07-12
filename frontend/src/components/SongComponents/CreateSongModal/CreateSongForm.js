@@ -29,7 +29,7 @@ const CreateSongForm = ({ setShowModal }) => {
         setErrors([]);
 
 
-        dispatch(songActions.createSong({
+        await dispatch(songActions.createSong({
             userId,
             title,
             imageUrl,
@@ -39,7 +39,6 @@ const CreateSongForm = ({ setShowModal }) => {
             .then(() => {
                 setShowModal(false);
                 history.push(`/songs`);
-                reset();
             })
             .catch(async (res) => {
                 const data = await res.json();
@@ -48,6 +47,7 @@ const CreateSongForm = ({ setShowModal }) => {
                     setErrors(data.errors);
                 }
             });
+        reset();
     };
 
     const handleCancelBtn = (e) => {
