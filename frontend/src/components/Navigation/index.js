@@ -80,9 +80,9 @@ const Navigation = ({ isLoaded }) => {
     }
 
     return (
-        <>
+        <div className='all-navigation'>
             {isLoaded && sessionLinks}
-        </>
+        </div>
     );
 }
 

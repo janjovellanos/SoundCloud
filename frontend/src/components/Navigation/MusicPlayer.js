@@ -15,6 +15,7 @@ export default function MusicPlayer() {
                 src={currSong?.audioUrl}
                 onPlay={e => console.log("onPlay")}
                 header={currSong?.title}
+                layout='stacked-reverse'
             // onEnded={currSong = songs[currSong.id + 1]}
             // other props here
             />

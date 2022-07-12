@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import * as albumActions from "../../../store/album";
 import { playSong } from "../../../store/player";
+import EditAlbumFormModal from '../EditAlbumModal';
 
 import './AlbumDetails.css'
 
@@ -10,7 +11,7 @@ const AlbumDetails = () => {
     const { albumId } = useParams();
     const user = useSelector(state => (state.session.user));
     const album = useSelector(state => (state.albums[albumId]));
-    const albumSongs = album.Songs;
+    const albumSongs = album?.Songs;
     let songCount = 0;
 
     const dispatch = useDispatch();
@@ -18,25 +19,25 @@ const AlbumDetails = () => {
 
 
     useEffect(() => {
-        (dispatch(albumActions.getAlbum(album)))
+        (dispatch(albumActions.getAlbum(albumId)))
     }, [dispatch, albumId])
 
     const playSongBtn = useCallback((song) => {
         dispatch(playSong(song));
     }, [dispatch]);
 
-    // const handleDeleteBtn = (songId) => {
-    //     dispatch(deleteOneSong(songId));
-    //     history.push("/albums");
-    // };
+    const handleDeleteBtn = (albumId) => {
+        dispatch(albumActions.deleteOneAlbum(albumId));
+        history.push("/albums");
+    };
 
     let albumEditBtns;
 
     if (album?.userId === user?.id) {
         albumEditBtns = (
             <>
-                {/* <EditSongFormModal /> */}
-                {/* <button className='album-action-btn' onClick={() => handleDeleteBtn(songId)}>Delete</button> */}
+                <EditAlbumFormModal />
+                <button className='album-action-btn' onClick={() => handleDeleteBtn(albumId)}>Delete</button>
             </>
         );
     }
