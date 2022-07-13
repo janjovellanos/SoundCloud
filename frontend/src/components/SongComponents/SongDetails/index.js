@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory, Link, useLocation } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import { getSong, deleteOneSong } from '../../../store/song';
 import { playSong } from '../../../store/player';
 import './SongDetails.css';
@@ -14,15 +14,21 @@ const SongDetails = () => {
     const user = useSelector(state => (state.session.user));
     const song = useSelector(state => (state.songs[songId]));
     const artists = useSelector(state => Object.values(state.artists));
-    const location = useLocation();
+    const [imageUrl, setImageUrl] = useState('https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/defaultmusiccover.webp');
     const history = useHistory();
 
     useEffect(() => {
         if (songId !== undefined) {
-            // dispatch(getSong(songId))
-            // dispatch(getAllArtists());
+            dispatch(getSong(songId));
+            dispatch(getAllArtists());
         }
-    }, [dispatch, songId, location])
+    }, [dispatch, songId])
+
+    useEffect(() => {
+        if (song) {
+            setImageUrl(song.imageUrl)
+        }
+    }, [song])
 
 
     const handleDeleteBtn = (songId) => {
@@ -66,7 +72,7 @@ const SongDetails = () => {
                             {songEditBtns}
                         </div>
                     </div>
-                    <div className='song-img-lrg' style={{ backgroundImage: 'url(' + song?.imageUrl + ')' }}>
+                    <div className='song-img-lrg' style={{ backgroundImage: 'url(' + imageUrl + ')' }}>
                     </div>
                 </div>
             </div>

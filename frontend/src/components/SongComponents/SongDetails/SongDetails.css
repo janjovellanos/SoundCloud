@@ -81,7 +81,7 @@
 .detail-description {
     border-radius: 6px;
     font-family: sans-serif;
-    border: 1px dotted black;
+    border: 1px solid black;
     background: #fff;
     padding: 0 6px;
     width: fit-content;
@@ -90,7 +90,7 @@
 .edit-btns button {
     border-radius: 3px;
     margin: 2px;
-    border: 1px dotted black;
+    border: 1px solid black;
 }
 
 .edit-btns button:hover {
