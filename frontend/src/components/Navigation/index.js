@@ -72,7 +72,7 @@ const Navigation = ({ isLoaded }) => {
                         </div>
                     </div>
                     <div className='under-nav-banner'>
-                        <h1>Login and listen now <i class="fa-solid fa-headphones-simple"></i></h1>
+                        <h1>Login and listen now <i className="fa-solid fa-headphones-simple"></i></h1>
                     </div>
                 </nav>
             </>

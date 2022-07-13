@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, useHistory, Link, useLocation } from 'react-router-dom';
 import { getSong, deleteOneSong } from '../../../store/song';
 import { playSong } from '../../../store/player';
 import './SongDetails.css';
@@ -14,14 +14,16 @@ const SongDetails = () => {
     const user = useSelector(state => (state.session.user));
     const song = useSelector(state => (state.songs[songId]));
     const artists = useSelector(state => Object.values(state.artists));
+    const location = useLocation();
     const history = useHistory();
 
     useEffect(() => {
         if (songId !== undefined) {
-            dispatch(getSong(songId))
-            dispatch(getAllArtists());
+            // dispatch(getSong(songId))
+            // dispatch(getAllArtists());
         }
-    }, [dispatch, songId])
+    }, [dispatch, songId, location])
+
 
     const handleDeleteBtn = (songId) => {
         dispatch(deleteOneSong(songId));

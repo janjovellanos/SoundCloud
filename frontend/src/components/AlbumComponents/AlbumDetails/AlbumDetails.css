@@ -161,3 +161,23 @@
     font-weight: bold;
     color: #f99420;
 }
+
+.album-upload-song-btn {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    width: fit-content;
+    background-color: #ff5501;
+    border-color: #ff5501;
+    color: #fff;
+    height: 30px;
+    padding: 4px 15px;
+    border: 1px solid #ff5501;
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
