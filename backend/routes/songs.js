@@ -75,7 +75,7 @@ router.get('/:songId', async (req, res, next) => {
 //create a song
 router.post('/', requireAuth, validateSongCreation, async (req, res, next) => {
     const { user } = req;
-    const { title, description, audioUrl, imageUrl } = req.body;
+    const { title, description, audioUrl, imageUrl, albumId } = req.body;
 
     const newSong = await Song.create({
         userId: user.id,
@@ -83,6 +83,7 @@ router.post('/', requireAuth, validateSongCreation, async (req, res, next) => {
         description,
         audioUrl,
         imageUrl,
+        albumId
     })
     res.status(201);
     res.json(newSong);

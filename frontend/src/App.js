@@ -34,13 +34,13 @@ function App() {
           <Route exact path='/songs'>
             <AllSongs />
           </Route>
-          <Route path='/songs/:songId'>
+          <Route exact path='/songs/:songId'>
             <SongDetails />
           </Route>
           <Route exact path="/albums">
             <AllAlbums />
           </Route>
-          <Route path='/albums/:albumId'>
+          <Route exact path='/albums/:albumId'>
             <AlbumDetails />
           </Route>
         </Switch>
