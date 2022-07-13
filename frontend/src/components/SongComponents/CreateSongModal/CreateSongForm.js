@@ -40,6 +40,7 @@ const CreateSongForm = ({ setShowModal }) => {
             .then(() => {
                 setShowModal(false);
                 if (albumId) {
+                    history.push(`/albums`) //hard fixed song upload on album
                     history.push(`/albums/${albumId}`)
                 } else {
                     history.push(`/songs`);
@@ -58,7 +59,12 @@ const CreateSongForm = ({ setShowModal }) => {
     const handleCancelBtn = (e) => {
         e.preventDefault();
         setShowModal(false);
-        history.push('/songs');
+
+        if (albumId) {
+            history.push(`/albums/${albumId}`)
+        } else {
+            history.push('/songs');
+        }
     }
 
     return (

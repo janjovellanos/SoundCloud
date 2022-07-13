@@ -21,9 +21,8 @@ const AlbumDetails = () => {
     const history = useHistory();
 
 
-    // console.log('we got here,', albumId)
     useEffect(() => {
-        dispatch(albumActions.getAlbum(+albumId))
+        dispatch(albumActions.getAlbum(albumId))
     }, [dispatch, albumId]);
 
     useEffect(() => {
