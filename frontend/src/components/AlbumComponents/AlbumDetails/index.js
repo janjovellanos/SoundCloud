@@ -21,7 +21,7 @@ const AlbumDetails = () => {
 
     useEffect(() => {
         dispatch(albumActions.getAlbum(+albumId))
-    }, [dispatch])
+    }, [dispatch, album])
 
     const playSongBtn = useCallback((song) => {
         dispatch(playSong(song));
