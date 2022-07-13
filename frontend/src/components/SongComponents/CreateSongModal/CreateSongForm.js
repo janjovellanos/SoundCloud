@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as songActions from '../../../store/song';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 
 import './CreateSongForm.css';
 
 const CreateSongForm = ({ setShowModal }) => {
     const sessionUser = useSelector(state => state.session.user);
-    const userId = sessionUser.id;
+    // const userId = sessionUser.id;
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [imageUrl, setImageUrl] = useState('https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/defaultmusiccover.webp'); //default image
     const [audioUrl, setAudioUrl] = useState('');
     const [description, setDescription] = useState('');
     const [errors, setErrors] = useState([]);
+    const { albumId } = useParams();
     const history = useHistory();
 
     const reset = () => {
@@ -33,11 +34,16 @@ const CreateSongForm = ({ setShowModal }) => {
             title,
             imageUrl,
             audioUrl,
-            description
+            description,
+            albumId
         }))
             .then(() => {
                 setShowModal(false);
-                history.push(`/songs`);
+                if (albumId) {
+                    history.push(`/albums/${albumId}`)
+                } else {
+                    history.push(`/songs`);
+                }
             })
             .catch(async (res) => {
                 const data = await res.json();

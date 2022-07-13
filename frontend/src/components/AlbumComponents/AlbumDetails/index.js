@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import * as albumActions from "../../../store/album";
 import { playSong } from "../../../store/player";
+import CreateSongFormModal from '../../SongComponents/CreateSongModal';
 import EditAlbumFormModal from '../EditAlbumModal';
 
 import './AlbumDetails.css'
@@ -20,7 +21,7 @@ const AlbumDetails = () => {
 
     useEffect(() => {
         dispatch(albumActions.getAlbum(+albumId))
-    }, [dispatch])
+    }, [dispatch, album])
 
     const playSongBtn = useCallback((song) => {
         dispatch(playSong(song));
@@ -38,6 +39,9 @@ const AlbumDetails = () => {
             <>
                 <EditAlbumFormModal />
                 <button className='album-action-btn' onClick={() => handleDeleteBtn(albumId)}>Delete</button>
+                <div className='album-upload-song-btn'>
+                    <CreateSongFormModal />
+                </div>
             </>
         );
     }
