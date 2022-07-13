@@ -48,7 +48,7 @@
 .detail-description {
     border-radius: 6px;
     font-family: sans-serif;
-    border: 1px dotted white;
+    border: 1px solid white;
     background: rgb(0, 0, 0, 0.6);
     color: white;
     padding: 0 6px;
@@ -58,7 +58,7 @@
 .edit-btns button {
     border-radius: 3px;
     margin: 2px;
-    border: 1px dotted black;
+    border: 1px solid black;
 }
 
 .edit-btns button:hover {
@@ -165,9 +165,8 @@
 .album-upload-song-btn {
     display: flex;
     flex-direction: column-reverse;
-    align-items: center;
     justify-content: center;
-    margin: 30px;
+    margin: 40px 55px;
     width: fit-content;
     background-color: #ff5501;
     border-color: #ff5501;
@@ -180,4 +179,15 @@
     white-space: nowrap;
     font-family: sans-serif;
     box-sizing: border-box;
+}
+
+.album-upload-song-btn a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.album-upload-song-btn a:hover {
+    font-size: 15px;
 }

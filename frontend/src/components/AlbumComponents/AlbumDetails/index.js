@@ -12,6 +12,8 @@ const AlbumDetails = () => {
     const { albumId } = useParams();
     const user = useSelector(state => (state.session.user));
     const album = useSelector(state => (state.albums[albumId]));
+    const [imageUrl, setImageUrl] = useState('https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/defaultmusiccover.webp');
+
     const albumSongs = album?.Songs;
     let songCount = 0;
 
@@ -19,11 +21,16 @@ const AlbumDetails = () => {
     const history = useHistory();
 
 
+    // console.log('we got here,', albumId)
     useEffect(() => {
-        if (albumId) {
-            dispatch(albumActions.getAlbum(+albumId))
+        dispatch(albumActions.getAlbum(+albumId))
+    }, [dispatch, albumId]);
+
+    useEffect(() => {
+        if (album) {
+            setImageUrl(album.imageUrl)
         }
-    }, [dispatch, albumId])
+    }, [album])
 
     const playSongBtn = useCallback((song) => {
         dispatch(playSong(song));
@@ -39,10 +46,12 @@ const AlbumDetails = () => {
     if (album?.userId === user?.id) {
         albumEditBtns = (
             <>
-                <EditAlbumFormModal />
-                <button className='album-action-btn' onClick={() => handleDeleteBtn(albumId)}>Delete</button>
-                <div className='album-upload-song-btn'>
-                    <CreateSongFormModal />
+                <div className='edit-btns'>
+                    <EditAlbumFormModal />
+                    <button className='album-action-btn' onClick={() => handleDeleteBtn(albumId)}>Delete</button>
+                    <div className='album-upload-song-btn'>
+                        <CreateSongFormModal />
+                    </div>
                 </div>
             </>
         );
@@ -50,7 +59,7 @@ const AlbumDetails = () => {
 
     return (
         <>
-            <div className='album-details-container' style={{ backgroundImage: 'url(' + album?.imageUrl + ')' }}>
+            <div className='album-details-container' style={{ backgroundImage: 'url(' + imageUrl + ')' }}>
                 <div>
                     <div className='album-details'>
                         <div>
@@ -62,9 +71,7 @@ const AlbumDetails = () => {
                                 {/* <h4 className='detail-description'>{song?.description}</h4> */}
                             </div>
                         </div>
-                        <div className='edit-btns'>
-                            {albumEditBtns}
-                        </div>
+                        {albumEditBtns}
                     </div>
                     {/* <div className='album-img-lrg'>
                     </div> */}

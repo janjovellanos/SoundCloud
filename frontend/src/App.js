@@ -40,7 +40,7 @@ function App() {
           <Route exact path="/albums">
             <AllAlbums />
           </Route>
-          <Route exact path='/albums/:albumId'>
+          <Route path='/albums/:albumId'>
             <AlbumDetails />
           </Route>
         </Switch>
