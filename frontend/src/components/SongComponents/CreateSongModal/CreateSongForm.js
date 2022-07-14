@@ -7,6 +7,7 @@ import './CreateSongForm.css';
 
 const CreateSongForm = ({ setShowModal }) => {
     const sessionUser = useSelector(state => state.session.user);
+    const { albumId } = useParams();
     // const userId = sessionUser.id;
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
@@ -14,7 +15,6 @@ const CreateSongForm = ({ setShowModal }) => {
     const [audioUrl, setAudioUrl] = useState('');
     const [description, setDescription] = useState('');
     const [errors, setErrors] = useState([]);
-    const { albumId } = useParams();
     const history = useHistory();
 
     const reset = () => {
@@ -29,6 +29,7 @@ const CreateSongForm = ({ setShowModal }) => {
 
         setErrors([]);
 
+        // console.log(imageUrl, title, audioUrl, description);
 
         await dispatch(songActions.createSong({
             title,
@@ -54,6 +55,13 @@ const CreateSongForm = ({ setShowModal }) => {
                 }
             });
         reset();
+    };
+
+    const updateFile = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setImageUrl(file);
+        }
     };
 
     const handleCancelBtn = (e) => {
@@ -82,7 +90,7 @@ const CreateSongForm = ({ setShowModal }) => {
                 </div>
                 <div className='input-container'>
                     <label htmlFor='imageUrl'>Image Url</label>
-                    <input type='text' name='imageUrl' placeholder='Default Cover' onChange={(e) => setImageUrl(e.target.value)} />
+                    <input type='file' name='imageUrl' placeholder='Default Cover' onChange={e => updateFile(e)} />
                 </div>
                 <div className='input-container'>
                     <label htmlFor='audioUrl'>Song Url</label>

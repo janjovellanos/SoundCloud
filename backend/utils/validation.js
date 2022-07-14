@@ -3,7 +3,6 @@ const { check } = require('express-validator');
 
 const handleValidationErrors = (req, _res, next) => {
     const validationErrors = validationResult(req);
-
     let errObj = {}
     if (!validationErrors.isEmpty()) {
         const errors = validationErrors
