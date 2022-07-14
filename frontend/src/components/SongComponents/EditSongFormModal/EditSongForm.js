@@ -48,7 +48,8 @@ const EditSongForm = ({ setShowModal }) => {
     const handleCancelBtn = (e) => {
         e.preventDefault();
         setShowModal(false);
-        history.push(`/songs/${songId}`);
+        // history.push(`/songs/${songId}`);
+        // console.log(history);
     }
 
     return (

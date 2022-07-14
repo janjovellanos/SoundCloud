@@ -1,6 +1,7 @@
 const express = require('express');
 
 const { requireAuth } = require('../utils/auth');
+const { singleMulterUpload, singlePublicFileUpload, multipleMulterUpload, multiplePublicFileUpload, multipleFileKeysUpload } = require('../awsS3');
 const { validateQueryFilters, validateSongCreation } = require('../utils/validation');
 const { Song, User, Album, Comment } = require('../db/models');
 
@@ -73,9 +74,16 @@ router.get('/:songId', async (req, res, next) => {
 });
 
 //create a song
-router.post('/', requireAuth, validateSongCreation, async (req, res, next) => {
+router.post('/', requireAuth, multipleFileKeysUpload([{ name: 'imageUrl', maxCount: 1 }, { name: 'audioUrl', maxCount: 1 }]), validateSongCreation, async (req, res, next) => {
+    console.log('GOT HERE ---------------------->')
     const { user } = req;
-    const { title, description, audioUrl, imageUrl, albumId } = req.body;
+    const { title, description, albumId } = req.body;
+    // const [imageUrl, audioUrl] = await multiplePublicFileUpload(req.file);
+    // console.log(req.files.imageUrl, '------------------', req.files.audioUrl)
+
+    const imageUrl = await singlePublicFileUpload(req.files.imageUrl[0]);
+    const audioUrl = await singlePublicFileUpload(req.files.audioUrl[0]);
+
 
     const newSong = await Song.create({
         userId: user.id,

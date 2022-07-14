@@ -52,14 +52,26 @@ export const getSong = (songId) => async (dispatch) => {
 };
 
 export const createSong = (data) => async (dispatch) => {
+    const { imageUrl, title, audioUrl, description, albumId } = data;
+    // console.log(data);
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", description);
+
+    // for single file
+    if (albumId) formData.append("albumId", albumId)
+    if (imageUrl) formData.append("imageUrl", imageUrl)
+    if (audioUrl) formData.append("audioUrl", audioUrl);
+
+    console.log(formData);
     const res = await csrfFetch('/api/songs', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'multipart/form-data'
         },
-        body: JSON.stringify(data)
+        body: formData
     });
-    // console.log(data);
+
     if (res.ok) {
         const song = await res.json();
         dispatch(addSong(song));
