@@ -33,7 +33,7 @@ const SongDetails = () => {
 
     const handleDeleteBtn = (songId) => {
         dispatch(deleteOneSong(songId));
-        history.goBack();
+        history.push('/songs');
     };
 
     let songEditBtns;

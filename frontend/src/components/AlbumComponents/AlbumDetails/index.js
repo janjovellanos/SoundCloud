@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import * as albumActions from "../../../store/album";
+import * as songActions from '../../../store/song';
 import { playSong } from "../../../store/player";
 import CreateSongFormModal from '../../SongComponents/CreateSongModal';
 import EditAlbumFormModal from '../EditAlbumModal';
@@ -35,9 +36,15 @@ const AlbumDetails = () => {
         dispatch(playSong(song));
     }, [dispatch]);
 
-    const handleDeleteBtn = (albumId) => {
+    const handleAlbumDeleteBtn = (albumId) => {
         dispatch(albumActions.deleteOneAlbum(+albumId));
         history.push("/albums");
+    };
+
+    const handleSongDeleteBtn = async (songId) => {
+        await dispatch(songActions.deleteOneSong(songId));
+        history.push(`/albums`);
+        history.push(`/albums/${albumId}`);
     };
 
     let albumEditBtns;
@@ -47,7 +54,7 @@ const AlbumDetails = () => {
             <>
                 <div className='edit-btns'>
                     <EditAlbumFormModal />
-                    <button className='album-action-btn' onClick={() => handleDeleteBtn(albumId)}>Delete</button>
+                    <button className='album-action-btn' onClick={() => handleAlbumDeleteBtn(albumId)}>Delete <i className="fa-solid fa-trash-can"></i></button>
                     <div className='album-upload-song-btn'>
                         <CreateSongFormModal />
                     </div>
@@ -81,12 +88,16 @@ const AlbumDetails = () => {
                     {albumSongs?.map((song) =>
                     (
                         <li key={song.id} className='album-song-container'>
-                            <Link className='album-song-title-link' to={{ pathname: `/songs/${song.id}` }}>
-                                <p>{++songCount}. {song.title}</p>
-                            </Link>
-                            <button className='album-play-btn list-style-album-play-btn' onClick={() => playSongBtn(song)}>
-                                <i className="fas fa-play"></i>
-                            </button>
+                            <div className='song-and-play'>
+                                <Link className='album-song-title-link' to={{ pathname: `/songs/${song.id}` }}>
+                                    <p>{++songCount}. {song.title}</p>
+                                </Link>
+                                <button className='album-play-btn list-style-album-play-btn' onClick={() => playSongBtn(song)}>
+                                    <i className="fas fa-play"></i>
+                                </button>
+                            </div>
+                            <button className='album-song-delete' onClick={() => handleSongDeleteBtn(song.id)}><i className="fa-solid fa-trash-can"></i></button>
+
                             {/* <div className='play-animation'> */}
                             {/* <div className='song-cover-img' style={{ backgroundImage: `url(${song.imageUrl})` }}>
                                 </div> */}

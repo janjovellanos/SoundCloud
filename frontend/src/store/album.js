@@ -73,7 +73,6 @@ export const createAlbum = (data) => async (dispatch) => {
         },
         body: formData
     });
-    // console.log(data);
     if (res.ok) {
         const album = await res.json();
         dispatch(addAlbum(album));

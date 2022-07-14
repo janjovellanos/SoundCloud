@@ -66,7 +66,6 @@
 }
 
 .album-songs-container {
-    background: #fff;
     padding: 10px 10px 120px;
     display: flex;
     flex-direction: column;
@@ -190,4 +189,13 @@
 
 .album-upload-song-btn a:hover {
     font-size: 15px;
+}
+
+.song-and-play {
+    display: flex;
+    align-items: center;
+}
+
+.song-and-play p {
+    margin: 6px;
 }
