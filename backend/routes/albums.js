@@ -1,6 +1,7 @@
 const express = require('express');
 
 const { requireAuth } = require('../utils/auth');
+const { singlePublicFileUpload, singleMulterUpload } = require('../awsS3');
 const { validateSongCreation, validateAlbumCreation } = require('../utils/validation');
 const { Song, User, Album } = require('../db/models');
 
@@ -121,9 +122,12 @@ router.delete('/:albumId', requireAuth, async (req, res, next) => {
 })
 
 //create album
-router.post('/', requireAuth, validateAlbumCreation, async (req, res, next) => {
+router.post('/', requireAuth, singleMulterUpload('imageUrl'), validateAlbumCreation, async (req, res, next) => {
     const { user } = req;
-    const { title, description, imageUrl } = req.body;
+    const { title, description } = req.body;
+    console.log(req.file);
+    const imageUrl = await singlePublicFileUpload(req.file);
+
 
     newAlbum = await Album.create({
         userId: user.id,

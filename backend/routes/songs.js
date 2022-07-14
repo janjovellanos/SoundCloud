@@ -75,7 +75,6 @@ router.get('/:songId', async (req, res, next) => {
 
 //create a song
 router.post('/', requireAuth, multipleFileKeysUpload([{ name: 'imageUrl', maxCount: 1 }, { name: 'audioUrl', maxCount: 1 }]), validateSongCreation, async (req, res, next) => {
-    console.log('GOT HERE ---------------------->')
     const { user } = req;
     const { title, description, albumId } = req.body;
     // const [imageUrl, audioUrl] = await multiplePublicFileUpload(req.file);

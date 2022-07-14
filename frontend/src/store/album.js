@@ -58,12 +58,20 @@ export const getAlbum = (albumId) => async (dispatch) => {
 };
 
 export const createAlbum = (data) => async (dispatch) => {
+    const { title, description, imageUrl } = data;
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", description);
+
+    if (imageUrl) formData.append("imageUrl", imageUrl)
+
     const res = await csrfFetch('/api/albums', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'multipart/form-data'
         },
-        body: JSON.stringify(data)
+        body: formData
     });
     // console.log(data);
     if (res.ok) {

@@ -63,7 +63,7 @@ export const createSong = (data) => async (dispatch) => {
     if (imageUrl) formData.append("imageUrl", imageUrl)
     if (audioUrl) formData.append("audioUrl", audioUrl);
 
-    console.log(formData);
+    // console.log(formData);
     const res = await csrfFetch('/api/songs', {
         method: 'POST',
         headers: {
