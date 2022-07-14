@@ -57,10 +57,17 @@ const CreateSongForm = ({ setShowModal }) => {
         reset();
     };
 
-    const updateFile = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            setImageUrl(file);
+    const updateImgFile = (e) => {
+        const imgFile = e.target.files[0];
+        if (imgFile) {
+            setImageUrl(imgFile);
+        }
+    };
+
+    const updateAudFile = (e) => {
+        const audFile = e.target.files[0];
+        if (audFile) {
+            setAudioUrl(audFile);
         }
     };
 
@@ -90,11 +97,11 @@ const CreateSongForm = ({ setShowModal }) => {
                 </div>
                 <div className='input-container'>
                     <label htmlFor='imageUrl'>Image Url</label>
-                    <input type='file' name='imageUrl' placeholder='Default Cover' onChange={e => updateFile(e)} />
+                    <input type='file' name='imageUrl' placeholder='Default Cover' onChange={e => updateImgFile(e)} />
                 </div>
                 <div className='input-container'>
                     <label htmlFor='audioUrl'>Song Url</label>
-                    <input type='text' name='audioUrl' value={audioUrl} onChange={(e) => setAudioUrl(e.target.value)} />
+                    <input type='file' name='audioUrl' onChange={e => updateAudFile(e)} />
                 </div>
                 <div className='input-container'>
                     <label htmlFor='description'>Description</label>

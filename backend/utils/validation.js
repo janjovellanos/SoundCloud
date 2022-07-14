@@ -26,9 +26,9 @@ validateSongCreation = [
     check('title')
         .exists({ checkFalsy: true })
         .withMessage('Song title is required'),
-    check('audioUrl')
-        .exists({ checkFalsy: true })
-        .withMessage('Audio is required'),
+    // check('audioUrl')
+    //     .exists({ checkFalsy: true })
+    //     .withMessage('Audio is required'),
     handleValidationErrors
 ];
 

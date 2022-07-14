@@ -57,12 +57,11 @@ export const createSong = (data) => async (dispatch) => {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("description", description);
-    formData.append("audioUrl", audioUrl);
 
     // for single file
-    // if (imageUrl) formData.append("imageUrl", imageUrl);
     if (albumId) formData.append("albumId", albumId)
     if (imageUrl) formData.append("imageUrl", imageUrl)
+    if (audioUrl) formData.append("audioUrl", audioUrl);
 
     console.log(formData);
     const res = await csrfFetch('/api/songs', {
@@ -71,9 +70,7 @@ export const createSong = (data) => async (dispatch) => {
             'Content-Type': 'multipart/form-data'
         },
         body: formData
-        // JSON.stringify(data)
     });
-    // console.log(res);
 
     if (res.ok) {
         const song = await res.json();
