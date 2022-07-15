@@ -1,6 +1,6 @@
 # Shair (SoundCloud)
 
-Shair is a web application for connecting, sharing and listening to music. Shair was inspired by SoundCloud.
+**Shair** is a web application for connecting, sharing and listening to music. Shair was inspired by SoundCloud.
 
 Login, Explore, and Shair now at [on-the-shair.com](https://on-the-shair.herokuapp.com/)
 
@@ -13,8 +13,7 @@ Login, Explore, and Shair now at [on-the-shair.com](https://on-the-shair.herokua
 ### Stream:
 <img width="718" alt="stream" src="https://github.com/janjovellanos/SoundCloud/blob/main/docs/images/stream.png">
 
-### Technical Details:
-#### Technologies:
+### Technologies:
 * Express.js
 * Node.js
 * Csurf.js
