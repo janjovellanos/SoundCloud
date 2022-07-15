@@ -42,3 +42,4 @@ Login, Explore, and Shair now at [on-the-shair.com](https://on-the-shair.herokua
 * [ ] Likes & Follows
 * [ ] Search
 
+[Original Design Docs](https://github.com/janjovellanos/SoundCloud/blob/main/docs/README.md)
