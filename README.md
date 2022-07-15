@@ -35,6 +35,7 @@ Login, Explore, and Shair now at [on-the-shair.com](https://on-the-shair.herokua
 * Navigate with continuous music
 
 ### To-Do:
+* [ ] Artists
 * [ ] Comments
 * [ ] Playlists
 * [ ] Profile Page
