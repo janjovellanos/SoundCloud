@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import * as albumActions from "../../../store/album";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import './AllAlbums.css'
+import * as albumActions from "../../../store/album";
 import CreateAlbumFormModal from "../CreateAlbumModal";
 
+import './AllAlbums.css'
+
 const AllAlbums = () => {
-    const dispatch = useDispatch();
     const albums = useSelector((state) => Object.values(state.albums));
-    // const [currentAlbum, setCurrentAlbum] = useState(null);
-    // console.log(albums);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(albumActions.loadAlbums());

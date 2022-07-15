@@ -17,8 +17,6 @@ export default function MusicPlayer() {
                 header={currSong?.title}
                 layout='stacked-reverse'
                 volume={0.2}
-            // onEnded={currSong = songs[currSong.id + 1]}
-            // other props here
             />
         </div>
     )

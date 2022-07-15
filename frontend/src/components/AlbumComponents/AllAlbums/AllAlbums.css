@@ -1,8 +1,6 @@
 .all-albums-container {
     background: #fff;
     padding: 10px 10px 120px;
-    /* display: flex;
-    justify-content: center; */
 }
 
 .all-albums-container>div {

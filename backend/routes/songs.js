@@ -1,7 +1,7 @@
 const express = require('express');
 
 const { requireAuth } = require('../utils/auth');
-const { singleMulterUpload, singlePublicFileUpload, multipleMulterUpload, multiplePublicFileUpload, multipleFileKeysUpload } = require('../awsS3');
+const { singlePublicFileUpload, multipleFileKeysUpload } = require('../awsS3');
 const { validateQueryFilters, validateSongCreation } = require('../utils/validation');
 const { Song, User, Album, Comment } = require('../db/models');
 
@@ -76,12 +76,14 @@ router.get('/:songId', async (req, res, next) => {
 //create a song
 router.post('/', requireAuth, multipleFileKeysUpload([{ name: 'imageUrl', maxCount: 1 }, { name: 'audioUrl', maxCount: 1 }]), validateSongCreation, async (req, res, next) => {
     const { user } = req;
-    const { title, description, albumId } = req.body;
-    // const [imageUrl, audioUrl] = await multiplePublicFileUpload(req.file);
-    // console.log(req.files.imageUrl, '------------------', req.files.audioUrl)
+    let { title, description, albumId, imageUrl, audioUrl } = req.body;
 
-    const imageUrl = await singlePublicFileUpload(req.files.imageUrl[0]);
-    const audioUrl = await singlePublicFileUpload(req.files.audioUrl[0]);
+    if (req.files.imageUrl) {
+        imageUrl = await singlePublicFileUpload(req.files.imageUrl[0]);
+    }
+    if (req.files.audioUrl) {
+        audioUrl = await singlePublicFileUpload(req.files.audioUrl[0]);
+    }
 
 
     const newSong = await Song.create({
@@ -97,10 +99,17 @@ router.post('/', requireAuth, multipleFileKeysUpload([{ name: 'imageUrl', maxCou
 });
 
 //edit song
-router.put('/:songId', requireAuth, validateSongCreation, async (req, res, next) => {
+router.put('/:songId', requireAuth, multipleFileKeysUpload([{ name: 'imageUrl', maxCount: 1 }, { name: 'audioUrl', maxCount: 1 }]), validateSongCreation, async (req, res, next) => {
     const { songId } = req.params;
     const { user } = req;
-    const { title, description, audioUrl, imageUrl } = req.body
+    let { title, description, audioUrl, imageUrl } = req.body
+
+    if (req.files.imageUrl) {
+        imageUrl = await singlePublicFileUpload(req.files.imageUrl[0]);
+    }
+    if (req.files.audioUrl) {
+        audioUrl = await singlePublicFileUpload(req.files.audioUrl[0]);
+    }
 
     const song = await Song.findByPk(songId);
 

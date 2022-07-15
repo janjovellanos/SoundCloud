@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux"
 import { useState } from "react"
+
 import * as sessionActions from '../../store/session';
 
 import './LoginForm.css';
@@ -14,7 +15,6 @@ const LoginForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // setErrors([]);
 
         const loginErrors = [];
 

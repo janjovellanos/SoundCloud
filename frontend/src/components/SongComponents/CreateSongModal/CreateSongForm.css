@@ -29,19 +29,36 @@
 .input-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .input-container input {
     margin-top: 8px;
+    align-items: center;
+    text-align: center;
 }
 
 .form-btn-wrapper {
     padding-top: 10px;
 }
 
-
+.form-btn-container {
+    display: flex;
+    justify-content: center;
+}
 
 .create-song-form div {
     margin: 4px;
     display: flex;
+}
+
+.file-upload {
+    color: transparent;
+    width: 90px;
+}
+
+.form-header {
+    font-family: sans-serif;
+    padding: 2px 8px;
+    border-radius: 6px;
 }
