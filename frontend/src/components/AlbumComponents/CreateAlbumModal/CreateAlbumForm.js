@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as albumActions from '../../../store/album';
 import { useHistory } from 'react-router';
+
+import * as albumActions from '../../../store/album';
 
 import './CreateAlbumForm.css';
 
 const CreateAlbumForm = ({ setShowModal }) => {
     const sessionUser = useSelector(state => state.session.user);
     const userId = sessionUser.id;
-    const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [imageUrl, setImageUrl] = useState('https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/defaultmusiccover.webp'); //default image
-    const [audioUrl, setAudioUrl] = useState('');
     const [description, setDescription] = useState('');
     const [errors, setErrors] = useState([]);
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const reset = () => {
         setTitle('');
         setImageUrl('');
-        setAudioUrl('');
         setDescription('');
     };
 

@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import * as songActions from '../../../store/song';
+import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
+
+import * as songActions from '../../../store/song';
 
 import './CreateSongForm.css';
 
 const CreateSongForm = ({ setShowModal }) => {
-    const sessionUser = useSelector(state => state.session.user);
     const { albumId } = useParams();
-    // const userId = sessionUser.id;
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [imageUrl, setImageUrl] = useState('https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/defaultmusiccover.webp'); //default image
@@ -28,8 +27,6 @@ const CreateSongForm = ({ setShowModal }) => {
         e.preventDefault();
 
         setErrors([]);
-
-        // console.log(imageUrl, title, audioUrl, description);
 
         await dispatch(songActions.createSong({
             title,

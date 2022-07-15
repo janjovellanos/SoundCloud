@@ -130,7 +130,7 @@ router.delete('/:albumId', requireAuth, async (req, res, next) => {
 router.post('/', requireAuth, singleMulterUpload('imageUrl'), validateAlbumCreation, async (req, res, next) => {
     const { user } = req;
     let { title, description, imageUrl } = req.body;
-    console.log(req.file);
+
     if (req.file) {
         imageUrl = await singlePublicFileUpload(req.file);
     }

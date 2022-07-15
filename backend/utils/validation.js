@@ -7,7 +7,6 @@ const handleValidationErrors = (req, _res, next) => {
     if (!validationErrors.isEmpty()) {
         const errors = validationErrors
             .array()
-            // .map((error) => `${error.msg}`);
             .forEach((err) => {
                 errObj[err.param] = err.msg
             });
@@ -26,9 +25,7 @@ validateSongCreation = [
     check('title')
         .exists({ checkFalsy: true })
         .withMessage('Song title is required'),
-    // check('audioUrl')
-    //     .exists({ checkFalsy: true })
-    //     .withMessage('Audio is required'),
+
     handleValidationErrors
 ];
 

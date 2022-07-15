@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, Link } from 'react-router-dom';
+
 import * as albumActions from "../../../store/album";
 import * as songActions from '../../../store/song';
 import { playSong } from "../../../store/player";
@@ -18,8 +19,8 @@ const AlbumDetails = () => {
     const albumSongs = album?.Songs;
     let songCount = 0;
 
-    const dispatch = useDispatch();
     const history = useHistory();
+    const dispatch = useDispatch();
 
 
     useEffect(() => {
@@ -74,13 +75,10 @@ const AlbumDetails = () => {
                                 <Link className='artist-link' to={{ pathname: `/artists/${album?.userId}` }}>
                                     <h3 className='detail-artist'>by {album?.Artist?.username}</h3>
                                 </Link>
-                                {/* <h4 className='detail-description'>{song?.description}</h4> */}
                             </div>
                         </div>
                         {albumEditBtns}
                     </div>
-                    {/* <div className='album-img-lrg'>
-                    </div> */}
                 </div>
             </div>
             <div className='album-songs-container'>
@@ -97,12 +95,6 @@ const AlbumDetails = () => {
                                 </button>
                             </div>
                             <button className='album-song-delete' onClick={() => handleSongDeleteBtn(song.id)}><i className="fa-solid fa-trash-can"></i></button>
-
-                            {/* <div className='play-animation'> */}
-                            {/* <div className='song-cover-img' style={{ backgroundImage: `url(${song.imageUrl})` }}>
-                                </div> */}
-                            {/* </div> */}
-                            {/* <Link className='song-artist-link-text' to={{ pathname: `/users/${song.Artist?.id}` }}>{song.Artist?.username}</Link> */}
                         </li>
                     )
                     )}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+
 import * as sessionActions from "../../store/session";
 
 import './SignupForm.css';
@@ -22,9 +23,7 @@ const SignupForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // let signupErrors = [];
         if (password === confirmPassword) {
-            // setSignupErrors(errors);
             setErrors([]);
             return dispatch(sessionActions.signup({ email, username, password, firstName, lastName }))
                 .catch(async (res) => {

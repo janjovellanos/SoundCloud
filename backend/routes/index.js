@@ -62,21 +62,3 @@ router.get('/api/csrf/restore', (req, res) => {
 });
 
 module.exports = router;
-
-
-/*
-
-fetch('/songs/6', {
-  method: 'PUT',
-  headers: {
-    "Content-Type": "application/json",
-    "XSRF-TOKEN": `ucKl0HVV-Qc6kJshBc1qF_n2MUsdmWzyfHWE`
-  },
-  body: JSON.stringify({
-    title: 'Update11111',
-    description: 'Update11111',
-    audioUrl: 'Update11111', imageUrl: 'Update11111'
-  })
-}).then(res => res.json()).then(data => console.log(data));
-
-*/

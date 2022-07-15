@@ -21,7 +21,6 @@ const Navigation = ({ isLoaded }) => {
                 <nav className="login-navigation">
                     <div className="login-top-splash">
                         <div className='nav-left'>
-                            {/* <img src={require('../../images/soundcloud.png')} className='nav-left-logo' /> */}
                         </div>
                         <NavLink exact to='/'><i className="fa-solid fa-house">Home</i></NavLink>
                         <NavLink to='/songs'>Songs</NavLink>
@@ -55,13 +54,6 @@ const Navigation = ({ isLoaded }) => {
                         <div className='nav-left'>
                             <img src={require('../../images/soundcloudlogo.png')} className='nav-left-logo' />
                         </div>
-                        {/* <div className='search-bar'>
-                            <input
-                                type='text'
-                                placeholder='Search for anything...'
-                                className='search-input'
-                            />
-                        </div> */}
                         <div className="nav-right">
                             <ul>
                                 <li className='session-btns'>

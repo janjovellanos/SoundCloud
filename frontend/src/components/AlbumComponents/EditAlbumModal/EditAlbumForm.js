@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as albumActions from '../../../store/album';
 import { useHistory } from 'react-router';
 import { useParams } from 'react-router';
-// import { Link } from 'react-router-dom';
+
+import * as albumActions from '../../../store/album';
 
 import './EditAlbumForm.css';
 

@@ -1,12 +1,15 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, Link } from 'react-router-dom';
-import { getSong, deleteOneSong } from '../../../store/song';
-import { playSong } from '../../../store/player';
-import './SongDetails.css';
-import AllSongs from '../AllSongs';
+
 import EditSongFormModal from '../EditSongFormModal';
-import { getAllArtists } from '../../../store/artist';
+import AllSongs from '../AllSongs';
+
+import * as songActions from '../../../store/song';
+import * as artistActions from '../../../store/artist';
+import { playSong } from '../../../store/player';
+
+import './SongDetails.css';
 
 const SongDetails = () => {
     const { songId } = useParams();
@@ -19,8 +22,8 @@ const SongDetails = () => {
 
     useEffect(() => {
         if (songId !== undefined) {
-            dispatch(getSong(songId));
-            dispatch(getAllArtists());
+            dispatch(songActions.getSong(songId));
+            dispatch(artistActions.getAllArtists());
         }
     }, [dispatch, songId])
 
@@ -32,7 +35,7 @@ const SongDetails = () => {
 
 
     const handleDeleteBtn = (songId) => {
-        dispatch(deleteOneSong(songId));
+        dispatch(songActions.deleteOneSong(songId));
         history.push('/songs');
     };
 
