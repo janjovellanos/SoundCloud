@@ -16,6 +16,9 @@ const EditAlbumForm = ({ setShowModal }) => {
     const [description, setDescription] = useState(album.description);
     const [imageText, setImageText] = useState('');
     const [errors, setErrors] = useState([]);
+    const [disabled, setDisabled] = useState(false);
+    const [upload, setUpload] = useState(['Save', 'Cancel']);
+
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -23,6 +26,8 @@ const EditAlbumForm = ({ setShowModal }) => {
         e.preventDefault();
 
         setErrors([]);
+        setUpload(['Please', 'Wait']);
+        setDisabled(true);
 
         dispatch(albumActions.editAlbum({
             title,
@@ -81,8 +86,8 @@ const EditAlbumForm = ({ setShowModal }) => {
                         <input type='text' name='description' value={description} onChange={(e) => setDescription(e.target.value)} />
                     </div>
                     <div className='form-btn-container'>
-                        <button>Save</button>
-                        <button className='main-btn' onClick={(e) => handleCancelBtn(e)}>Cancel</button>
+                        <button disabled={disabled}>{upload[0]}</button>
+                        <button disabled={disabled} className='main-btn' onClick={(e) => handleCancelBtn(e)}>{upload[1]}</button>
                     </div>
                 </form>
             </div>

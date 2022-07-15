@@ -87,6 +87,10 @@
     width: fit-content;
 }
 
+.edit-btns {
+    padding-top: 8px
+}
+
 .edit-btns button {
     border-radius: 3px;
     margin: 2px;
