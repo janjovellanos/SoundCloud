@@ -15,6 +15,9 @@ const CreateSongForm = ({ setShowModal }) => {
     const [imageText, setImageText] = useState('');
     const [audioText, setAudioText] = useState('');
     const [errors, setErrors] = useState([]);
+    const [disabled, setDisabled] = useState(false);
+    const [upload, setUpload] = useState(['Upload', 'Cancel']);
+
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -23,8 +26,10 @@ const CreateSongForm = ({ setShowModal }) => {
         setImageUrl('');
         setAudioUrl('');
         setDescription('');
+        setErrors([]);
         setImageText('');
         setAudioText('');
+        setUpload(['Upload', 'Cancel']);
     };
 
     let songFormHeader;
@@ -39,6 +44,8 @@ const CreateSongForm = ({ setShowModal }) => {
         e.preventDefault();
 
         setErrors([]);
+        setUpload(['Please', 'Wait']);
+        setDisabled(true);
 
         await dispatch(songActions.createSong({
             title,
@@ -120,8 +127,8 @@ const CreateSongForm = ({ setShowModal }) => {
                         <input type='text' name='description' value={description} onChange={(e) => setDescription(e.target.value)} />
                     </div>
                     <div className='form-btn-container'>
-                        <button>Upload</button>
-                        <button className='main-btn' onClick={(e) => handleCancelBtn(e)}>Cancel</button>
+                        <button disabled={disabled}>{upload[0]}</button>
+                        <button disabled={disabled} className='main-btn' onClick={(e) => handleCancelBtn(e)}>{upload[1]}</button>
                     </div>
                 </form>
             </div>
