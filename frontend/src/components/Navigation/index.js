@@ -22,7 +22,7 @@ const Navigation = ({ isLoaded }) => {
                     <div className="login-top-splash">
                         <div className='nav-left'>
                         </div>
-                        <NavLink exact to='/'><i className="fa-solid fa-house">Home</i></NavLink>
+                        <NavLink exact to='/'><i className="fa-solid fa-house">Shair</i></NavLink>
                         <NavLink to='/songs'>Songs</NavLink>
                         <NavLink to='/albums'>Albums</NavLink>
                         <CreateSongFormModal />
