@@ -18,9 +18,9 @@ Login, Explore, and Shair now at [on-the-shair.com](https://on-the-shair.herokua
 * Express.js
 * Node.js
 * Csurf.js
+* BCrypt.js
 * React/Redux
 * Sequelize
-* BCrypt
 * AWS S3
 * React H5 Audio Player
 * SQLite3 (Development)
