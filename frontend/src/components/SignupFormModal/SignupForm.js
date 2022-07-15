@@ -37,8 +37,8 @@ const SignupForm = () => {
 
     return (
         <>
+            <h3 className="form-header">Create An Account</h3>
             <form onSubmit={handleSubmit} className='signup-form'>
-                <h3>Create An Account</h3>
                 <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
