@@ -68,7 +68,7 @@ router.post('/:albumId', requireAuth, validateSongCreation, async (req, res, nex
 router.put('/:albumId', requireAuth, singleMulterUpload('imageUrl'), validateAlbumCreation, async (req, res, next) => {
     const { albumId } = req.params;
     const { user } = req;
-    const { title, description, imageUrl } = req.body
+    let { title, description, imageUrl } = req.body
 
     if (req.file) {
         imageUrl = await singlePublicFileUpload(req.file);
@@ -129,9 +129,11 @@ router.delete('/:albumId', requireAuth, async (req, res, next) => {
 //create album
 router.post('/', requireAuth, singleMulterUpload('imageUrl'), validateAlbumCreation, async (req, res, next) => {
     const { user } = req;
-    const { title, description } = req.body;
+    let { title, description, imageUrl } = req.body;
     console.log(req.file);
-    const imageUrl = await singlePublicFileUpload(req.file);
+    if (req.file) {
+        imageUrl = await singlePublicFileUpload(req.file);
+    }
 
 
     newAlbum = await Album.create({
