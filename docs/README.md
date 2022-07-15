@@ -1,6 +1,6 @@
 ## Minimum Viable Product
 
-**Shair** is a web application inspired by SoundCloud and was build using Express & React.
+**Shair** is a web application inspired by SoundCloud and was built using Express & React.
 
 Shair gives users the ability to:
 
