@@ -2,7 +2,21 @@
 
 **Shair** is a web application for connecting, sharing and listening to music. Shair was inspired by SoundCloud.
 
-Login, Explore, and Shair now at [on-the-shair.com](https://on-the-shair.herokuapp.com/)
+**Login, Explore, and Shair now at [on-the-shair.com](https://on-the-shair.herokuapp.com/)**
+
+***or***
+
+**Run Locally:**</br>
+You will need a *.env* file with contents:
+* PORT
+* DB_FILE
+* JWT_SECRET
+* JWT_EXPIRES_IN
+* AWS_ACCESS_KEY_ID
+* AWS_SECRET_ACCESS_KEY
+
+You can obtain the last two &uarr; when you create your own *[AWS](https://aws.amazon.com/) S3 Bucket*
+
 
 ### Welcome:
 <img width="718" alt="welcome" src="https://github.com/janjovellanos/SoundCloud/blob/main/docs/images/welcome.png">
