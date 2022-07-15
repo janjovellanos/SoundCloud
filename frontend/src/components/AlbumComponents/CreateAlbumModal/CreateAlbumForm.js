@@ -12,6 +12,7 @@ const CreateAlbumForm = ({ setShowModal }) => {
     const [title, setTitle] = useState('');
     const [imageUrl, setImageUrl] = useState('https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/defaultmusiccover.webp'); //default image
     const [description, setDescription] = useState('');
+    const [imageText, setImageText] = useState('');
     const [errors, setErrors] = useState([]);
     const history = useHistory();
     const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const CreateAlbumForm = ({ setShowModal }) => {
         setTitle('');
         setImageUrl('');
         setDescription('');
+        setImageText('');
     };
 
     const handleSubmit = (e) => {
@@ -53,6 +55,8 @@ const CreateAlbumForm = ({ setShowModal }) => {
         console.log(imgFile)
         if (imgFile) {
             setImageUrl(imgFile);
+            setImageText(imgFile.name);
+
         }
     };
 
@@ -63,32 +67,34 @@ const CreateAlbumForm = ({ setShowModal }) => {
     }
 
     return (
-        <div className='create-album-form'>
-            <h2>Create An Album</h2>
-            <form onSubmit={handleSubmit}>
-                <ul>
-                    {Object.values(errors).map((error, index) => (
-                        <li key={index}>{error}</li>
-                    ))}
-                </ul>
-                <div className='input-container'>
-                    <label htmlFor='title'>Title</label>
-                    <input type='text' name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
-                </div>
-                <div className='input-container'>
-                    <label htmlFor='imageUrl'>Image Url</label>
-                    <input type='file' name='imageUrl' placeholder='Default Cover' onChange={(e) => updateImgFile(e)} />
-                </div>
-                <div className='input-container'>
-                    <label htmlFor='description'>Description</label>
-                    <input type='text' name='description' value={description} onChange={(e) => setDescription(e.target.value)} />
-                </div>
-                <div className='form-btn-container'>
-                    <button>Create</button>
-                    <button className='main-btn' onClick={(e) => handleCancelBtn(e)}>Cancel</button>
-                </div>
-            </form>
-        </div>
+        <>
+            <h2 className='form-header'>Create An Album</h2>
+            <div className='create-album-form'>
+                <form onSubmit={handleSubmit}>
+                    <ul>
+                        {Object.values(errors).map((error, index) => (
+                            <li key={index}>{error}</li>
+                        ))}
+                    </ul>
+                    <div className='input-container'>
+                        <label htmlFor='title'>Title</label>
+                        <input type='text' name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
+                    </div>
+                    <div className='input-container'>
+                        <label htmlFor='imageUrl'>{imageText || 'Image'}</label>
+                        <input type='file' className='file-upload' name='imageUrl' placeholder='Default Cover' onChange={(e) => updateImgFile(e)} />
+                    </div>
+                    <div className='input-container'>
+                        <label htmlFor='description'>Description</label>
+                        <input type='text' name='description' value={description} onChange={(e) => setDescription(e.target.value)} />
+                    </div>
+                    <div className='form-btn-container'>
+                        <button>Create</button>
+                        <button className='main-btn' onClick={(e) => handleCancelBtn(e)}>Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </>
     );
 };
 

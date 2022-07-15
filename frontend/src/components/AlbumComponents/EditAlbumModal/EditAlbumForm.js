@@ -10,14 +10,14 @@ import './EditAlbumForm.css';
 const EditAlbumForm = ({ setShowModal }) => {
     const { albumId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
-    const userId = sessionUser.id;
     const album = useSelector(state => state.albums[`${albumId}`]);
-    const dispatch = useDispatch();
     const [title, setTitle] = useState(album.title);
     const [imageUrl, setImageUrl] = useState(album.imageUrl);
     const [description, setDescription] = useState(album.description);
+    const [imageText, setImageText] = useState('');
     const [errors, setErrors] = useState([]);
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -48,6 +48,7 @@ const EditAlbumForm = ({ setShowModal }) => {
         console.log(imgFile)
         if (imgFile) {
             setImageUrl(imgFile);
+            setImageText(imgFile.name);
         }
     };
 
@@ -58,32 +59,34 @@ const EditAlbumForm = ({ setShowModal }) => {
     }
 
     return (
-        <div className='create-song-form'>
-            <h2>Edit Your Album</h2>
-            <form onSubmit={handleSubmit}>
-                <ul>
-                    {Object.values(errors).map((error, index) => (
-                        <li key={index}>{error}</li>
-                    ))}
-                </ul>
-                <div className='input-container'>
-                    <label htmlFor='title'>Title</label>
-                    <input type='text' name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
-                </div>
-                <div className='input-container'>
-                    <label htmlFor='imageUrl'>Image Url</label>
-                    <input type='file' name='imageUrl' placeholder='Default Cover' onChange={(e) => updateImgFile(e)} />
-                </div>
-                <div className='input-container'>
-                    <label htmlFor='description'>Description</label>
-                    <input type='text' name='description' value={description} onChange={(e) => setDescription(e.target.value)} />
-                </div>
-                <div className='form-btn-container'>
-                    <button>Save</button>
-                    <button className='main-btn' onClick={(e) => handleCancelBtn(e)}>Cancel</button>
-                </div>
-            </form>
-        </div>
+        <>
+            <h2 className='form-header'>Edit Your Album</h2>
+            <div className='create-song-form'>
+                <form onSubmit={handleSubmit}>
+                    <ul>
+                        {Object.values(errors).map((error, index) => (
+                            <li key={index}>{error}</li>
+                        ))}
+                    </ul>
+                    <div className='input-container'>
+                        <label htmlFor='title'>Title</label>
+                        <input type='text' name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
+                    </div>
+                    <div className='input-container'>
+                        <label htmlFor='imageUrl'>{imageText || 'Image'}</label>
+                        <input type='file' className='file-upload' name='imageUrl' placeholder='Default Cover' onChange={(e) => updateImgFile(e)} />
+                    </div>
+                    <div className='input-container'>
+                        <label htmlFor='description'>Description</label>
+                        <input type='text' name='description' value={description} onChange={(e) => setDescription(e.target.value)} />
+                    </div>
+                    <div className='form-btn-container'>
+                        <button>Save</button>
+                        <button className='main-btn' onClick={(e) => handleCancelBtn(e)}>Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </>
     );
 };
 
