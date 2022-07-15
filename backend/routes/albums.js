@@ -65,10 +65,15 @@ router.post('/:albumId', requireAuth, validateSongCreation, async (req, res, nex
 
 })
 //edit album
-router.put('/:albumId', requireAuth, validateAlbumCreation, async (req, res, next) => {
+router.put('/:albumId', requireAuth, singleMulterUpload('imageUrl'), validateAlbumCreation, async (req, res, next) => {
     const { albumId } = req.params;
     const { user } = req;
     const { title, description, imageUrl } = req.body
+
+    if (req.file) {
+        imageUrl = await singlePublicFileUpload(req.file);
+    }
+
 
     const album = await Album.findByPk(albumId);
 

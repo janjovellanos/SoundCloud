@@ -43,6 +43,14 @@ const EditAlbumForm = ({ setShowModal }) => {
 
     };
 
+    const updateImgFile = (e) => {
+        const imgFile = e.target.files[0];
+        console.log(imgFile)
+        if (imgFile) {
+            setImageUrl(imgFile);
+        }
+    };
+
     const handleCancelBtn = (e) => {
         e.preventDefault();
         setShowModal(false);
@@ -64,7 +72,7 @@ const EditAlbumForm = ({ setShowModal }) => {
                 </div>
                 <div className='input-container'>
                     <label htmlFor='imageUrl'>Image Url</label>
-                    <input type='text' name='imageUrl' placeholder='Default Cover' onChange={(e) => setImageUrl(e.target.value)} />
+                    <input type='file' name='imageUrl' placeholder='Default Cover' onChange={(e) => updateImgFile(e)} />
                 </div>
                 <div className='input-container'>
                     <label htmlFor='description'>Description</label>
