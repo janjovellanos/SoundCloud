@@ -45,6 +45,20 @@ const EditSongForm = ({ setShowModal }) => {
 
     };
 
+    const updateImgFile = (e) => {
+        const imgFile = e.target.files[0];
+        if (imgFile) {
+            setImageUrl(imgFile);
+        }
+    };
+
+    const updateAudFile = (e) => {
+        const audFile = e.target.files[0];
+        if (audFile) {
+            setAudioUrl(audFile);
+        }
+    };
+
     const handleCancelBtn = (e) => {
         e.preventDefault();
         setShowModal(false);
@@ -66,11 +80,11 @@ const EditSongForm = ({ setShowModal }) => {
                 </div>
                 <div className='input-container'>
                     <label htmlFor='imageUrl'>Image Url</label>
-                    <input type='text' name='imageUrl' placeholder='Default Cover' onChange={(e) => setImageUrl(e.target.value)} />
+                    <input type='file' name='imageUrl' placeholder={imageUrl} onChange={(e) => updateImgFile(e)} />
                 </div>
                 <div className='input-container'>
                     <label htmlFor='audioUrl'>Song Url</label>
-                    <input type='text' name='audioUrl' value={audioUrl} onChange={(e) => setAudioUrl(e.target.value)} />
+                    <input type='file' name='audioUrl' onChange={(e) => updateAudFile(e)} />
                 </div>
                 <div className='input-container'>
                     <label htmlFor='description'>Description</label>
