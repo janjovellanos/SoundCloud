@@ -13,7 +13,7 @@ export default function MusicPlayer() {
             <AudioPlayer
                 // autoPlay
                 src={currSong?.audioUrl}
-                onPlay={e => console.log("onPlay")}
+                // onPlay={e => console.log(currSong, songs)}
                 header={currSong?.title}
                 layout='stacked-reverse'
                 volume={0.2}
