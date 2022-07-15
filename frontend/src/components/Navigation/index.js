@@ -55,13 +55,13 @@ const Navigation = ({ isLoaded }) => {
                         <div className='nav-left'>
                             <img src={require('../../images/soundcloudlogo.png')} className='nav-left-logo' />
                         </div>
-                        <div className='search-bar'>
+                        {/* <div className='search-bar'>
                             <input
                                 type='text'
                                 placeholder='Search for anything...'
                                 className='search-input'
                             />
-                        </div>
+                        </div> */}
                         <div className="nav-right">
                             <ul>
                                 <li className='session-btns'>
