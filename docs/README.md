@@ -16,7 +16,7 @@ Shair gives users the ability to:
 
 ## Implementation Timeline
 
-### Phase 1: DB Schema & Sequelize Setup (1 days)
+### Phase 1: DB Schema & Sequelize Setup (1 day)
 
 I will start by exploring possible database schemas using [Dbdiagram.io](https://www.dbdiagram.io/). 
 Once a final draft has been decided, I will implement said schema and create the models & migrations, 
@@ -29,7 +29,7 @@ require user authorization in routes which should only pertain to the logged in 
 [JWT](https://jwt.io/introduction)'s. I will also handle any validation errors within a POST or PUT requests
 using Express' [validator](https://express-validator.github.io/docs/).
 
-### Phase 3: Frontend Authentication and Setup  (1 day)
+### Phase 3: Frontend Authentication and Setup  (2 days)
 
 Next I will begin setting up a React frontend that will employ the backend's API routes to handle client requests such as:
 * Login, Signup, and Logout
@@ -38,13 +38,18 @@ Next I will begin setting up a React frontend that will employ the backend's API
   
  I will also manage the application's state by creating a Redux store, constructing the necessary reducers and actions to update & display the app's current state.
 
-### Phase 4: Components (1.5 day)
+### Phase 4: Components (3 days)
 
 In this phase, I will create an app-wide navigation component with links that route to all components needed 
 to successfuly sign up, log in/out, and perform CRUD actions on songs & albums. I will also be utilizing [React H5 Audio Player](https://www.npmjs.com/package/react-h5-audio-player)
 to create a player component fixed to the bottom of the page. In this phase, I will also style said components to create a layout similar to SoundCloud.
 
-### Phase 5: Deploy Application (1 days)
+### Phase 5: File Uploads (1 day)
+
+By this phase, both create actions for songs and albums will be functioning and I will update them to accept image
+and audio file uploads from the client through [AWS](https://aws.amazon.com/).
+
+### Phase 6: Deploy Application
 
 Now, I will deploy the functioning application.
 
