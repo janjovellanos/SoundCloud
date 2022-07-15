@@ -25,7 +25,7 @@ as well as the seed data appropriate for this application.
 ### Phase 2: Backend Setup for User Authorization and API Routes (3 days)
 
 In this phase, I will create all routes needed for the features I will implement and 
-require user authorization in routes which should only pertain to the logged in user, by making use of
+require user authorization in routes which should only pertain to the logged in user by making use of
 [JWT](https://jwt.io/introduction)'s. I will also handle any validation errors within a POST or PUT requests
 using Express' [validator](https://express-validator.github.io/docs/).
 
