@@ -52,7 +52,6 @@ Now, I will deploy the functioning application.
 
 - [ ] Comments
 - [ ] Playlists
-- [ ] Artists
 - [ ] Likes & Follows
 - [ ] Profile Page
 - [ ] Search for artists and songs
