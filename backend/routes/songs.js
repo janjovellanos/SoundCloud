@@ -85,7 +85,6 @@ router.post('/', requireAuth, multipleFileKeysUpload([{ name: 'imageUrl', maxCou
         audioUrl = await singlePublicFileUpload(req.files.audioUrl[0]);
     }
 
-
     const newSong = await Song.create({
         userId: user.id,
         title,
