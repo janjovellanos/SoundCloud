@@ -16,19 +16,19 @@ module.exports = {
         userId: 1,
         title: 'Album 1',
         description: 'description of Album 1',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/1.png',
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/fakecover1.png',
       },
       {
         userId: 2,
         title: 'Album 2',
         description: 'description of Album 2',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/2.png',
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/fakecover2.jpeg',
       },
       {
         userId: 3,
         title: 'Album 3',
         description: 'description of Album 3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/3.png',
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/fakecover3.jpeg',
       },
       {
         userId: 4,
@@ -52,7 +52,7 @@ module.exports = {
         userId: 7,
         title: 'Dolo',
         description: 'description of the dolo',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/I-know-dolo.jpeg',
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/dolo-dont-slap.jpeg',
       },
     ])
   },
