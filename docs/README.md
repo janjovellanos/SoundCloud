@@ -53,7 +53,7 @@ to create a player component fixed to the bottom of the page. In this phase, I w
 By this phase, both create actions for songs and albums will be functioning and I will update them to accept image
 and audio file uploads from the client through [AWS](https://aws.amazon.com/).
 
-*No empty images*
+*No empty cover!*
 I've provided a default image, using state, on the frontend for all creations. If an image is not provided, the uploaded song/album
 will have a neat default.
 ```
