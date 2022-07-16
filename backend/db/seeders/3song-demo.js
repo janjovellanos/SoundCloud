@@ -18,7 +18,7 @@ module.exports = {
         title: 'Song 1',
         description: 'description of Song 1',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/1.png'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj1.webp'
       },
       {
         userId: 1,
@@ -26,7 +26,7 @@ module.exports = {
         title: 'Song 2',
         description: 'description of Song 2',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/2.png'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj2.jpeg'
       },
       {
         userId: 2,
@@ -34,7 +34,7 @@ module.exports = {
         title: 'Song 3',
         description: 'description of Song 3',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/3.png'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj3.webp'
       },
       {
         userId: 2,
@@ -42,7 +42,7 @@ module.exports = {
         title: 'Song 4',
         description: 'description of Song 4',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/4.png'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj4.webp'
       },
       {
         userId: 3,
@@ -50,7 +50,7 @@ module.exports = {
         title: 'Song 5',
         description: 'description of Song 5',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/5.png'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj5.webp'
       },
       {
         userId: 3,
@@ -58,7 +58,7 @@ module.exports = {
         title: 'Song 6',
         description: 'description of Song 6',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/6.png'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj6.webp'
       },
       {
         userId: 4,
@@ -74,7 +74,15 @@ module.exports = {
         title: 'Kiss Me Thru The Phone',
         description: '678-999-8212',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Kiss+Me+Thru+The+Phone+Lyrics+Soulja+Boy.mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/crank-dat.jpeg'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/souljasuper.jpeg'
+      },
+      {
+        userId: 4,
+        albumId: 4,
+        title: 'Turn My Swag On',
+        description: 'haha',
+        audioUrl: "https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Soulja+Boy+Tell'em+-+Turn+My+Swag+On+%5Blyrics%5D+%40steezy481.mp3",
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/soulja3.jpeg'
       },
       {
         userId: 5,
@@ -82,7 +90,7 @@ module.exports = {
         title: 'Complicated',
         description: 'why',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Avril+Lavigne+-+Complicated+(Audio+).mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/complicated.jpeg'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/avrilletgo.jpg'
       },
       {
         userId: 5,
@@ -93,12 +101,20 @@ module.exports = {
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/complicated.jpeg'
       },
       {
+        userId: 5,
+        albumId: 5,
+        title: 'Girlfriend',
+        description: '=3',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Avril+Lavigne+-+Girlfriend+(Explicit).mp3',
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/avril3.jpg'
+      },
+      {
         userId: 6,
         albumId: 6,
         title: 'Move',
         description: 'please',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Ludacris+-+Move+Bitch+(dirty).mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/luda-move.jpeg'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/ludanew1.jpeg'
       },
       {
         userId: 6,
@@ -109,12 +125,28 @@ module.exports = {
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/luda-move.jpeg'
       },
       {
+        userId: 6,
+        albumId: 6,
+        title: 'Roll Out',
+        description: 'yeeeeeuh bwoy',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Roll+Out+-+Ludacris.mp3',
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/luda3.jpeg'
+      },
+      {
         userId: 7,
         albumId: 7,
         title: 'I Know You Know',
         description: 'what you want',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/I+Know+You+Know.mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/I-know-dolo.jpeg'
+      },
+      {
+        userId: 7,
+        albumId: 7,
+        title: "Doing Good",
+        description: 'feel good',
+        audioUrl: "https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Doing+Good.mp3",
+        imageUrl: "https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/doinggood.jpeg"
       },
       {
         userId: 7,
@@ -143,7 +175,7 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('Songs', {
-      title: ['Song 1', 'Song 2', 'Song 3', 'Song 4', 'Song 5', 'Song 6', 'Crank That (Soulja Boy)', 'Kiss Me Thru The Phone', 'Complicated', 'Sk8er Boi', 'Move', 'Area Codes', 'I Know You Know', "M's", 'Boost Up']
+      title: ['Song 1', 'Song 2', 'Song 3', 'Song 4', 'Song 5', 'Song 6', 'Crank That (Soulja Boy)', 'Kiss Me Thru The Phone', 'Turn My Swag On', 'Complicated', 'Sk8er Boi', 'Girlfriend', 'Move', 'Area Codes', 'Roll Out', 'I Know You Know', 'Doing Good', "M's", 'Boost Up']
     })
   }
 };
