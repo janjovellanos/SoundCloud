@@ -13,7 +13,7 @@ export default function Home() {
                     Explore the sounds of today,
                 </h1>
                 <h1>
-                    Create the sounds of tomorrow
+                    Shair the sounds of tomorrow
                 </h1>
             </div>
         )

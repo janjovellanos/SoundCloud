@@ -127,7 +127,7 @@
     margin: 0;
     padding: 6px 10px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 18px;
     white-space: nowrap;
     font-family: sans-serif;
     text-align: center;
@@ -208,10 +208,6 @@
     background: rgb(247, 247, 249, 0.9);
 }
 
-.rhap_controls-section {
-    /* margin-bottom: 10px; */
-}
-
 .rhap_main-controls-button {
     display: block;
 }
@@ -262,6 +258,6 @@
 .home-container h1 {
     margin: 1px;
     font-family: sans-serif;
-    text-shadow: 0 0 55px black;
+    text-shadow: 0 0 55px rgb(0, 0, 0);
     /* text-shadow: 0 1px 0 rgba(0, 0, 0, .25); */
 }

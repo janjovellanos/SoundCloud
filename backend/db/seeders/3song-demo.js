@@ -25,7 +25,7 @@ module.exports = {
         albumId: 1,
         title: 'Song 2',
         description: 'description of Song 2',
-        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Counting+1-10+Song+_+Number+Songs+for+Children+_+The+Singing+Walrus.mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj22.webp'
       },
       {
@@ -33,7 +33,7 @@ module.exports = {
         albumId: 2,
         title: 'Song 3',
         description: 'description of Song 3',
-        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus+(1).mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj33.webp'
       },
       {
@@ -41,7 +41,7 @@ module.exports = {
         albumId: 2,
         title: 'Song 4',
         description: 'description of Song 4',
-        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/The+Big+Numbers+Song.mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj44.webp'
       },
       {
@@ -49,7 +49,7 @@ module.exports = {
         albumId: 3,
         title: 'Song 5',
         description: 'description of Song 5',
-        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Toddler+Learning+Video+Songs+%26+Nursery+Rhymes+_+Larry+Surprise+Eggs+w+Color+Crew++_+Baby+First+TV.mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj55.webp'
       },
       {
@@ -57,7 +57,7 @@ module.exports = {
         albumId: 3,
         title: 'Song 6',
         description: 'description of Song 6',
-        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
+        audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/%F0%9F%94%A2+Learn+to+Count+Song+_+Billy+Joel+-+The+Longest+Time+(Cover)+_+Mooseclumps+Kids+Learning+Songs.mp3',
         imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj66.webp'
       },
       {
