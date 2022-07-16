@@ -46,13 +46,15 @@ In this phase, I will create an app-wide navigation component with links that ro
 to successfuly sign up, log in/out, and perform CRUD actions on songs & albums. I will also be utilizing [React H5 Audio Player](https://www.npmjs.com/package/react-h5-audio-player)
 to create a player component fixed to the bottom of the page. In this phase, I will also style said components to create a layout similar to SoundCloud.
 
+[*Functional Component List*](https://github.com/janjovellanos/SoundCloud/tree/main/frontend/src/components)
+
 ### Phase 5: File Uploads (1 day)
 
 By this phase, both create actions for songs and albums will be functioning and I will update them to accept image
 and audio file uploads from the client through [AWS](https://aws.amazon.com/).
 
-*No empty images*
-I've provided a default image, using state, on the frontend for all creations. If an image is not provided, the uploaded song/album
+*No empty cover!*
+I've provided a default image using state on the frontend for all creations. If an image is not provided, the uploaded song/album
 will have a neat default.
 ```
 // backend

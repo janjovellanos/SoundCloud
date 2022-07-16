@@ -10,7 +10,7 @@ function CreateSongFormModal() {
 
     return (
         <>
-            <Link to={location.pathname} onClick={() => setShowModal(true)}>Upload</Link>
+            <Link to={location.pathname} onClick={() => setShowModal(true)}>Shair <i className="fa-solid fa-cloud-arrow-up"></i></Link>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <CreateSongForm setShowModal={setShowModal} />
