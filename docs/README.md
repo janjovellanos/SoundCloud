@@ -54,7 +54,7 @@ By this phase, both create actions for songs and albums will be functioning and 
 and audio file uploads from the client through [AWS](https://aws.amazon.com/).
 
 *No empty cover!*
-I've provided a default image, using state, on the frontend for all creations. If an image is not provided, the uploaded song/album
+I've provided a default image using state on the frontend for all creations. If an image is not provided, the uploaded song/album
 will have a neat default.
 ```
 // backend
