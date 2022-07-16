@@ -46,7 +46,7 @@ In this phase, I will create an app-wide navigation component with links that ro
 to successfuly sign up, log in/out, and perform CRUD actions on songs & albums. I will also be utilizing [React H5 Audio Player](https://www.npmjs.com/package/react-h5-audio-player)
 to create a player component fixed to the bottom of the page. In this phase, I will also style said components to create a layout similar to SoundCloud.
 
-[Functional Component List](https://github.com/janjovellanos/SoundCloud/tree/main/frontend/src/components)
+[*Functional Component List*](https://github.com/janjovellanos/SoundCloud/tree/main/frontend/src/components)
 
 ### Phase 5: File Uploads (1 day)
 
