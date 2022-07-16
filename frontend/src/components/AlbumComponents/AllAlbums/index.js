@@ -27,10 +27,10 @@ const AllAlbums = () => {
             <h2>Top New Albums</h2>
             <div>
                 {albums?.map((album) => (
-                    <li key={album.id} className="album-container">
-                        <div className="img-container" style={{ backgroundImage: `url(${album.imageUrl})` }}>
-                            <Link className="album-title" to={{ pathname: `/albums/${album.id}` }}>
-                                <p>{album.title}</p>
+                    <li key={album?.id} className="album-container">
+                        <div className="img-container" style={{ backgroundImage: `url(${album?.imageUrl})` }}>
+                            <Link className="album-title" to={{ pathname: `/albums/${album?.id}` }}>
+                                <p>{album?.title}</p>
                             </Link>
                         </div>
                     </li>

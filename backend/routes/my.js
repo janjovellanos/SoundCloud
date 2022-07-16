@@ -45,7 +45,5 @@ router.get('/songs', requireAuth, async (req, res, next) => {
     res.json({ Songs: currUserSongs });
 })
 
-// return res.json({ user: user.toSafeObject() });
-
 
 module.exports = router;

@@ -66,7 +66,7 @@ const SongDetails = () => {
                             <div>
                                 <h2 className='detail-title'>{song?.title}</h2>
                                 <Link className='artist-link' to={{ pathname: `/artists/${song?.userId}` }}>
-                                    <h3 className='detail-artist'>by {artists?.find(artist => artist.id === song?.userId)?.username}</h3>
+                                    <h3 className='detail-artist'>by {artists?.find(artist => artist?.id === song?.userId)?.username}</h3>
                                 </Link>
                                 <h4 className='detail-description'>{song?.description}</h4>
                             </div>

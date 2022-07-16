@@ -6,7 +6,6 @@ export const CREATE_SONG = 'songs/addSong'
 export const UPDATE_SONG = 'songs/updateSong';
 export const DELETE_SONG = 'song/deleteSong';
 
-
 const load = (list) => ({
     type: LOAD_SONGS,
     list
@@ -108,9 +107,6 @@ export const deleteOneSong = (id) => async (dispatch) => {
         dispatch(deleteSong(id));
     }
 };
-
-
-
 
 const songsReducer = (state = {}, action) => {
     let newState;

@@ -29,7 +29,7 @@ const AlbumDetails = () => {
 
     useEffect(() => {
         if (album) {
-            setImageUrl(album.imageUrl)
+            setImageUrl(album?.imageUrl)
         }
     }, [album])
 
@@ -87,14 +87,14 @@ const AlbumDetails = () => {
                     (
                         <li key={song.id} className='album-song-container'>
                             <div className='song-and-play'>
-                                <Link className='album-song-title-link' to={{ pathname: `/songs/${song.id}` }}>
-                                    <p>{++songCount}. {song.title}</p>
+                                <Link className='album-song-title-link' to={{ pathname: `/songs/${song?.id}` }}>
+                                    <p>{++songCount}. {song?.title}</p>
                                 </Link>
                                 <button className='album-play-btn list-style-album-play-btn' onClick={() => playSongBtn(song)}>
                                     <i className="fas fa-play"></i>
                                 </button>
                             </div>
-                            <button className='album-song-delete' onClick={() => handleSongDeleteBtn(song.id)}><i className="fa-solid fa-trash-can"></i></button>
+                            <button className='album-song-delete' onClick={() => handleSongDeleteBtn(song?.id)}><i className="fa-solid fa-trash-can"></i></button>
                         </li>
                     )
                     )}

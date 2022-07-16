@@ -2,8 +2,6 @@ import { csrfFetch } from "./csrf";
 
 export const LOAD_ARTISTS = 'artists/loadArtists';
 
-
-
 const load = (list) => ({
     type: LOAD_ARTISTS,
     list

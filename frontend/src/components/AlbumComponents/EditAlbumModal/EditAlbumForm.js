@@ -5,11 +5,8 @@ import { useParams } from 'react-router';
 
 import * as albumActions from '../../../store/album';
 
-import './EditAlbumForm.css';
-
 const EditAlbumForm = ({ setShowModal }) => {
     const { albumId } = useParams();
-    const sessionUser = useSelector(state => state.session.user);
     const album = useSelector(state => state.albums[`${albumId}`]);
     const [title, setTitle] = useState(album.title);
     const [imageUrl, setImageUrl] = useState(album.imageUrl);
