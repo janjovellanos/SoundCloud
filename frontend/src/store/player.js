@@ -1,5 +1,3 @@
-import { csrfFetch } from "./csrf";
-
 export const PLAY_SONG = "player/playSong";
 
 export const playSong = (song) => {

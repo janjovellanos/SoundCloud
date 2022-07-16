@@ -6,9 +6,6 @@ export const CREATE_ALBUM = 'albums/addAlbum';
 export const UPDATE_ALBUM = 'albums/updateAlbum';
 export const DELETE_ALBUM = 'albums/deleteAlbum';
 
-
-
-
 const loadAllAlbums = (list) => {
     return {
         type: LOAD_ALBUMS,

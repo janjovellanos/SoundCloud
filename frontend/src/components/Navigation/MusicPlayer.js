@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 export default function MusicPlayer() {
 
     const currSong = useSelector(state => state.player.song);
-    const songs = useSelector(state => state.songs);
 
     return (
         <div className='music-player-div'>
