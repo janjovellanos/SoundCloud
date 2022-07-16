@@ -48,7 +48,7 @@ You can obtain the last two &uarr; when you create your own *[AWS](https://aws.a
 * Choice of uploading solo songs versus uploading to an album
 * Navigate with continuous music
 
-### Technical Implentation Details:
+### Technical Implementation Details:
 Shair allows specified user manipulation on content by watching the current user and matching their identifier with that of a particular entity's -
 ```
     if (song?.userId === user?.id) {
