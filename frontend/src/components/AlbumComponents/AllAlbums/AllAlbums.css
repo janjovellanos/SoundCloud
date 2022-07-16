@@ -40,6 +40,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid rgb(0, 0, 0, 0.1);
+    border-radius: 3px;
 }
 
 .img-container img {
@@ -89,6 +91,10 @@
     vertical-align: middle;
     box-sizing: border-box;
     text-decoration: none;
+}
+
+.add-album-btn+h2 {
+    margin-top: 5px;
 }
 
 .add-album-btn a:hover {
