@@ -37,6 +37,8 @@
     margin-bottom: 10px;
     position: relative;
     width: 100%;
+    border: 1px solid rgb(0, 0, 0, 0.1);
+    border-radius: 3px;
 }
 
 .song-cover-img img {
