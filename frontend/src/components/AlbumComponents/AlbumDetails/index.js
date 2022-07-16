@@ -94,7 +94,8 @@ const AlbumDetails = () => {
                                     <i className="fas fa-play"></i>
                                 </button>
                             </div>
-                            <button className='album-song-delete' onClick={() => handleSongDeleteBtn(song?.id)}><i className="fa-solid fa-trash-can"></i></button>
+                            {song?.userId === user?.id &&
+                                <button className='album-song-delete' onClick={() => handleSongDeleteBtn(song?.id)}><i className="fa-solid fa-trash-can"></i></button>}
                         </li>
                     )
                     )}
