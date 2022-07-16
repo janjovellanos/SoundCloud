@@ -29,6 +29,8 @@ require user authorization in routes which should only pertain to the logged in 
 [JWT](https://jwt.io/introduction)'s. I will also handle any validation errors within a POST or PUT requests
 using Express' [validator](https://express-validator.github.io/docs/).
 
+[*API Routes*](https://github.com/janjovellanos/SoundCloud/blob/main/backend/README.md)
+
 ### Phase 3: Frontend Authentication and Setup  (2 days)
 
 Next I will begin setting up a React frontend that will employ the backend's API routes to handle client requests such as:
