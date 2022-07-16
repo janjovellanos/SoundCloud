@@ -40,6 +40,8 @@ const EditAlbumForm = ({ setShowModal }) => {
                 console.log(data);
                 if (data && data.errors) {
                     setErrors(data.errors);
+                    setDisabled(false);
+                    setUpload(['Save', 'Cancel'])
                 }
             });
 
@@ -67,7 +69,7 @@ const EditAlbumForm = ({ setShowModal }) => {
                 <form onSubmit={handleSubmit}>
                     <ul>
                         {Object.values(errors).map((error, index) => (
-                            <li key={index}>{error}</li>
+                            <li className='error-li' key={index}>{error}</li>
                         ))}
                     </ul>
                     <div className='input-container'>

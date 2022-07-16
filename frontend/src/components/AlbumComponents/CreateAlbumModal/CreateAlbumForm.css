@@ -20,7 +20,7 @@
     align-items: center;
 }
 
-.create-album-form h3 {
+.create-album-form h2 {
     margin: 0;
     margin-top: 5px;
     padding-bottom: 0;
@@ -44,4 +44,9 @@
 .create-album-form div {
     margin: 4px;
     display: flex;
+}
+
+.error-li {
+    color: red;
+    margin: 0
 }

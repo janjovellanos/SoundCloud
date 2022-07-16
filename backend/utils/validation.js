@@ -25,7 +25,6 @@ validateSongCreation = [
     check('title')
         .exists({ checkFalsy: true })
         .withMessage('Song title is required'),
-
     handleValidationErrors
 ];
 

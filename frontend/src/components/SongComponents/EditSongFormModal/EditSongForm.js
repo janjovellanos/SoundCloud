@@ -40,9 +40,10 @@ const EditSongForm = ({ setShowModal }) => {
             })
             .catch(async (res) => {
                 const data = await res.json();
-                console.log(data);
                 if (data && data.errors) {
                     setErrors(data.errors);
+                    setDisabled(false);
+                    setUpload(['Save', 'Cancel']);
                 }
             });
 
@@ -77,7 +78,7 @@ const EditSongForm = ({ setShowModal }) => {
                 <form onSubmit={handleSubmit}>
                     <ul>
                         {Object.values(errors).map((error, index) => (
-                            <li key={index}>{error}</li>
+                            <li className='error-li' key={index}>{error}</li>
                         ))}
                     </ul>
                     <div className='input-container'>

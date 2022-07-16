@@ -47,6 +47,8 @@ const CreateSongForm = ({ setShowModal }) => {
         setUpload(['Please', 'Wait']);
         setDisabled(true);
 
+        let createErrors = []
+
         await dispatch(songActions.createSong({
             title,
             imageUrl,
@@ -62,15 +64,18 @@ const CreateSongForm = ({ setShowModal }) => {
                 } else {
                     history.push(`/songs`);
                 }
+                reset();
             })
             .catch(async (res) => {
                 const data = await res.json();
-
                 if (data && data.errors) {
-                    setErrors(data.errors);
+                    if (!title) createErrors.push('Song title is required');
+                    if (!audioUrl) createErrors.push('Audio is required');
+                    setErrors(createErrors);
+                    setDisabled(false);
+                    setUpload(['Upload', 'Cancel']);
                 }
             });
-        reset();
     };
 
     const updateImgFile = (e) => {
@@ -106,8 +111,8 @@ const CreateSongForm = ({ setShowModal }) => {
             <div className='create-song-form'>
                 <form onSubmit={handleSubmit}>
                     <ul>
-                        {Object.values(errors).map((error, index) => (
-                            <li key={index}>{error}</li>
+                        {errors.map((error, index) => (
+                            <li className='error-li' key={index}>{error}</li>
                         ))}
                     </ul>
                     <div className='input-container'>
