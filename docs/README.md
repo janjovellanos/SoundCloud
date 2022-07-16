@@ -55,7 +55,7 @@ and audio file uploads from the client through [AWS](https://aws.amazon.com/).
 I've provided a default image, using state, on the frontend for all creations. If an image is not provided, the uploaded song/album
 will have a neat default.
 ```
-//backend
+// backend
     let { title, description, albumId, imageUrl, audioUrl } = req.body;
 
     if (req.files.imageUrl) {
