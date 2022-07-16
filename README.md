@@ -48,6 +48,38 @@ You can obtain the last two &uarr; when you create your own *[AWS](https://aws.a
 * Choice of uploading solo songs versus uploading to an album
 * Navigate with continuous music
 
+### Technical Implentation Details:
+Shair allows specified user manipulation on content by the watching the current user and matching their identifier with that of a particular entity's -
+```
+    if (song?.userId === user?.id) {
+        songEditBtns = (
+            <>
+                <EditSongFormModal />
+                <button onClick={() => handleDeleteBtn(songId)}>Delete</button>
+            </>
+        );
+    }
+```
+When uploading audio and images, the label for the current input will change to display the file name by
+setting state variables -
+```
+    const updateAudFile = (e) => {
+        const audFile = e.target.files[0];
+        if (audFile) {
+            setAudioUrl(audFile);
+            setAudioText(audFile.name);
+        }
+    };
+  ...
+    return (
+  ...
+      <label htmlFor='audioUrl'>{audioText || 'Audio'}</label>
+          <input type='file' name='audioUrl' onChange={e => updateAudFile(e)} />
+  ...  
+);
+```
+
+
 ### To-Do:
 * [ ] Comments
 * [ ] Playlists

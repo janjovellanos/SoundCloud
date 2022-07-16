@@ -51,6 +51,29 @@ to create a player component fixed to the bottom of the page. In this phase, I w
 By this phase, both create actions for songs and albums will be functioning and I will update them to accept image
 and audio file uploads from the client through [AWS](https://aws.amazon.com/).
 
+*No empty images*
+I've provided a default image, using state, on the frontend for all creations. If an image is not provided, the uploaded song/album
+will have a neat default.
+```
+// backend
+    let { title, description, albumId, imageUrl, audioUrl } = req.body;
+
+    if (req.files.imageUrl) {
+        imageUrl = await singlePublicFileUpload(req.files.imageUrl[0]);
+    }
+    if (req.files.audioUrl) {
+        audioUrl = await singlePublicFileUpload(req.files.audioUrl[0]);
+    }
+    
+        const newSong = await Song.create({
+        title,
+        description,
+        audioUrl,
+        imageUrl,
+        albumId
+    });
+```
+
 ### Phase 6: Deploy Application
 
 Now, I will deploy the functioning application.
