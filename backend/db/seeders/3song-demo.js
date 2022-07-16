@@ -18,7 +18,7 @@ module.exports = {
         title: 'Song 1',
         description: 'description of Song 1',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj1.webp'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj11.webp'
       },
       {
         userId: 1,
@@ -26,7 +26,7 @@ module.exports = {
         title: 'Song 2',
         description: 'description of Song 2',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj2.jpeg'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj22.webp'
       },
       {
         userId: 2,
@@ -34,7 +34,7 @@ module.exports = {
         title: 'Song 3',
         description: 'description of Song 3',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj3.webp'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj33.webp'
       },
       {
         userId: 2,
@@ -42,7 +42,7 @@ module.exports = {
         title: 'Song 4',
         description: 'description of Song 4',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj4.webp'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj44.webp'
       },
       {
         userId: 3,
@@ -50,7 +50,7 @@ module.exports = {
         title: 'Song 5',
         description: 'description of Song 5',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj5.webp'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj55.webp'
       },
       {
         userId: 3,
@@ -58,7 +58,7 @@ module.exports = {
         title: 'Song 6',
         description: 'description of Song 6',
         audioUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/Number+song+1-20+for+children+_+Counting+numbers+_+The+Singing+Walrus.mp3',
-        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj6.webp'
+        imageUrl: 'https://soundcloud-clone-data.s3.us-west-1.amazonaws.com/aj66.webp'
       },
       {
         userId: 4,
