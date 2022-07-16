@@ -49,7 +49,7 @@ You can obtain the last two &uarr; when you create your own *[AWS](https://aws.a
 * Navigate with continuous music
 
 ### Technical Implentation Details:
-Shair allows specified user manipulation on content by the watching the current user and matching their identifier with that of a particular entity's -
+Shair allows specified user manipulation on content by watching the current user and matching their identifier with that of a particular entity's -
 ```
     if (song?.userId === user?.id) {
         songEditBtns = (
