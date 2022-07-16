@@ -22,9 +22,7 @@ const LoginForm = () => {
         const results = await dispatch(sessionActions.login({ credential, password }))
             .catch(async (res) => {
                 const data = await res.json();
-                console.log(data)
                 if (data && data.message) loginErrors.push(data.message);
-                console.log(data.errors)
             });
         if (results) {
             return results
