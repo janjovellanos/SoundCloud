@@ -56,10 +56,14 @@ const AlbumDetails = () => {
                 <div className='edit-btns'>
                     <EditAlbumFormModal />
                     <button className='album-action-btn' onClick={() => handleAlbumDeleteBtn(albumId)}>Delete <i className="fa-solid fa-trash-can"></i></button>
+                </div>
+                <div className='upload-container'>
                     <div className='album-upload-song-btn'>
+
                         <CreateSongFormModal />
                     </div>
                 </div>
+
             </>
         );
     }

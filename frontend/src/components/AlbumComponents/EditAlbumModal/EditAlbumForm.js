@@ -33,6 +33,7 @@ const EditAlbumForm = ({ setShowModal }) => {
         }, albumId))
             .then(() => {
                 setShowModal(false);
+                history.push(`/albums`)
                 history.push(`/albums/${albumId}`);
             })
             .catch(async (res) => {
