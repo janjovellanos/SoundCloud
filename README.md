@@ -47,6 +47,7 @@ You can obtain the last two &uarr; when you create your own *[AWS](https://aws.a
 * Default image provided if not presented
 * Choice of uploading solo songs versus uploading to an album
 * Navigate with continuous music
+* Search for your favorite songs
 
 ### Technical Implementation Details:
 Shair allows specified user manipulation on content by watching the current user and matching their identifier with that of a particular entity's -
@@ -85,6 +86,6 @@ setting state variables -
 * [ ] Playlists
 * [ ] Profile Page
 * [ ] Likes & Follows
-* [ ] Search
+* [ ] Search for Albums & Artists
 
 [Original Design Docs](https://github.com/janjovellanos/SoundCloud/blob/main/docs/README.md)
