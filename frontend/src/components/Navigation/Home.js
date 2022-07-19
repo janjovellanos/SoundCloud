@@ -1,10 +1,18 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllSongs } from '../../store/song';
+
+
 
 import './Navigation.css'
 
 export default function Home() {
     const sessionUser = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getAllSongs())
+    }, [dispatch])
 
     if (sessionUser) {
         return (
