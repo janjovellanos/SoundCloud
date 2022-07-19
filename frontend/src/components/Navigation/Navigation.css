@@ -342,3 +342,7 @@
     align-items: center;
     padding: 8px;
 }
+
+.search-results a>div:hover {
+    background-color: rgb(0, 0, 0, 0.1);
+}

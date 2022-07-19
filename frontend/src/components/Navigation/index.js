@@ -28,13 +28,6 @@ const Navigation = ({ isLoaded }) => {
                         <NavLink to='/songs'>Songs</NavLink>
                         <NavLink to='/albums'>Albums</NavLink>
                         <CreateSongFormModal />
-                        {/* <div className='search-bar'>
-                            <input
-                                type='text'
-                                placeholder='Search for anything...'
-                                className='search-input'
-                            />
-                        </div> */}
                         <SearchBar />
                         <div className="nav-right">
                             <ul className='profile-btn-ul'>
