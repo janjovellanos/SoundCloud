@@ -48,7 +48,7 @@ to create a player component fixed to the bottom of the page. In this phase, I w
 
 [*Functional Component List*](https://github.com/janjovellanos/SoundCloud/tree/main/frontend/src/components)
 
-### Phase 5: File Uploads (1 day)
+### Phase 5: File Uploads & Search for Songs (1 day)
 
 By this phase, both create actions for songs and albums will be functioning and I will update them to accept image
 and audio file uploads from the client through [AWS](https://aws.amazon.com/).
@@ -75,6 +75,7 @@ will have a neat default.
         albumId
     });
 ```
+I will also add functionality to the search bar, allowing users to search for songs by title.
 
 ### Phase 6: Deploy Application
 
