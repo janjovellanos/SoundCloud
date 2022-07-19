@@ -136,7 +136,7 @@
     text-decoration: none;
 }
 
-.search-bar {
+/* .search-bar {
     border: 1px solid #ff5501;
     border-radius: 4px;
     font-size: 16px;
@@ -147,13 +147,13 @@
     background-color: white;
     display: flex;
     justify-content: center;
-}
+} */
 
-.search-input {
+/* .search-input {
     width: 100%;
     padding: 2px;
     border: none;
-}
+} */
 
 .profile-dropdown {
     list-style: none;
@@ -260,4 +260,85 @@
     font-family: sans-serif;
     text-shadow: 0 0 55px rgb(0, 0, 0);
     /* text-shadow: 0 1px 0 rgba(0, 0, 0, .25); */
+}
+
+.search-bar-container {
+    align-items: center;
+    width: 20em;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-result-link {
+    background: none;
+    border: none !important;
+    display: block;
+    padding: 0 !important;
+    transition: none !important;
+}
+
+.search-result-link>div {
+    border-radius: 4px;
+    padding: 8px;
+    width: 100%;
+}
+
+.search-bar-form {
+    padding: 0;
+    width: 100%;
+}
+
+.search-bar-form input {
+    border: none;
+    display: flex;
+    border: 1px solid #000;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    padding: 0.4em;
+    transition: border 200ms;
+    min-width: 275px;
+}
+
+.search-bar-form>div {
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+
+.search-results {
+    color: black;
+    background: #ff5501;
+    top: 50px;
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 30%), 0 20px 48px rgb(0 0 0 / 16%),
+        0 1px 4px rgb(0 0 0 / 12%);
+    max-height: 20em;
+    opacity: 0;
+    overflow-y: scroll;
+    padding: 16px;
+    position: absolute;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: all 200ms;
+    max-width: 15em;
+    color: black;
+    z-index: 1;
+    right: 20%;
+}
+
+.results-active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.search-result-li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
 }
