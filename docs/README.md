@@ -87,4 +87,4 @@ Now, I will deploy the functioning application.
 - [ ] Playlists
 - [ ] Likes & Follows
 - [ ] Profile Page
-- [ ] Search for artists and songs
+- [ ] Search for Artists and Albums
