@@ -29,6 +29,8 @@ const Navigation = ({ isLoaded }) => {
                         <NavLink to='/albums'>Albums</NavLink>
                         <CreateSongFormModal />
                         <SearchBar />
+                            <a className='social-container' href='https://github.com/janjovellanos'><i className='fa-brands fa-github'></i></a>
+                            <a className='social-container' href='https://www.linkedin.com/in/jan-michael-jovellanos-b30322242/'><i className='fa-brands fa-linkedin'></i></a>
                         <div className="nav-right">
                             <ul className='profile-btn-ul'>
                                 <li className='profile-btn'>
@@ -58,6 +60,10 @@ const Navigation = ({ isLoaded }) => {
                                 </li>
                             </ul>
                         </div>
+                    </div>
+                    <div className='social-box'>
+                        <a className='logout-social' href='https://github.com/janjovellanos'><i className='fa-brands fa-github'></i></a>
+                        <a className='logout-social' href='https://www.linkedin.com/in/jan-michael-jovellanos-b30322242/'><i className='fa-brands fa-linkedin'></i></a>
                     </div>
                     <div className='under-nav-banner'>
                         <h1>Login and listen now <i className="fa-solid fa-headphones-simple"></i></h1>
