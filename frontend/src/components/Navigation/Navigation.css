@@ -93,7 +93,7 @@
     border: 1px solid white;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 20px;
     white-space: nowrap;
     font-family: sans-serif;
@@ -102,6 +102,25 @@
     box-sizing: border-box;
 }
 
+#login-buton {
+    background-color: transparent;
+    margin: 5px;
+    border-color: white;
+    color: #fff;
+    height: 30px;
+    margin: 0;
+    padding: 4px 15px;
+    border: 1px solid white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
 
 .nav-left-logo {
     background-color: transparent;
@@ -134,6 +153,10 @@
     vertical-align: middle;
     box-sizing: border-box;
     text-decoration: none;
+}
+
+.search-bar > input {
+    width: 100%;
 }
 
 /* .search-bar {
@@ -263,6 +286,8 @@
 }
 
 .search-bar-container {
+    display: flex;
+    justify-content: center;
     align-items: center;
     width: 20em;
 }
@@ -326,7 +351,7 @@
     max-width: 15em;
     color: black;
     z-index: 1;
-    right: 20%;
+    /* right: 10%; */
 }
 
 .results-active {
