@@ -1,5 +1,10 @@
 'use strict';
 
+let options = {};
+if (process.env.NODE_ENV === 'production') {
+  options.schema = process.env.SCHEMA;  // define your schema in options object
+}
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     /**
@@ -11,7 +16,9 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert('Songs', [
+
+    options.tableName = 'Songs';     // define table name in options object
+    await queryInterface.bulkInsert(options, [
       {
         userId: 1,
         albumId: 1,
@@ -174,7 +181,9 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('Songs', {
+
+    options.tableName = 'Songs';     // define table name in options object
+    await queryInterface.bulkDelete(options, {
       title: ['Song 1', 'Song 2', 'Song 3', 'Song 4', 'Song 5', 'Song 6', 'Crank That (Soulja Boy)', 'Kiss Me Thru The Phone', 'Turn My Swag On', 'Complicated', 'Sk8er Boi', 'Girlfriend', 'Move', 'Area Codes', 'Roll Out', 'I Know You Know', 'Doing Good', "M's", 'Boost Up']
     })
   }
